@@ -47,7 +47,7 @@ export const HeaderActa = () => {
               </center>
             </td>
             <td>
-              <div style={{ border: '1px solid black', padding: '20px', marginTop: '20px' }}>
+              <div style={{ border: '1px solid black', padding: '5px', marginTop: '20px' }}>
                 Asignación
                 <input
                   type="checkbox"
@@ -81,8 +81,8 @@ export const HeaderActa = () => {
           </tr>
           <tr>
             <td style={{ width: '460px' }}>
-            <div style={{ border: '1px solid black', padding: '20px', marginTop: '20px' }}>
-              <b>Ciudad: </b>
+            <div style={{ border: '1px solid black', padding: '5px' }}>
+              Ciudad:
               <input
                 type="text"
                 name="ciudad"
@@ -98,8 +98,8 @@ export const HeaderActa = () => {
           </tr>
           <tr>
             <td style={{ width: '460px' }}>
-            <div style={{ border: '1px solid black', padding: '20px', marginTop: '20px' }}>
-              <b>Oc o Ticket: </b>
+            <div style={{ border: '1px solid black', padding: '5px' }}>
+              Oc o Ticket: 
               <input
                 type="text"
                 name="ticket"

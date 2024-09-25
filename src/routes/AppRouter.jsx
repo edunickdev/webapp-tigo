@@ -15,9 +15,9 @@ function AppRouter() {
         <Route path="/auth" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
         <Route path="/user-account" element={<UserAccount />} />
-        <Route path="/form-search" element={<FormSearch />} />
-        <Route path="/register-user" element={<RegisterUser />} />
-        <Route path="/create-acta" element={<CreateActa />} />
+        <Route path="/buscar" element={<FormSearch />} />
+        <Route path="/registrarusu" element={<RegisterUser />} />
+        <Route path="/crearacta" element={<CreateActa />} />
       </Routes>
     </BrowserRouter>
   );

@@ -44,318 +44,314 @@ export const Aplicaciones = () => {
     };
 
     return (
-        <table style={{ marginTop: '-10px' }}>
-            <div style={{ border: '1px solid black', padding: '20px', marginTop: '20px' }}>
-             <tbody>
-                <tr>
-                    <td colSpan="2" style={{ width: '240px' }}>
-                        <b>
-                            <center>SOFTWARE</center>
-                        </b>
-                    </td>
-                    <td colSpan="1.5" style={{ width: '240px' }}>
-                        <b>
-                            <center>EQUIPO ANTERIOR</center>
-                        </b>
-                    </td>
-                    <td colSpan="1.5" style={{ width: '240px' }}>
-                        <b>
-                            <center>EQUIPO NUEVO</center>
-                        </b>
-                    </td>
-                    <td colSpan="2" style={{ width: '240px' }}>
-                        <b>
-                            <center>Datos, Correo e Internet</center>
-                        </b>
-                    </td>
-                    <td colSpan="2" style={{ width: '240px' }}>
-                        <b>
-                            <center>Tamaño</center>
-                        </b>
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="2" style={{ width: '460px' }}>
-                        <b>Sistema Operativo:</b>
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="sistema_a"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="sistema_n"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="2">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="datos"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="2">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="tamaño1"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="2" style={{ width: '460px' }}>
-                        <b>Activación (Windows / Office):</b>
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="activ_a"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="activ_n"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="2">
-                        <b>
-                            <center>Tamaño Total de las Unidades de Disco</center>
-                        </b>
-                    </td>
-                    <td colSpan="2">
-                        <b>
-                            <center>Tamaño</center>
-                        </b>
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="2" style={{ width: '460px' }}>
-                        <b>Versionamiento Office:</b>
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="version_a"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="version_n"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="2">
-                        <b>
-                            C: <input className="input_in" name="C" maxLength="60" autoComplete="off" />
-                        </b>
-                    </td>
-                    <td colSpan="2">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="tamaño2"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="2" style={{ width: '460px' }}>
-                        <b>Agente Antivirus:</b>
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="antivirus_a"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="antivirus_n"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="2">
-                        <b>
-                            D: <input className="input_in" name="D" maxLength="60" autoComplete="off" />
-                        </b>
-                    </td>
-                    <td colSpan="2">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="tamaño3"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="2" style={{ width: '460px' }}>
-                        <b>Agente system center configuration Manager:</b>
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="system_a"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="system_n"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="4">
-                        <b>
-                            <center>PRUEBAS ADICIONALES</center>
-                        </b>
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="2" style={{ width: '460px' }}>
-                        <b>Agente Remote Control Viewer:</b>
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="remote_a"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="remote_n"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="1">
+        <div className="border border-gray-300 p-6 mt-6 bg-white">
+            <table className="w-full text-center">
+                <thead>
+                    <tr>
+                        <th colSpan="1" className="text-lg font-semibold">SOFTWARE</th>
+                        <th className="text-lg font-semibold">EQUIPO ANTERIOR</th>
+                        <th className="text-lg font-semibold">EQUIPO NUEVO</th>
+                        <th className="text-lg font-semibold">Datos, Correo e Internet</th>
+                        <th className="text-lg font-semibold">Tamaño</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td className="text-left p-2">Sistema Operativo:</td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="sistema_a"
+                                value={formData.sistema_a}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="sistema_n"
+                                value={formData.sistema_n}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="datos"
+                                value={formData.datos}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="tamaño1"
+                                value={formData.tamaño1}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="text-left p-2">Activación (Windows / Office):</td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="activ_a"
+                                value={formData.activ_a}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="activ_n"
+                                value={formData.activ_n}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td className="font-semibold text-center">Tamaño Total de las Unidades de Disco</td>
+                        <td className="font-semibold text-center">Tamaño</td>
+                    </tr>
+                    <tr>
+                        <td className="text-left p-2">Versionamiento Office:</td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="version_a"
+                                value={formData.version_a}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="version_n"
+                                value={formData.version_n}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>C: 
+                            <input
+                                className="ml-2 border border-gray-400 rounded p-2"
+                                type="text"
+                                name="C"
+                                value={formData.C}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="tamaño2"
+                                value={formData.tamaño2}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="text-left p-2">Agente Antivirus:</td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="antivirus_a"
+                                value={formData.antivirus_a}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="antivirus_n"
+                                value={formData.antivirus_n}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>D: 
+                            <input
+                                className="ml-2 border border-gray-400 rounded p-2"
+                                type="text"
+                                name="D"
+                                value={formData.D}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="tamaño3"
+                                value={formData.tamaño3}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="text-left p-2">Agente System Center Configuration Manager:</td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="system_a"
+                                value={formData.system_a}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="system_n"
+                                value={formData.system_n}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td colSpan="2" className="font-semibold text-center">PRUEBAS ADICIONALES</td>
+                    </tr>
+                    <tr>
+                        <td className="text-left p-2">Agente Remote Control Viewer:</td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="remote_a"
+                                value={formData.remote_a}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="remote_n"
+                                value={formData.remote_n}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
                         <b>Ingreso a la Red</b>
-                        <input type="checkbox" name="ingresored" />
-                    </td>
-                    <td colSpan="1">
-                        <b>Acceso a OneDrive</b>
-                        <input type="checkbox" name="onedrive" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="2" style={{ width: '460px' }}>
-                        <b>Directiva de Grupo Controlador de Dominio:</b>
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="dominio_a"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="1.5">
-                        <input
-                            className="input_in"
-                            type="text"
-                            name="dominio_n"
-                            maxLength="60"
-                            autoComplete="off"
-                        />
-                    </td>
-                    <td colSpan="1">
-                        <b>Correo Electrónico</b>
-                        <input type="checkbox" name="email" />
-                    </td>
-                    <td colSpan="1">
-                        <b>Acceso a Voice Mail</b>
-                        <input type="checkbox" name="voice" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="4.5"></td>
-                    <td colSpan="1">
-                        <b>Unidades Mapeadas</b>
-                        <input type="checkbox" name="mapeo" />
-                    </td>
-                    <td colSpan="1">
-                        <b>Acceso a Impresora:</b>
-                        <input type="checkbox" name="impresora" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="4.5"></td>
-                    <td colSpan="1">
-                        <b>Acceso VPN:</b>
-                        <input type="checkbox" name="vpn" />
-                    </td>
-                    <td colSpan="1">
-                        <b>Puertos USB:</b>
-                        <input type="checkbox" name="usb" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="4.5"></td>
-                    <td colSpan="1">
-                        <b>Acceso a SAP</b>
-                        <input type="checkbox" name="sap" />
-                    </td>
-                    <td colSpan="1">
-                        <b>Google Drive</b>
-                        <input type="checkbox" name="google" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="4.5"></td>
-                    <td colSpan="1">
-                        <b>Acceso a SharePoint</b>
-                        <input type="checkbox" name="sharepoint" />
-                    </td>
-                    <td colSpan="1"></td>
-                </tr>
-            </tbody>
-            </div>
-        </table>
+                            <input
+                                type="checkbox"
+                                name="ingresoRed"
+                                checked={formData.ingresoRed}
+                                onChange={handleInputChange}
+                                className="ml-2"
+                            />
+                            <b><br />Correo Electronico</b>
+                            <input
+                                type="checkbox"
+                                name="email"
+                                checked={formData.email}
+                                onChange={handleInputChange}
+                                className="ml-2"
+                            />
+                        </td>
+                        <td>
+                            <b>Acceso a OneDrive</b>
+                            <input
+                                type="checkbox"
+                                name="onedrive"
+                                checked={formData.onedrive}
+                                onChange={handleInputChange}
+                                className="ml-2"
+                            />
+                            <b><br />Acceso  Voice Mail</b>
+                            <input
+                                type="checkbox"
+                                name="voice"
+                                checked={formData.voice}
+                                onChange={handleInputChange}
+                                className="ml-2"
+                            />
+                        </td>
+                        </tr>
+                        <tr>
+                        <td className="text-left p-2">Directiva de Grupo Controlador de Dominio:</td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="dominio_a"
+                                value={formData.dominio_a}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <input
+                                className="w-full border border-gray-400 rounded p-2"
+                                type="text"
+                                name="dominio_n"
+                                value={formData.dominio_n}
+                                onChange={handleInputChange}
+                            />
+                        </td>
+                        <td>
+                            <b>Unidades Mapeadas</b>
+                            <input
+                                type="checkbox"
+                                name="mapeo"
+                                checked={formData.mapeo}
+                                onChange={handleInputChange}
+                                className="ml-2"
+                            />
+                            <b><br />Acceso VPN</b>
+                            <input
+                                type="checkbox"
+                                name="vpn"
+                                checked={formData.vpn}
+                                onChange={handleInputChange}
+                                className="ml-2"
+                            />
+                            <b><br />Acceso a SAP</b>
+                            <input
+                                type="checkbox"
+                                name="sap"
+                                checked={formData.sap}
+                                onChange={handleInputChange}
+                                className="ml-2"
+                            />
+                            <b><br />Conexiones de Red</b>
+                            <input
+                                type="checkbox"
+                                name="conexion"
+                                checked={formData.conexion}
+                                onChange={handleInputChange}
+                                className="ml-2"
+                            />
+                        </td>
+                        <td>
+                            <b>Acceso a Impresora</b>
+                            <input
+                                type="checkbox"
+                                name="impresora"
+                                checked={formData.impresora}
+                                onChange={handleInputChange}
+                                className="ml-2"
+                            />
+                            <b><br />Puertos USB</b>
+                            <input
+                                type="checkbox"
+                                name="usb"
+                                checked={formData.usb}
+                                onChange={handleInputChange}
+                                className="ml-2"
+                            />
+                        </td>
+                        
+                    </tr>
+                    {/* Continúa con los otros campos de la misma manera */}
+                </tbody>
+            </table>
+        </div>
     );
 };
-

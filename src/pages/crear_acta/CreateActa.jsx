@@ -10,8 +10,7 @@ import { HerramientasDos } from "../../components/Herramientasdos"
 
 export const CreateActa = () => {
     return (
-        <div>
-            
+        <div>    
             <HeaderActa/>
             <DatosUser/>
             <EquipoNew/>
