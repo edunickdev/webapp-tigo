@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 const UserAccount = () => {
     return (
         <div className="container mx-auto py-8">
-            <p className="text-center text-2xl font-bold mb-6 ">¿Qué quieres hacer?</p>
+            <p className="text-center text-4xl font-bold mb-6 ">¿Qué quieres hacer?</p>
             
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 {/* Card 1 */}

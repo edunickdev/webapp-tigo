@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from "../assets/colsubsidio.jpg"
+import logo from "../assets/colsubsidio.jpg";
 
 export const HeaderActa = () => {
     const [formData, setFormData] = useState({
@@ -9,112 +9,92 @@ export const HeaderActa = () => {
         prestamo: false,
         ciudad: '',
         ticket: '',
-      });
-    
-      const handleInputChange = (e) => {
+    });
+
+    const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
-          ...formData,
-          [name]: type === 'checkbox' ? checked : value,
+            ...formData,
+            [name]: type === 'checkbox' ? checked : value,
         });
-      };
+    };
 
     return (
-        <div>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <center>
-                <img src={logo} className="imagen2" alt="Logo" />
-              </center>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <div className="container mx-auto p-4">
+            <div className="flex justify-center">
+                <img src={logo} className="w-40" alt="Logo" />
+            </div>
 
-      <table>
-        <tbody>
-          <tr>
-            <td rowSpan="3">
-              <center>
-                <b>
-                  <div style={{ border: '1px solid black', padding: '20px', marginTop: '20px' }}> 
-                    <br />
-                    ANEXO DE ENTREGAS AL TRABAJADOR DE EQUIPOS, HERRAMIENTAS Y FACILIDADES OPERATIVAS
-                  </div>
-                </b>
-              </center>
-            </td>
-            <td>
-              <div style={{ border: '1px solid black', padding: '5px', marginTop: '20px' }}>
-                Asignación
-                <input
-                  type="checkbox"
-                  name="asignacion"
-                  checked={formData.asignacion}
-                  onChange={handleInputChange}
-                />
-                Renovación
-                <input
-                  type="checkbox"
-                  name="renovacion"
-                  checked={formData.renovacion}
-                  onChange={handleInputChange}
-                />
-                Retiro
-                <input
-                  type="checkbox"
-                  name="retiro"
-                  checked={formData.retiro}
-                  onChange={handleInputChange}
-                />
-                Prestamo
-                <input
-                  type="checkbox"
-                  name="prestamo"
-                  checked={formData.prestamo}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style={{ width: '460px' }}>
-            <div style={{ border: '1px solid black', padding: '5px' }}>
-              Ciudad:
-              <input
-                type="text"
-                name="ciudad"
-                className="p_red"
-                value={formData.ciudad}
-                style={{ width: '155px' }}
-                onChange={handleInputChange}
-                maxLength="10"
-                autoComplete="off"
-              />
+            <div className="mt-6">
+                <div className="text-2xl font-bold text-center mb-6 p-8">
+                    <b>
+                        ANEXO DE ENTREGAS AL TRABAJADOR DE EQUIPOS, HERRAMIENTAS Y FACILIDADES OPERATIVAS
+                    </b>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div className="block text-sm font-medium text-gray-700">
+                        <label className="mr-4">Asignación</label>
+                        <input
+                            type="checkbox"
+                            name="asignacion"
+                            checked={formData.asignacion}
+                            onChange={handleInputChange}
+                            className="mr-4"
+                        />
+                        <label className="mr-4">Renovación</label>
+                        <input
+                            type="checkbox"
+                            name="renovacion"
+                            checked={formData.renovacion}
+                            onChange={handleInputChange}
+                            className="mr-4"
+                        /><br></br>
+                        <label className="mr-4">Retiro</label>
+                        <input
+                            type="checkbox"
+                            name="retiro"
+                            checked={formData.retiro}
+                            onChange={handleInputChange}
+                            className="mr-4"
+                        />
+                        <label className="mr-4">Prestamo</label>
+                        <input
+                            type="checkbox"
+                            name="prestamo"
+                            checked={formData.prestamo}
+                            onChange={handleInputChange}
+                            className="mr-4"
+                        />
+                    </div>
+
+                    <div className="block text-sm font-medium text-gray-700">
+                        <label className="block mb-2">Ciudad:</label>
+                        <input
+                            type="text"
+                            name="ciudad"
+                            value={formData.ciudad}
+                            onChange={handleInputChange}
+                            className="border border-gray-300 p-2 w-full"
+                            maxLength="10"
+                            autoComplete="off"
+                        />
+                    </div>
+
+                    <div className="block text-sm font-medium text-gray-700">
+                        <label className="block mb-2">Oc o Ticket:</label>
+                        <input
+                            type="text"
+                            name="ticket"
+                            value={formData.ticket}
+                            onChange={handleInputChange}
+                            className="border border-gray-300 p-2 w-full"
+                            maxLength="10"
+                            autoComplete="off"
+                        />
+                    </div>
+                </div>
             </div>
-            </td>
-          </tr>
-          <tr>
-            <td style={{ width: '460px' }}>
-            <div style={{ border: '1px solid black', padding: '5px' }}>
-              Oc o Ticket: 
-              <input
-                type="text"
-                name="ticket"
-                className="p_red"
-                value={formData.ticket}
-                style={{ width: '155px' }}
-                onChange={handleInputChange}
-                maxLength="10"
-                autoComplete="off"
-              />
-            </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    )
-}
+        </div>
+    );
+};
