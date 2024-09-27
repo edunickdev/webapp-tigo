@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Button, Input } from "@nextui-org/react";
 import { NavLink } from "react-router-dom";
 import { LoginService } from "../../services/auth_services/login_services";
@@ -7,6 +8,11 @@ import { Checkbox } from "@nextui-org/checkbox";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const handlerLogin=() => {
+    LoginService(email, password)
+    navigate("/home")
+  }
 
   return (
     <div className="bg-gray-200 p-8 shadow-md rounded-lg w-[35rem] h-4/5 mt-20">
@@ -50,7 +56,7 @@ const LoginForm = () => {
         <Button
           variant="solid"
           // to="/home"
-          onClick={() => LoginService(email, password)}
+          onClick={handlerLogin}
           className="bg-sky-600 w-full text-white text-center py-2 rounded shadow-md hover:bg-sky-600 transition duration-300"
         >
           Iniciar
