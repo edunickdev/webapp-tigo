@@ -1,14 +1,15 @@
-import { Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 import { NavLink } from "react-router-dom";
 import { LoginService } from "../../services/auth_services/login_services";
 import { useState } from "react";
+import { Checkbox } from "@nextui-org/checkbox";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-    <div className="bg-white p-8 shadow-md rounded-lg w-full max-w-md">
+    <div className="bg-gray-200 p-8 shadow-md rounded-lg w-[35rem] h-4/5 mt-20">
       <p className="text-center text-3xl font-bold text-gray-800 mb-2">
         Iniciar Sesión
       </p>
@@ -36,31 +37,24 @@ const LoginForm = () => {
 
         {/* Recordarme y Olvidaste contraseña */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              className="form-checkbox h-4 w-4 text-blue-600"
-            />
-            <label className="ml-2 text-gray-700">
-              <small>Recordarme</small>
-            </label>
-          </div>
+          <Checkbox defaultSelected>Recordarme</Checkbox>
           <NavLink
             to="/forgot-password"
-            className="text-sm text-blue-600 hover:underline"
+            className="text-blue-600 hover:underline text-lg"
           >
             <small>Olvidaste tu contraseña?</small>
           </NavLink>
         </div>
 
         {/* Botón de Iniciar */}
-        <NavLink
+        <Button
+          variant="solid"
           // to="/home"
           onClick={() => LoginService(email, password)}
-          className="block bg-sky-600 text-white text-center py-2 rounded shadow-md hover:bg-sky-600 transition duration-300"
+          className="bg-sky-600 w-full text-white text-center py-2 rounded shadow-md hover:bg-sky-600 transition duration-300"
         >
           Iniciar
-        </NavLink>
+        </Button>
 
         {/* Registro */}
       </div>

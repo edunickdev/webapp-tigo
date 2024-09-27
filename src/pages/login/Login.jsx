@@ -7,7 +7,7 @@ const Login = () => {
   const [mode, setMode] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div className="max-h-screen flex flex-col items-center justify-center bg-gray-100">
       {mode ? <SignUpForm /> : <LoginForm />}
       <div className="text-center mt-4">
         <p className="text-gray-700">
@@ -16,7 +16,7 @@ const Login = () => {
         <Button
           variant="light"
           onClick={() => setMode(!mode)}
-          className="text-blue-600 hover:underline font-semibold"
+          className="text-blue-600 text-xl px-10 hover:underline font-semibold w-full"
         >
           {mode ? "Iniciar Sesión" : "Regístrate"}
         </Button>

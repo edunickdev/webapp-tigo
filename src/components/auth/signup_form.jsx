@@ -1,6 +1,5 @@
-import { Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import SignUpService from "../../services/auth_services/signup_services";
 
 const SignUpForm = () => {
@@ -10,9 +9,11 @@ const SignUpForm = () => {
   const [lastName, setLastName] = useState("");
 
   return (
-    <div className="bg-gray-200 rounded-lg shadow-md h-auto text-secondary w-[35rem] px-[50px] py-[20px] mt-3">
-      <p className="text-center text-4xl mb-3">Registrate</p>
-      <form className="flex flex-col gap-y-2">
+    <div className="bg-gray-200 rounded-lg shadow-md h-4/5 text-secondary w-[35rem] px-[50px] py-[20px] mt-20">
+      <p className="text-center text-3xl mb-3 text-gray-800 font-bold">
+        Registrate
+      </p>
+      <form className="flex flex-col gap-y-4">
         <Input
           label="Nombre(s)"
           placeholder="Ingresa tu(s) nombre(s)"
@@ -38,12 +39,12 @@ const SignUpForm = () => {
           value={password}
           onValueChange={setPassword}
         />
-        <NavLink
+        <Button
           onClick={() => SignUpService(name, lastName, email, password)}
-          className="block bg-sky-600 text-white text-center py-2 rounded shadow-md hover:bg-sky-600 transition duration-300"
+          className="bg-sky-600 w-full text-white text-center py-2 rounded shadow-md hover:bg-sky-600 transition duration-300"
         >
           Registrar
-        </NavLink>
+        </Button>
       </form>
     </div>
   );
