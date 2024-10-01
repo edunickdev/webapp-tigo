@@ -1,11 +1,11 @@
 import { Button, Input } from "@nextui-org/react";
-import { MdDelete } from "react-icons/md";
 import "./register.css";
 import ButtonModal from "./registerModal";
 import { useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import RegisterButtonModal from "./RegisterButtonModal";
 import EditButtonModal from "./EditButtonModal";
+import DeleteButtonModal from "./DeleteButtonModal";
 
 export const RegisterUser = () => {
   const [busqueda, setBusqueda] = useState("");
@@ -64,12 +64,7 @@ export const RegisterUser = () => {
                     <RegisterButtonModal inputs={inputs} />
                     <ButtonModal />
                     <EditButtonModal inputs={inputs} />
-                    <Button
-                      isIconOnly
-                      className="bg-red-500 text-white rounded"
-                    >
-                      <MdDelete className="text-white" />
-                    </Button>
+                    <DeleteButtonModal />
                   </td>
                 </tr>
               </tbody>

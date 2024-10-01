@@ -126,8 +126,20 @@ const EditButtonModal = ({ inputs }) => {
                   ))}
                 </form>
 
-                <Button color="primary" className="col-span-12 text-xl mt-4">
+                <Button
+                  variant="bordered"
+                  color="primary"
+                  className="col-span-6 text-xl mt-4"
+                >
                   Crear
+                </Button>
+                <Button
+                  onPress={onClose}
+                  variant="solid"
+                  color="danger"
+                  className="col-span-6 text-xl mt-4"
+                >
+                  Cancelar
                 </Button>
               </ModalBody>
             </>

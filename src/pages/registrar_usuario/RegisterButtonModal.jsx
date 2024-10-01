@@ -41,7 +41,7 @@ const RegisterButtonModal = ({ inputs }) => {
                       Propiedad
                     </label>
                     <select
-                      className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                       name="propiedad"
                       required
                     >
@@ -54,11 +54,11 @@ const RegisterButtonModal = ({ inputs }) => {
                     </select>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700">
+                      <label className="text-sm font-medium text-gray-700">
                         Modalidad de trabajo
                       </label>
                       <select
-                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                         name="modalidad"
                         required
                       >
@@ -74,11 +74,11 @@ const RegisterButtonModal = ({ inputs }) => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700">
+                      <label className="text-sm font-medium text-gray-700">
                         Facilidades operativas
                       </label>
                       <select
-                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                         name="operativas"
                         required
                       >
@@ -92,11 +92,11 @@ const RegisterButtonModal = ({ inputs }) => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700">
+                      <label className="text-sm font-medium text-gray-700">
                         Tipo de contrato del usuario
                       </label>
                       <select
-                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                         name="contrato"
                         required
                       >
@@ -114,20 +114,32 @@ const RegisterButtonModal = ({ inputs }) => {
                 <form className="col-span-6 p-2">
                   {inputs.map((item) => (
                     <div key={item.name}>
-                      <label className="block text-sm font-medium text-gray-700">
+                      <label className="px-5 text-sm font-medium text-gray-700">
                         {item.text}
                       </label>
                       <input
                         type="text"
-                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                         name={item.name}
                       />
                     </div>
                   ))}
                 </form>
 
-                <Button color="primary" className="col-span-12 text-xl mt-4">
+                <Button
+                  variant="bordered"
+                  color="primary"
+                  className="col-span-6 text-xl mt-4"
+                >
                   Crear
+                </Button>
+                <Button
+                  variant="solid"
+                  color="danger"
+                  className="col-span-6 text-xl mt-4"
+                  onPress={onClose}
+                >
+                  Cancelar
                 </Button>
               </ModalBody>
             </>
