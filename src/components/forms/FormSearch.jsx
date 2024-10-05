@@ -29,7 +29,7 @@ export const FormSearch = () => {
                     <label htmlFor="buscacedula" className="block text-gray-700 font-medium mb-2">
                         Número de identificación
                     </label>
-                    <input 
+                    <input
                         type="text"
                         id="buscacedula"
                         name="buscacedula"

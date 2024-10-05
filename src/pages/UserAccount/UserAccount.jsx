@@ -1,4 +1,3 @@
-import React from 'react';
 import img1 from '../../assets/busquedaser.png';
 import img2 from '../../assets/usuarios.png';
 import img3 from '../../assets/acta.png';
