@@ -5,22 +5,45 @@ import {
   Modal,
   ModalBody,
   ModalContent,
+  ModalFooter,
+  ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
 import CustomInput from "../../components/custom_input";
-import { useState } from "react";
-import { UpdateUser } from "../../helpers/UserHelpers";
+import { useUserStore } from "../../context/stores";
+import { useState, useEffect } from "react";
+import { compareAndUpdateUser } from "../../services/employee_services/UserServices";
+import CustomSelectInput from "../../components/CustomSelectInput";
 
-const EditButtonModal = ({ inputs, user }) => {
+const EditButtonModal = ({ inputs }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [userInputs, setUserInputs] = useState({ ...user });
+  const user = useUserStore((state) => state.user);
+  const updateUser = useUserStore((state) => state.updateUser);
+  const [formData, setFormData] = useState(user);
 
-  const handleChange = (e, name) => {
-    setUserInputs({ ...userInputs, [name]: e.target.value });
+  useEffect(() => {
+    setFormData(user);
+  }, [user]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = () => {
-    UpdateUser(userInputs);
+  const handleSelectChange = (name, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateUser(formData);
+    onOpenChange(false);
   };
 
   return (
@@ -29,135 +52,99 @@ const EditButtonModal = ({ inputs, user }) => {
         isIconOnly
         onPress={onOpen}
         className="bg-green-700 text-white rounded mx-1"
+        isDisabled={!user}
       >
         <MdEdit className="text-white" />
       </Button>
-      <Modal
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        size="3xl"
-        className="overflow-y-scroll p-10"
-      >
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="4xl" className="h-5/6">
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalBody className="grid grid-cols-12">
-                <h2 className="col-span-12 text-4xl text-gray-700 text-center mb-5">
-                  Edición
-                </h2>
-                <form className="bg-white w-full col-span-6 p-2">
-                  <div className="space-y-4">
+              <ModalHeader className="flex flex-col gap-1 text-3xl text-center">Edición</ModalHeader>
+              <ModalBody className="overflow-y-auto">
+                <form
+                  onSubmit={handleSubmit}
+                  className="bg-white w-full grid grid-cols-12 col-span-12 p-2 gap-4"
+                >
+                  <div className="col-span-6 flex flex-col justify-start gap-4">
                     <CustomInput
-                      item={"Nombre del usuario"}
-                      value={user.nombre}
+                      item="Nombre del usuario"
+                      onChange={handleInputChange}
+                      name="nombre"
                     />
-                    <label className="block text-sm font-medium text-gray-700 mt-20">
-                      Propiedad {user.propiedad}
-                    </label>
-                    <select
-                      className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                    <CustomSelectInput
+                      item="Propiedad"
+                      value={formData.propiedad || ''}
+                      onChange={(value) => handleSelectChange('propiedad', value)}
                       name="propiedad"
-                      required
-                    >
-                      <option value="" disabled>
-                        Selecciona una opción {user.propiedad}
-                      </option>
-                      <option value="opcion1">Colsubsidio</option>
-                      <option value="opcion2">PCCOM</option>
-                      <option value="opcion3">Otros</option>
-                    </select>
+                      options={["Colsubsidio", "PCCOM", "Otros"]}
+                    />
+                    <CustomSelectInput
+                      item="Modalidad de trabajo"
+                      value={formData.modalidad || ''}
+                      onChange={(value) => handleSelectChange('modalidad', value)}
+                      name="modalidad"
+                      options={[
+                        "Presencial",
+                        "Teletrabajo Autónomo",
+                        "Teletrabajo Suplementario",
+                      ]}
+                    />
+                    <CustomSelectInput
+                      item="Facilidades operativas"
+                      value={formData.facilidades || ''}
+                      onChange={(value) => handleSelectChange('facilidades', value)}
+                      name="facilidades"
+                      options={["Carnet", "Tarjeta de acceso", "Otros"]}
+                    />
+                    <CustomSelectInput
+                      item="Tipo de contrato del usuario"
+                      value={formData.tipocontrato || ''}
+                      onChange={(value) => handleSelectChange('tipocontrato', value)}
+                      name="tipocontrato"
+                      options={[
+                        "Trabajador",
+                        "Estudiante en práctica",
+                        "Contratista",
+                      ]}
+                    />
+                  </div>
+                  <div className="col-span-6">
+                    {inputs.map((item, index) => (
+                      <div key={index} className="mb-4">
+                        <CustomInput
+                          item={item.text}
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">
-                        Modalidad de trabajo {user.modalidad}
-                      </label>
-                      <select
-                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        name="modalidad"
-                        required
-                      >
-                        <option value="" disabled></option>
-                        <option value="opcion1">Presencial</option>
-                        <option value="opcion2">Teletrabajo Autónomo</option>
-                        <option value="opcion3">
-                          Teletrabajo Suplementario
-                        </option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">
-                        Facilidades operativas {user.facilidades}
-                      </label>
-                      <select
-                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        name="operativas"
-                        required
-                      >
-                        <option value="" disabled>
-                          Selecciona una opción
-                        </option>
-                        <option value="opcion1">Carnet</option>
-                        <option value="opcion2">Tarjeta de acceso</option>
-                        <option value="opcion3">Otros</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">
-                        Tipo de contrato del usuario {user.tipocontrato}
-                      </label>
-                      <select
-                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        name="contrato"
-                        required
-                      >
-                        <option value="" disabled>
-                          Selecciona una opción
-                        </option>
-                        <option value="opcion1">Trabajador</option>
-                        <option value="opcion2">Estudiante en práctica</option>
-                        <option value="opcion3">Contratista</option>
-                      </select>
-                    </div>
+                          onChange={handleInputChange}
+                          name={item.name}
+                        />
+                      </div>
+                    ))}
                   </div>
                 </form>
-
-                <form className="col-span-6 p-2">
-                  {inputs.map((item, index) => (
-                    <div key={index}>
-                      <label className="block text-sm font-medium text-gray-700">
-                        {item.text}
-                      </label>
-                      <input
-                        type="text"
-                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        name={item.name}
-                        placeholder={item.name}
-                        value={userInputs[item.name]}
-                        onChange={(e) => handleChange(e, item.name)}
-                      />
-                    </div>
-                  ))}
-                </form>
-
+              </ModalBody>
+              <ModalFooter>
                 <Button
+                  type="submit"
                   variant="bordered"
                   color="primary"
-                  className="col-span-6 text-xl mt-4"
-                  onPress={handleSubmit}
+                  className="text-xl mt-4"
+                  onPress={() => {
+                    compareAndUpdateUser(user, formData);
+                    onClose();
+                  }}
                 >
-                  Crear
+                  Actualizar
                 </Button>
                 <Button
                   onPress={onClose}
                   variant="solid"
                   color="danger"
-                  className="col-span-6 text-xl mt-4"
+                  className="text-xl mt-4"
                 >
                   Cancelar
                 </Button>
-              </ModalBody>
+              </ModalFooter>
             </>
           )}
         </ModalContent>
