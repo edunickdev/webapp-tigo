@@ -56,11 +56,18 @@ const EditButtonModal = ({ inputs }) => {
       >
         <MdEdit className="text-white" />
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="4xl" className="h-5/6">
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        size="4xl"
+        className="h-5/6"
+      >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1 text-3xl text-center">Edición</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1 text-3xl text-center">
+                Edición
+              </ModalHeader>
               <ModalBody className="overflow-y-auto">
                 <form
                   onSubmit={handleSubmit}
@@ -74,15 +81,19 @@ const EditButtonModal = ({ inputs }) => {
                     />
                     <CustomSelectInput
                       item="Propiedad"
-                      value={formData.propiedad || ''}
-                      onChange={(value) => handleSelectChange('propiedad', value)}
+                      value={formData.propiedad || ""}
+                      onChange={(value) =>
+                        handleSelectChange("propiedad", value)
+                      }
                       name="propiedad"
                       options={["Colsubsidio", "PCCOM", "Otros"]}
                     />
                     <CustomSelectInput
                       item="Modalidad de trabajo"
-                      value={formData.modalidad || ''}
-                      onChange={(value) => handleSelectChange('modalidad', value)}
+                      value={formData.modalidad || ""}
+                      onChange={(value) =>
+                        handleSelectChange("modalidad", value)
+                      }
                       name="modalidad"
                       options={[
                         "Presencial",
@@ -92,15 +103,19 @@ const EditButtonModal = ({ inputs }) => {
                     />
                     <CustomSelectInput
                       item="Facilidades operativas"
-                      value={formData.facilidades || ''}
-                      onChange={(value) => handleSelectChange('facilidades', value)}
+                      value={formData.facilidades || ""}
+                      onChange={(value) =>
+                        handleSelectChange("facilidades", value)
+                      }
                       name="facilidades"
                       options={["Carnet", "Tarjeta de acceso", "Otros"]}
                     />
                     <CustomSelectInput
                       item="Tipo de contrato del usuario"
-                      value={formData.tipocontrato || ''}
-                      onChange={(value) => handleSelectChange('tipocontrato', value)}
+                      value={formData.tipocontrato || ""}
+                      onChange={(value) =>
+                        handleSelectChange("tipocontrato", value)
+                      }
                       name="tipocontrato"
                       options={[
                         "Trabajador",
@@ -114,9 +129,9 @@ const EditButtonModal = ({ inputs }) => {
                       <div key={index} className="mb-4">
                         <CustomInput
                           item={item.text}
-
                           onChange={handleInputChange}
                           name={item.name}
+                          value={formData[item.name] || ""}
                         />
                       </div>
                     ))}

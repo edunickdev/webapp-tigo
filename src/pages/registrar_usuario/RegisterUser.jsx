@@ -8,7 +8,6 @@ import DeleteButtonModal from "./DeleteButtonModal";
 import { inputs } from "../../helpers/constants";
 import { useUserStore } from "../../context/stores";
 
-
 export const RegisterUser = () => {
   const user = useUserStore((state) => state.user);
   const fetchUser = useUserStore((state) => state.fetchUser);
@@ -49,14 +48,16 @@ export const RegisterUser = () => {
               <tr>
                 <td className="p-2 border border-gray-200">1</td>
                 <td className="p-2 border border-gray-200">
-                  {user && user.nombre.length > 0 ? user.nombre : "No se tiene nombre"}
+                  {user && user.nombre.length > 0
+                    ? user.nombre
+                    : "No se tiene nombre"}
                 </td>
                 <td className="p-2 border border-gray-200">
                   {user && user.id ? user.id : "No se tiene documento"}
                 </td>
                 <td className="p-2 border border-gray-200">
                   <RegisterButtonModal inputs={inputs} />
-                  <ButtonModal user={user} /> 
+                  <ButtonModal />
                   <EditButtonModal inputs={inputs} />
                   <DeleteButtonModal />
                 </td>

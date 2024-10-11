@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {
   Button,
   Modal,
@@ -9,22 +8,34 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { IoEye } from "react-icons/io5";
-export default function ButtonModal({ user }) {
+import { useUserStore } from "../../context/stores";
+export default function ButtonModal() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const user = useUserStore((state) => state.user);
 
   return (
     <>
-      <Button onPress={onOpen} isIconOnly className="bg-blue-700 rounded-md">
+      <Button
+        onPress={onOpen}
+        isIconOnly
+        className="bg-blue-700 rounded-md"
+        isDisabled={!user}
+      >
         <IoEye className="text-white" />
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="2xl">
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        size="4xl"
+        className="h-5/6"
+      >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
-                <p>Informacion</p>
+              <ModalHeader className="flex flex-col gap-1 text-3xl text-center">
+                Ver usuario
               </ModalHeader>
-              <ModalBody>
+              <ModalBody className="overflow-y-auto">
                 <span>
                   <b>Nombre: {user.nombre}</b>
                 </span>
@@ -32,7 +43,7 @@ export default function ButtonModal({ user }) {
                   <b>Propiedad: {user.propiedad}</b>
                 </span>
                 <span>
-                  <b>Identificacion: {user.nDoc} </b>
+                  <b>Identificacion: {user.id} </b>
                 </span>
                 <span>
                   <b>Celular: {user.celular} </b>
@@ -49,9 +60,6 @@ export default function ButtonModal({ user }) {
                 <span>
                   <b>Sede: {user.sede} </b>
                 </span>
-                {/* <span>
-                  <b>{user.direccion} </b>
-                </span> */}
                 <span>
                   <b>Jefe: {user.jefe} </b>
                 </span>

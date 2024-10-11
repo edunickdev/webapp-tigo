@@ -46,3 +46,8 @@ export const compareAndUpdateUser = async (originalUser, updatedUser) => {
   }
 };
 
+export const CreateUser = async (user) => {
+  const response = await axios.post(`http://localhost:8000/api/usuario/update/`, user);
+  return response.data;
+};
+

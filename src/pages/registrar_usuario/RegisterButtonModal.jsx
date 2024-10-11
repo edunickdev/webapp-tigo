@@ -4,13 +4,37 @@ import {
   Modal,
   ModalBody,
   ModalContent,
+  ModalFooter,
+  ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
 import { IoCreateSharp } from "react-icons/io5";
 import CustomInput from "../../components/custom_input";
+import CustomSelectInput from "../../components/CustomSelectInput";
+import { useUserStore } from "../../context/stores";
+import { useState } from "react";
 
 const RegisterButtonModal = ({ inputs }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const createUser = useUserStore((state) => state.createUser);
+
+  const [formData, setFormData] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSelectChange = (name, value) => {
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await createUser(formData);
+    setFormData({});
+    onOpenChange(false);
+  };
 
   return (
     <>
@@ -24,112 +48,84 @@ const RegisterButtonModal = ({ inputs }) => {
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        size="3xl"
-        className="overflow-y-scroll p-10"
+        size="4xl"
+        className="h-5/6"
       >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalBody className="grid grid-cols-12">
-                <h2 className="col-span-12 text-4xl text-gray-700 text-center mb-5">
-                  Edición
-                </h2>
-                <form className="bg-white w-full col-span-6 p-2">
-                  <div className="space-y-4">
-                    <CustomInput item={"Nombre del usuario"} />
-                    <label className="block text-sm font-medium text-gray-700 mt-20">
-                      Propiedad
-                    </label>
-                    <select
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+              <ModalHeader className="flex flex-col gap-1 text-3xl text-center">
+                Registro de usuario
+              </ModalHeader>
+              <ModalBody className="grid grid-cols-12 overflow-y-auto">
+                <form
+                  onSubmit={handleSubmit}
+                  className="bg-white w-full grid grid-cols-12 col-span-12 p-2 gap-4"
+                >
+                  <div className="col-span-6 flex flex-col justify-start gap-4">
+                    <CustomInput
+                      item="Nombre del usuario"
+                      onChange={handleInputChange}
+                      name="nombre"
+                      value={formData.nombre || ""}
+                    />
+                    <CustomSelectInput
+                      item="Propiedad"
+                      onChange={handleSelectChange}
                       name="propiedad"
-                      required
-                    >
-                      <option value="" disabled>
-                        Selecciona una opción
-                      </option>
-                      <option value="opcion1">Colsubsidio</option>
-                      <option value="opcion2">PCCOM</option>
-                      <option value="opcion3">Otros</option>
-                    </select>
-
-                    <div>
-                      <label className="text-sm font-medium text-gray-700">
-                        Modalidad de trabajo
-                      </label>
-                      <select
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        name="modalidad"
-                        required
-                      >
-                        <option value="" disabled>
-                          Selecciona una opción
-                        </option>
-                        <option value="opcion1">Presencial</option>
-                        <option value="opcion2">Teletrabajo Autónomo</option>
-                        <option value="opcion3">
-                          Teletrabajo Suplementario
-                        </option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium text-gray-700">
-                        Facilidades operativas
-                      </label>
-                      <select
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        name="operativas"
-                        required
-                      >
-                        <option value="" disabled>
-                          Selecciona una opción
-                        </option>
-                        <option value="opcion1">Carnet</option>
-                        <option value="opcion2">Tarjeta de acceso</option>
-                        <option value="opcion3">Otros</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium text-gray-700">
-                        Tipo de contrato del usuario
-                      </label>
-                      <select
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        name="contrato"
-                        required
-                      >
-                        <option value="" disabled>
-                          Selecciona una opción
-                        </option>
-                        <option value="opcion1">Trabajador</option>
-                        <option value="opcion2">Estudiante en práctica</option>
-                        <option value="opcion3">Contratista</option>
-                      </select>
-                    </div>
+                      options={["Colsubsidio", "PCCOM", "Otros"]}
+                      value={formData.propiedad || ""}
+                    />
+                    <CustomSelectInput
+                      item="Modalidad de trabajo"
+                      onChange={handleSelectChange}
+                      name="modalidad"
+                      options={[
+                        "Presencial",
+                        "Teletrabajo Autónomo",
+                        "Teletrabajo Suplementario",
+                      ]}
+                      value={formData.modalidad || ""}
+                    />
+                    <CustomSelectInput
+                      item="Facilidades operativas"
+                      onChange={handleSelectChange}
+                      name="facilidades"
+                      options={["Carnet", "Tarjeta de acceso", "Otros"]}
+                      value={formData.facilidades || ""}
+                    />
+                    <CustomSelectInput
+                      item="Tipo de contrato del usuario"
+                      onChange={handleSelectChange}
+                      name="tipocontrato"
+                      options={[
+                        "Trabajador",
+                        "Estudiante en práctica",
+                        "Contratista",
+                      ]}
+                      value={formData.tipocontrato || ""}
+                    />
+                  </div>
+                  <div className="col-span-6">
+                    {inputs.map((item, index) => (
+                      <div key={index} className="mb-4">
+                        <CustomInput
+                          item={item.text}
+                          onChange={handleInputChange}
+                          name={item.name}
+                          value={formData[item.name] || ""}
+                        />
+                      </div>
+                    ))}
                   </div>
                 </form>
-
-                <form className="col-span-6 p-2">
-                  {inputs.map((item) => (
-                    <div key={item.name}>
-                      <label className="px-5 text-sm font-medium text-gray-700">
-                        {item.text}
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        name={item.name}
-                      />
-                    </div>
-                  ))}
-                </form>
-
+              </ModalBody>
+              <ModalFooter>
                 <Button
                   variant="bordered"
                   color="primary"
                   className="col-span-6 text-xl mt-4"
+                  type="submit" // Ensure the form is submitted
                 >
                   Crear
                 </Button>
@@ -137,11 +133,14 @@ const RegisterButtonModal = ({ inputs }) => {
                   variant="solid"
                   color="danger"
                   className="col-span-6 text-xl mt-4"
-                  onPress={onClose}
+                  onPress={() => {
+                    onClose(); // Use the onClose function to close the modal
+                    onOpenChange(false); // Ensure the modal state is updated
+                  }}
                 >
                   Cancelar
                 </Button>
-              </ModalBody>
+              </ModalFooter>
             </>
           )}
         </ModalContent>

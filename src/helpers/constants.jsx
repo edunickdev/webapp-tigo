@@ -1,5 +1,5 @@
 export const inputs = [
-    { text: "Identificación", name: "cedula" },
+    { text: "Identificación", name: "id" },
     { text: "Celular", name: "celular" },
     { text: "Cargo", name: "cargo" },
     { text: "Centro de costos", name: "costos" },
