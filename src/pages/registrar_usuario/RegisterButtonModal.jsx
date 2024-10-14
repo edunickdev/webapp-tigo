@@ -125,7 +125,7 @@ const RegisterButtonModal = ({ inputs }) => {
                   variant="bordered"
                   color="primary"
                   className="col-span-6 text-xl mt-4"
-                  type="submit" // Ensure the form is submitted
+                  type="submit"
                 >
                   Crear
                 </Button>
@@ -134,8 +134,7 @@ const RegisterButtonModal = ({ inputs }) => {
                   color="danger"
                   className="col-span-6 text-xl mt-4"
                   onPress={() => {
-                    onClose(); // Use the onClose function to close the modal
-                    onOpenChange(false); // Ensure the modal state is updated
+                    onClose();
                   }}
                 >
                   Cancelar

@@ -16,6 +16,5 @@ export const useUserStore = create((set) => ({
   },
   createUser: async (user) => {
     await CreateUser(user);
-    
   },
 }));
