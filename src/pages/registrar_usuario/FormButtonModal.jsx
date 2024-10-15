@@ -9,7 +9,7 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
-import { inputs, select_inputs } from "../../helpers/constants";
+import { select_inputs } from "../../helpers/constants";
 import SelectionButton from "../../components/shared/SelectionButton";
 import InputControlled from "../../components/shared/InputControlled";
 import { useUserStore } from "../../context/stores";
@@ -20,6 +20,7 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
   const user = useUserStore((state) => state.user);
   const createUser = useUserStore((state) => state.createUser);
   const updateUser = useUserStore((state) => state.updateUser);
+  const inputs = useUserStore((state) => state.inputs);
 
   return (
     <form
@@ -27,7 +28,7 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
         if (action === "create") {
           createUser(data);
         } else {
-          updateUser(data);
+          updateUser(user, data);
         }
       })}
     >
@@ -35,7 +36,7 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
         isIconOnly
         onPress={onOpen}
         className={className}
-        isDisabled={user ? false : enable}
+        isDisabled={enable}
       >
         {icon}
       </Button>
@@ -92,7 +93,7 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
                     if (action === "create") {
                       createUser(data);
                     } else {
-                      updateUser(data);
+                      updateUser(user, data);
                     }
                   })}
                 >

@@ -27,6 +27,8 @@ export const UpdateUser = async (user) => {
 };
 
 export const compareAndUpdateUser = async (originalUser, updatedUser) => {
+  updatedUser.sede = parseInt(updatedUser.sede);
+  updatedUser.id = parseInt(updatedUser.id);
   const changedFields = {};
 
   // Compare fields and identify changes
@@ -41,7 +43,7 @@ export const compareAndUpdateUser = async (originalUser, updatedUser) => {
     const updatedData = { ...originalUser, ...changedFields };
     return await UpdateUser(updatedData);
   } else {
-    console.log("No changes detected");
+    alert("No changes detected");
     return originalUser;
   }
 };

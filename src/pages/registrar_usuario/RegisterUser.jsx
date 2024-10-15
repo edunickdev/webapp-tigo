@@ -67,18 +67,20 @@ export const RegisterUser = () => {
               <FormButtonComponent
                 icon={<IoCreateSharp />}
                 className={"bg-yellow-500 text-white rounded-md"}
-                enable={user}
+                enable={user ? true : false}
                 action={"create"}
               />
               <FormButtonComponent
                 icon={<IoEye />}
                 className={"bg-blue-700 text-white rounded-md"}
                 enable={!user}
+                action={"view"}
               />
               <FormButtonComponent
                 icon={<MdEdit />}
                 className={"bg-green-700 text-white rounded"}
                 enable={!user}
+                action={"edit"}
               />
               <FormButtonComponent
                 icon={<MdDelete />}
