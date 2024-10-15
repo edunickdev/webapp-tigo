@@ -45,6 +45,7 @@ export const RegisterUser = () => {
       <Table
         aria-label="Example table with dynamic content"
         className="col-span-8"
+        color="primary"
       >
         <TableHeader>
           <TableColumn className="text-center">Nombre del usuario</TableColumn>

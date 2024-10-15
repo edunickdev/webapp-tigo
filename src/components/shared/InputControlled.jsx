@@ -4,7 +4,7 @@ import { Input } from "@nextui-org/react";
 import { Controller } from "react-hook-form";
 import { useUserStore } from "../../context/stores";
 
-const InputControlled = ({ inputs, control }) => {
+const InputControlled = ({ inputs, control, action }) => {
   const user = useUserStore((state) => state.user);
 
   return (
@@ -33,6 +33,7 @@ const InputControlled = ({ inputs, control }) => {
             <Input
               isRequired
               {...field}
+              isDisabled={action === "view" ? true : false}
               variant="bordered"
               color="primary"
               label={input.text}

@@ -50,19 +50,25 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 text-3xl">
-                {action === "create" ? "Registro de usuario" : "Editar usuario"}
+                {action === "create"
+                  ? "Registro de usuario"
+                  : action === "view"
+                  ? "Información del usuario"
+                  : "Editar usuario"}
               </ModalHeader>
               <ModalBody className="grid grid-cols-12 overflow-y-scroll">
                 <div className="col-span-4 flex flex-col justify-start items-center mt-8 gap-y-5">
                   <InputControlled
                     inputs={inputs.slice(0, 6)}
                     control={control}
+                    action={action}
                   />
                 </div>
                 <div className="col-span-4 flex  flex-col justify-start items-center mt-8 gap-y-5">
                   <InputControlled
                     inputs={inputs.slice(6, 12)}
                     control={control}
+                    action={action}
                   />
                 </div>
                 <div className="col-span-4 flex flex-col justify-start items-center mt-8 gap-y-5">
@@ -85,20 +91,26 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
                 >
                   Cancelar
                 </Button>
-                <Button
-                  color="success"
-                  variant="ghost"
-                  className="w-36"
-                  onPress={handleSubmit(async (data) => {
-                    if (action === "create") {
-                      createUser(data);
-                    } else {
-                      updateUser(user, data);
-                    }
-                  })}
-                >
-                  {action ? "Crear" : "Guardar"}
-                </Button>
+                {action === "view" ? null : (
+                  <Button
+                    color="success"
+                    variant="ghost"
+                    className="w-36"
+                    onPress={handleSubmit(async (data) => {
+                      if (action === "create") {
+                        createUser(data);
+                      } else {
+                        updateUser(user, data);
+                      }
+                    })}
+                  >
+                    {action === "create"
+                      ? "Crear"
+                      : action === "edit"
+                      ? "Guardar"
+                      : ""}
+                  </Button>
+                )}
               </ModalFooter>
             </>
           )}
