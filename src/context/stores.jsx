@@ -2,6 +2,7 @@ import { create } from "zustand";
 import {
   compareAndUpdateUser,
   CreateUser,
+  DeleteUser,
   GetUserById,
 } from "../services/employee_services/UserServices";
 
@@ -41,7 +42,8 @@ export const useUserStore = create((set) => ({
     await CreateUser(user);
   },
 
-  setInputs: (inputs) => {
-    set({ inputs });
-  },
+  deleteUser: async(user) => {
+    await DeleteUser(user);
+    set({ user: null })
+  }
 }));

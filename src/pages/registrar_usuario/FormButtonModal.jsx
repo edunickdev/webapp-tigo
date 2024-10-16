@@ -107,8 +107,7 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
                     {action === "create"
                       ? "Crear"
                       : action === "edit"
-                      ? "Guardar"
-                      : ""}
+                      ? "Guardar" : ""}
                   </Button>
                 )}
               </ModalFooter>

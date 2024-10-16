@@ -13,6 +13,7 @@ import { IoCreateSharp, IoEye, IoSearchSharp } from "react-icons/io5";
 import { useUserStore } from "../../context/stores";
 import FormButtonComponent from "./FormButtonModal";
 import { MdDelete, MdEdit } from "react-icons/md";
+import DeleteButtonModal from "./DeleteButtonModal";
 
 export const RegisterUser = () => {
   const user = useUserStore((state) => state.user);
@@ -83,9 +84,9 @@ export const RegisterUser = () => {
                 enable={!user}
                 action={"edit"}
               />
-              <FormButtonComponent
-                icon={<MdDelete />}
-                className={"bg-red-500 text-white rounded"}
+              <DeleteButtonModal 
+                icon={<MdDelete />} 
+                classname={"bg-red-500 text-white rounded"} 
                 enable={!user}
               />
             </TableCell>
