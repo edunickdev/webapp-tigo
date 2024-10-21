@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import { HiUser } from "react-icons/hi";
 import { IoExit } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import { GoHomeFill } from "react-icons/go";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,7 +10,6 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-600 p-4 ">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
         <div className="text-white font-bold text-5xl p-6">
           <a href="#">Aplicación de Tigo</a>
         </div>
@@ -34,19 +35,29 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-      
-        <div className={`w-full lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"}`}>
+
+        <div
+          className={`w-full lg:flex lg:items-center lg:w-auto ${
+            isOpen ? "block" : "hidden"
+          }`}
+        >
           <ul className="lg:flex lg:space-x-4 text-5xl">
             <li className="text-white">
               <a href="#" className="block py-2 px-4 hover:bg-blue-700 rounded">
-                <HiUser className="text-white"/>
+                <HiUser className="text-white" />
               </a>
             </li>
             <li className="text-white">
               <a href="#" className="block py-2 px-4 hover:bg-blue-700 rounded">
-                <IoExit className="text-white"/>
+                <IoExit className="text-white" />
               </a>
             </li>
+            <Link
+              to="/home"
+              className="block py-2 px-4 hover:bg-blue-700 rounded"
+            >
+              <GoHomeFill />
+            </Link>
           </ul>
         </div>
       </div>

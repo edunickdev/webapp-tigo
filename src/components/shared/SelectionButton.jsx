@@ -7,8 +7,11 @@ import {
   DropdownTrigger,
 } from "@nextui-org/react";
 import { Controller } from "react-hook-form";
+import { useUserStore } from "../../context/stores";
 
 const SelectionButton = ({ name, control, options }) => {
+  const user = useUserStore((state) => state.user);
+
   return (
     <Controller
       name={name.name}
