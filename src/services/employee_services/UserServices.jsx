@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+import { user } from "@nextui-org/react";
 import axios from "axios";
 
 export const GetUserById = async (id) => {
@@ -57,3 +58,13 @@ export const CreateUser = async (usr) => {
   );
   return response.data;
 };
+
+export const DeleteUser = async (usr) => {
+  console.log(usr);
+  const response = await axios.delete(
+    `http://localhost:8000/api/usuario/update/`, {
+      data: usr
+    }
+  );
+  return response.data;
+}
