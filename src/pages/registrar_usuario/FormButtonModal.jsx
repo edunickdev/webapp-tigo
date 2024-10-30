@@ -74,10 +74,12 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
                 <div className="col-span-4 flex flex-col justify-start items-center mt-8 gap-y-5">
                   {select_inputs.map((select_input, index) => (
                     <SelectionButton
+                      user={user}
                       key={index}
                       name={select_input}
                       control={control}
                       options={select_input.options}
+                      action={action}
                     />
                   ))}
                 </div>

@@ -24,6 +24,7 @@ export const useUserStore = create((set) => ({
 
   fetchUser: async (id) => {
     const user = await GetUserById(id);
+    console.log(user);
     set({ user });
     set((state) => {
       const updatedInputs = state.inputs.map((input) => ({
