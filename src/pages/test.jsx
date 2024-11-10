@@ -1,9 +1,9 @@
 import { checkbox, table, user } from "@nextui-org/theme";
 import { Document, Page, View, Text, Image, StyleSheet } from '@react-pdf/renderer';
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></link>
 import { section } from "framer-motion/client";
 import { head } from "framer-motion/m";
 import { MdHeight } from "react-icons/md";
-import './test.css'
 import { CgSpaceBetween } from "react-icons/cg";
 
 const styles = StyleSheet.create({
@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     margin:0,
     border:1,
     borderColor:'000',
+    fontSize:8,
 
   },
   height20:{
@@ -26,10 +27,21 @@ const styles = StyleSheet.create({
     borderRight:1,
   },
   formRow: {
+    fontSize:8,
     flexDirection: 'row',
     border:1,
     width:'100%',
     height:50
+  },
+  formcolumn:{
+    fontSize:8,
+    border:1,
+    padding:10,
+  },
+  formRow_5: {
+    flexDirection: 'row',
+    width:'100%',
+    textAlign:'center'
   },
  text_header:{
   fontSize:8,
@@ -48,6 +60,11 @@ const styles = StyleSheet.create({
 text:{
   padding:3,
 },
+contenedor__text:{
+  marginTop:15,
+  gap:5,
+},
+
 tablebackground:{
   fontSize: 8,
   height:16,
@@ -63,6 +80,13 @@ tablebackground_2:{
   borderLeft:1,
   backgroundColor:'#B3B2AE',
   textAlign:'center',
+},
+tablebackground_5:{
+  fontSize: 8,
+  height:16,
+  backgroundColor:'#B3B2AE',
+  paddingTop:5,
+  margin:0
 },
 tableCol_1:{
   width:'38%',
@@ -112,9 +136,6 @@ tableCol_3_3: {
   padding: 5,
 
 },
-
-
-
 tableCol_4_1:{
   width:'50%',
   padding: 5,
@@ -139,6 +160,7 @@ tableRow5: {
   width:'100%',
   flexDirection: 'row',
   height:20,
+  textAlign:'center'
 },
 tableCol_5_1:{
   width:'34%',
@@ -264,6 +286,144 @@ accesorios:{
   marginTop:5,
   gap:5
 },
+accesorios_2:{
+  flexDirection:'row',
+  marginTop:5,
+  gap:18
+},
+formRow4: {
+  fontSize:8,
+  flexDirection: 'row',
+  borderBottom:1,
+  borderLeft:1,
+  borderRight:1,
+  width:'100%',
+  textAlign:'center',
+  height:16, 
+},
+formRow4_pruebas: {
+  fontSize:8,
+  flexDirection: 'row',
+  borderBottom:1,
+  borderLeft:1,
+  borderRight:1,
+  width:'100%',
+  textAlign:'center',
+  height:80, 
+},
+contenedor_formRow5:{
+  margin:0,
+  padding:0
+},
+formRow5: {
+  border:1,
+  fontSize:8,
+  flexDirection: 'row',
+  backgroundColor:'#B3B2AE',
+  textAlign:'center',
+  height:16,
+  marginTop:40
+},
+
+formRow4_1:{
+  width:'42%',
+  borderRight:1,
+  textAlign:'start',
+  paddingTop:5,
+},
+formRow4_1_pruebas_b:{
+  width:'82%',
+  borderRight:1,
+  paddingTop:5,
+  backgroundColor:'#B3B2AE',
+  textAlign:'center'
+},
+formRow4_1_observaciones:{
+  width:'82%',
+  borderRight:1,
+  textAlign:'start',
+  paddingTop:5,
+},
+formRow4_1_1:{
+  width:'42%',
+  borderRight:1,  
+  textAlign:'center',
+  paddingTop:3,
+},
+formRow4_2:{
+  width:'20%',
+  borderRight:1,
+  paddingTop:3,
+},
+formRow4_3:{
+  borderRight:1,
+  width:'38%',
+  paddingTop:3,
+},
+formRow4_3_i:{
+  borderRight:1,
+  width:'20%',
+  padding:3,
+  textAlign:'start',
+},
+formRow4_3_i_1:{
+  borderRight:1,
+  width:'4%',
+  paddingTop:3,
+  textAlign:'start',
+},
+formRow4_3_pruebas:{
+  width:'48%',
+  paddingTop:3,
+  backgroundColor:'#B3B2AE',
+},
+formRow4_3_pruebas_b:{
+  width:'48%',
+  paddingTop:3,
+},
+formRow4_3_pruebas_c:{
+  width:'48%',
+  paddingTop:3,
+  textAlign:'start',
+  backgroundColor:'#B3B2AE',
+},
+formRow4_3_pruebas_c_b:{
+  width:'48%',
+  paddingTop:3,
+  textAlign:'center',
+  backgroundColor:'#B3B2AE',
+},
+formRow4_3_observaciones:{
+  width:'48%',
+  gap:10,
+  paddingTop:3,
+},
+formRow4_3_C:{
+  borderRight:1,
+  width:'38%',
+  paddingTop:3,
+  textAlign:'start',
+  paddingLeft:5
+},
+formRow4_3_3:{
+  borderRight:1,
+  width:'38%',
+  paddingTop:3,
+  backgroundColor:'#B3B2AE',
+
+},
+
+formRow4_4:{
+  width:'10%',
+  paddingTop:3,
+},
+formRow4_4_4:{
+  width:'10%',
+  paddingTop:3,
+  backgroundColor:'#B3B2AE',
+
+},
+
 
 });
 
@@ -689,18 +849,173 @@ const TestPage = () => (
                 </View>
               </View>
           </View>
-
-       
-
-
-
         </View>
-        {/* ------------------------------------------------------------------------------- */}
-
-        
-
-      
+        {/* ---------------------------section 4---------------------------------------------------- */}
       </View>
+      <View  style={styles.contenedor_formRow5}>
+          {/* columnas */}
+          <View style={[styles.formRow5,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1_1}>SOFTWARE</Text>
+            <Text style={styles.formRow4_2}>EQUIPO ANTERIOR</Text>
+            <Text style={styles.formRow4_2}>EQUIPO NUEVO</Text>
+            <Text style={styles.formRow4_3}>Datos, Correo e Internet</Text>
+            <Text style={styles.formRow4_4}>Tamaño</Text>
+          </View>
+          {/* fila 2 */}
+          <View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}>Sistema Operativo:</Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3}></Text>
+            <Text style={styles.formRow4_4}></Text>
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}>Activación (Windows / Office):</Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_3}>Tamaño Total de las Unidades de Disco</Text>
+            <Text style={styles.formRow4_4_4}>Tamaño</Text>
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}>Versionamiento Office:</Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_C}>C:</Text>
+            <Text style={styles.formRow4_4}></Text>
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}>Agente Antivirus:</Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_C}>D:</Text>
+            <Text style={styles.formRow4_4}></Text>
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}>Agente System Center Configuration Manager:</Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_pruebas}>PRUEBAS ADICIONALES</Text>
+          </View>
+          <View ew style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}>Agente Remote Control Viewer:</Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_i}>Ingreso a la Red</Text>
+            <Text style={styles.formRow4_3_i_1}></Text>
+            <Text style={styles.formRow4_3_i}>Acceso a OneDrive:</Text>
+            <Text style={styles.formRow4_3_i_1}></Text>
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}>Directiva de Grupo Controlador de Dominio:</Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_i}>Correo Electrónico</Text>
+            <Text style={styles.formRow4_3_i_1}></Text>
+            <Text style={styles.formRow4_3_i}>Acceso Voice Mail:</Text>
+            <Text style={styles.formRow4_3_i_1}></Text>
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_i}>Unidades Mapeadas</Text>
+            <Text style={styles.formRow4_3_i_1}></Text>
+            <Text style={styles.formRow4_3_i}>Acceso a Impresora:</Text>
+            <Text style={styles.formRow4_3_i_1}></Text>
+
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_i}>Acceso VPN:</Text>
+            <Text style={styles.formRow4_3_i_1}></Text>
+            <Text style={styles.formRow4_3_i}>Puertos USB:</Text>
+            <Text style={styles.formRow4_3_i_1}></Text>
+
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_i}>Acceso a SAP:</Text>
+            <Text style={styles.formRow4_3_i_1}></Text>
+            <Text style={styles.formRow4_3_i}></Text>
+            <Text style={styles.formRow4_3_i_1}></Text>
+
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_pruebas_c}>Conexiones de Red:</Text>
+
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_3_pruebas_b}></Text>
+
+          </View>
+          <View style={[styles.formRow4,{ width: '100%'}]} >
+          {/* filas*/}
+            <Text style={styles.formRow4_1_pruebas_b}>OBSERVACIONES DE LAS APLICACIONES</Text> 
+            <Text style={styles.formRow4_3_pruebas_c_b}>ELEMENTOS PENDIENTES POR DEVOLVER</Text>
+
+          </View>
+            <View style={[styles.formRow4_pruebas,{ width: '100%'}]} >
+            {/* filas*/}
+                <Text style={styles.formRow4_1_observaciones}></Text> 
+                <View style={styles.formRow4_3_observaciones}>
+                  <View style={styles.contenedor__accesorios}>
+                          <View style={styles.accesorios_2}>
+                            <Text>Maletín:{'---'} </Text>
+                            <Text>Guaya:{'---'} </Text>
+                            <Text>Maletín:{'---'}</Text>
+                          </View>
+                          <View style={styles.accesorios_2}>
+                            <Text>Mouse: :{'---'} </Text>
+                            <Text>Base: :{'---'} </Text>
+                            <Text>Teclado:{'---'} </Text>
+                          </View>
+                          <View style={styles.accesorios_2}>
+                            <Text>Cámara: {'---'}</Text>
+                            <Text>Diadema:{'---'}</Text>
+                          </View>
+                          <View style={styles.accesorios_2}>
+                          <Text>Adaptador: {'---'}</Text>
+                          <Text>Otro {'_______________'}</Text>
+                            </View>
+                          
+                  </View>
+                </View>
+            </View>
+            <View style={styles.formcolumn}>
+              <Text>El trabajador entiende y acepta con la firma de este documento las siguientes cláusulas de responsabilidad:</Text>
+              <View style={[styles.contenedor__text]}>
+                  <Text  className="fw-bolder">- Responsabilidad en cuanto al cuidado de las herramientas de trabajo:</Text>
+                  <Text>Declaro que los elementos determinados anteriormente y que me entrega la empresa como equipos, herramientas y facilidades operativas, salvo observaciones, se encuentran en perfecto estado y están bajo mi responsabilidad directa y personal. Por lo tanto, en caso de daño, extravío o pérdida total o parcial por causa imputable a mi responsabilidad, por descuido, uso indebido y/o malos tratamientos, pagaré a nombre de CAJA COLOMBIANA DE SUBSIDIO FAMILAR COLSUBSIDIO el valor correspondiente, de acuerdo con la tasación y valores de referencia comercial determinados por la Corporación. El pago se hará efectivo por las sumas que mediante el pago de salarios y demás derechos laborales me correspondan. En caso de terminar la relación laboral con la Corporación, me comprometo a hacer entrega de los elementos determinados anteriormente en buen estado, salvo por el desgaste normal por uso. En caso contrario, asumiré el costo del equipo, para lo cual autorizo a CAJA COLOMBIANA DE SUBSIDIO FAMILAR COLSUBSIDIO para que descuente de cualquier derecho laboral que me pueda corresponder, sea de naturaleza salarial, prestacional, indemnizatoria, vacaciones, etc., la totalidad del valor determinado por la Caja, conforme a los artículos 59 y 149 en sus numerales 1 del código sustantivo de trabajo, este último modificado por la Ley 1429 de 2010, artículos 18 y 19.
+                  </Text>
+                </View>
+            </View>
+          </View>
+      </View>
+
     </Page>
   </Document>
 );
