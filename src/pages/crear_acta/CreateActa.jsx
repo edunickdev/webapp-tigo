@@ -21,7 +21,7 @@ export const CreateActa = () => {
 
   return (
     <div className="py-10 grid grid-cols-12">
-      {/* <div className="col-span-5 flex justify-center items-center p-3">
+       <div className="col-span-5 flex justify-center items-center p-3">
         <h2 className="font-semibold text-lg">
           ANEXO DE ENTREGAS AL TRABAJADOR DE EQUIPOS, HERRAMIENTAS Y FACILIDADES
           OPERATIVAS
@@ -74,7 +74,7 @@ export const CreateActa = () => {
             <Aplicaciones />
           </AccordionItem>
         </Accordion>
-      </div> */}
+      </div> 
       <PDFViewer className="col-span-12 w-full h-96">
         <TestPage />
       </PDFViewer>

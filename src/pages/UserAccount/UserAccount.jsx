@@ -2,17 +2,27 @@ import img1 from "../../assets/busquedaser.png";
 import img2 from "../../assets/usuarios.png";
 import img3 from "../../assets/acta.png";
 import { NavLink } from "react-router-dom";
+import { TbBackground } from "react-icons/tb";
+import { color } from "framer-motion";
 
 const UserAccount = () => {
+  const backgroundStyle = {
+    backgroundImage: `url("https://homestore.tigo.net.bo/generadorWeb/assets/img/fondo.jpg")`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    minHeight: '100vh',
+  };
+
   return (
-    <div className="container mx-auto py-8">
-      <p className="text-center text-4xl font-bold mb-6 ">
+    <div className="container mx-auto py-8" style={backgroundStyle}>
+      <p className="text-center text-6xl font-bold mb-6 ">
         ¿Qué quieres hacer?
       </p>
 
-      <ul className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <ul className="grid grid-cols-1 md:grid-cols-3 gap-10" >
         {/* Card 1 */}
-        <li className="col-span-1">
+        <li className="col-span-1 " >
           <NavLink to="/buscar" className="no-underline">
             <div className="card rounded-lg shadow-lg hover:shadow-xl transition-all bg-white">
               <div className="card-body p-6">
@@ -83,6 +93,8 @@ const UserAccount = () => {
           </NavLink>
         </li>
       </ul>
+      
+      
     </div>
   );
 };
