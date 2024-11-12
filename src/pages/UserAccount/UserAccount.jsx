@@ -8,7 +8,6 @@ import { color } from "framer-motion";
 const UserAccount = () => {
   const backgroundStyle = {
     backgroundImage: `url("https://homestore.tigo.net.bo/generadorWeb/assets/img/fondo.jpg")`,
-    backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     minHeight: '100vh',
@@ -20,13 +19,13 @@ const UserAccount = () => {
         ¿Qué quieres hacer?
       </p>
 
-      <ul className="grid grid-cols-1 md:grid-cols-3 gap-10" >
+      <ul className="grid grid-cols-1 md:grid-cols-3 " >
         {/* Card 1 */}
-        <li className="col-span-1 " >
+        <li  >
           <NavLink to="/buscar" className="no-underline">
             <div className="card rounded-lg shadow-lg hover:shadow-xl transition-all bg-white">
-              <div className="card-body p-6">
-                <div className="flex items-center">
+              <div className="card-body p-1.5">
+                <div className="flex items-center ">
                   <img
                     className="w-1/3 h-auto object-contain"
                     src={img1}
@@ -73,7 +72,7 @@ const UserAccount = () => {
         <li className="col-span-1">
           <NavLink to="/crearacta" className="no-underline">
             <div className="card rounded-lg shadow-lg hover:shadow-xl transition-all bg-white">
-              <div className="card-body p-6">
+              <div className="card-body ">
                 <div className="flex items-center">
                   <img
                     className="w-1/3 h-auto object-contain"
