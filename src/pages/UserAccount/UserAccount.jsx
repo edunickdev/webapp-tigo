@@ -14,13 +14,14 @@ const UserAccount = () => {
   };
 
   return (
-    <div className="container mx-auto py-8" style={backgroundStyle}>
-      <p className="text-center text-6xl font-bold mb-6 ">
+    <div className="container mx-auto py-8">
+      <img src={"https://homestore.tigo.net.bo/generadorWeb/assets/img/fondo.jpg"} alt="" className="absolute h-screen inset-0 -z-20" width={"100%"} />
+      <p className="text-center text-6xl font-bold mb-6 text-blue-50">
         ¿Qué quieres hacer?
       </p>
 
-      <ul className="grid grid-cols-1 md:grid-cols-3 " >
-        {/* Card 1 */}
+      <ul className="grid grid-cols-1 md:grid-cols-3" >
+
         <li  >
           <NavLink to="/buscar" className="no-underline">
             <div className="card rounded-lg shadow-lg hover:shadow-xl transition-all bg-white">
@@ -32,6 +33,7 @@ const UserAccount = () => {
                     alt="Buscar Serial"
                   />
                   <div className="ml-4">
+                    
                     <h5 className="text-lg font-semibold">
                       Búsqueda por Serial
                     </h5>

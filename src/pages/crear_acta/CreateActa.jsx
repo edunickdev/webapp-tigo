@@ -3,25 +3,25 @@ import { HeaderActa } from "../../components/HeaderActa";
 import { EquipoNew } from "../../components/EquipoNew";
 import { EquipoOld } from "../../components/EquipoOld";
 import { Aplicaciones } from "../../components/Aplicaciones";
-import { Herramientas } from "../../components/Herramientas";
-import { Clausula } from "../../components/Clausula";
-import { Firmas } from "../../components/Firmas";
-import { HerramientasDos } from "../../components/Herramientasdos";
 import { Accordion, AccordionItem, Button, Input } from "@nextui-org/react";
 import { useUserStore } from "../../context/stores";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import logo from "../../assets/colsubsidio.jpg";
-import { PDFViewer } from "@react-pdf/renderer";
+import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 import TestPage from "../test";
+
 
 export const CreateActa = () => {
   const fetchUser = useUserStore((state) => state.fetchUser);
   const [busqueda, setBusqueda] = useState("");
+  const user = useUserStore((state) => state.user);
+  const [state, setState] = useState(false);
 
   return (
     <div className="py-10 grid grid-cols-12">
-       <div className="col-span-5 flex justify-center items-center p-3">
+      {/* <div className="col-span-5 flex justify-center items-center p-3"> */}
+      <div className="col-span-5 flex justify-center items-center p-3">
         <h2 className="font-semibold text-lg">
           ANEXO DE ENTREGAS AL TRABAJADOR DE EQUIPOS, HERRAMIENTAS Y FACILIDADES
           OPERATIVAS
@@ -74,15 +74,21 @@ export const CreateActa = () => {
             <Aplicaciones />
           </AccordionItem>
         </Accordion>
-      </div> 
-      <PDFViewer className="col-span-12 w-full h-96">
-        <TestPage />
-      </PDFViewer>
+      </div>
 
-      {/* <Herramientas />
-      <Clausula />
-      <Firmas />
-      <HerramientasDos /> */}
+      <Button isDisabled={user ? false : true} onPress={() => setState(true)}>Generar Acta</Button>
+
+      {state ? (
+        <PDFDownloadLink
+          document={<TestPage user={user} />}
+          fileName="prueba.pdf"
+          className="col-span-12 w-full h-96"
+        >
+          {({ loading }) =>
+            loading ? "Cargando documento..." : "Descargar PDF"
+          }
+        </PDFDownloadLink>
+      ) : null}
     </div>
   );
 };

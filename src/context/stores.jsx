@@ -5,6 +5,33 @@ import {
   DeleteUser,
   GetUserById,
 } from "../services/employee_services/UserServices";
+import { LoginService } from "../services/auth_services/login_services";
+import { notify } from "../helpers/notifications";
+
+export const useUser = create((set) => ({
+  user: {},
+  login: async ( email, password ) => {
+    const user = await notify({
+      messageList: ["Iniciando sesión", "Inicio de sesión exitoso", "Error al iniciar sesión"],
+      funct: LoginService(email, password)
+    })
+    set({ user });
+  },
+  signin: async ( data ) => {
+    const user = await notify({
+      messageList: ["Registrando usuario", "Usuario registrado", "Error al registrar usuario"],
+      funct: SignUpService(data.name, data.lastname, data.email, data.password)
+    })
+    set({ user });
+  },
+  logout: async () => {
+    await notify({
+      messageList: ["Cerrando sesión", "Sesión cerrada", "Error al cerrar sesión"],
+      funct: set({ user: {} })
+    })
+  }
+}));
+
 
 export const useUserStore = create((set) => ({
   user: null,
@@ -26,7 +53,7 @@ export const useUserStore = create((set) => ({
     const user = await GetUserById(id);
     console.log(user);
     set({ user });
-    set((state) => {
+    await set((state) => {
       const updatedInputs = state.inputs.map((input) => ({
         ...input,
         value: user[input.name] || "",

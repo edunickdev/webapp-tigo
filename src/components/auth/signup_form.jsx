@@ -1,47 +1,77 @@
 import { Button, Input } from "@nextui-org/react";
 import { useState } from "react";
-import SignUpService from "../../services/auth_services/signup_services";
+import { useUser } from "../../context/stores";
 
 const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [data, setData] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
+  const signIn = useUser((state) => state.signin);
 
   return (
-    <div className="bg-gray-200 rounded-lg shadow-md h-4/5 text-secondary w-[35rem] px-[50px] py-[20px] mt-20">
-      <p className="text-center text-3xl mb-3 text-gray-800 font-bold">
+    <div className="bg-blue-50 shadow-lg rounded-lg md:mt-0 lg:mt-20 p-14 flex flex-col">
+      <p className="text-center text-3xl font-bold text-blue-800 mb-2">
         Registrate
       </p>
-      <form className="flex flex-col gap-y-4">
+      <form className="flex flex-col w-72 gap-y-3">
         <Input
+          color="primary"
+          variant="underlined"
           label="Nombre(s)"
           placeholder="Ingresa tu(s) nombre(s)"
           value={name}
           onValueChange={setName}
+          className="text-blue-700"
         />
         <Input
+          color="primary"
+          variant="underlined"
           label="Apellido(s)"
           placeholder="Ingresa tu(s) apellido(s)"
           value={lastName}
           onValueChange={setLastName}
+          className="text-blue-700"
         />
         <Input
+          color="primary"
+          variant="underlined"
           label="Corrreo Electronico"
           placeholder="Ingresa tu correo electronico"
           value={email}
           onValueChange={setEmail}
+          className="text-blue-700"
         />
         <Input
+          color="primary"
+          variant="underlined"
           type="password"
           label="Password"
           placeholder="Ingresa tu password"
           value={password}
           onValueChange={setPassword}
+          className="text-blue-700"
         />
         <Button
-          onClick={() => SignUpService(name, lastName, email, password)}
-          className="bg-sky-600 w-full text-white text-center py-2 rounded shadow-md hover:bg-sky-600 transition duration-300"
+          onClick={() => {
+            setData({
+              name: name,
+              lastName: lastName,
+              email: email,
+              password: password,
+            });
+            signIn(data)
+          }}
+          variant="solid"
+          color="primary"
+          className="mt-6"
         >
           Registrar
         </Button>

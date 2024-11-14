@@ -1,11 +1,5 @@
-import { button, checkbox, table, user } from "@nextui-org/theme";
 import { Document, Page, View, Text, Image, StyleSheet } from '@react-pdf/renderer';
 
-import { section } from "framer-motion/client";
-import { head } from "framer-motion/m";
-import { MdHeight } from "react-icons/md";
-import { CgSpaceBetween } from "react-icons/cg";
-import { BiBold } from "react-icons/bi";
 
 const styles = StyleSheet.create({
   page: {
@@ -524,8 +518,7 @@ text_footer:{
 
 });
 
-const TestPage = () => (
-  <Document>
+const TestPage = ({user}) => (<Document>
     <Page style={styles.page}>
       <View style={styles.contenedor}>
         <View style={styles.formRow} >
@@ -554,6 +547,7 @@ const TestPage = () => (
             <View >
               <Text style={[styles.text]}>
                 DATOS DEL USUARIO
+                {user.nombre}
               </Text>
             </View>
         </View>
