@@ -20,6 +20,8 @@ export const CreateActa = () => {
 
   return (
     <div className="py-10 grid grid-cols-12">
+      <div className="col-span-1"></div>
+      
       {/* <div className="col-span-5 flex justify-center items-center p-3"> */}
       <div className="col-span-5 flex justify-center items-center p-3">
         <h2 className="font-semibold text-lg">
@@ -49,7 +51,8 @@ export const CreateActa = () => {
         <img src={logo} className="w-40" alt="Logo" />
       </div>
       <HeaderActa />
-      <div className="col-span-12">
+      <div className="col-span-1"></div>
+      <div className="col-span-10">
         <Accordion variant="shadow">
           <AccordionItem
             key="1"
@@ -74,9 +77,11 @@ export const CreateActa = () => {
             <Aplicaciones />
           </AccordionItem>
         </Accordion>
+        <Button isDisabled={user ? false : true} onPress={() => setState(true)} >
+          Generar Acta
+        </Button>
       </div>
-
-      <Button isDisabled={user ? false : true} onPress={() => setState(true)}>Generar Acta</Button>
+      <div className="col-span-1"></div>
 
       {state ? (
         <PDFDownloadLink
@@ -89,6 +94,7 @@ export const CreateActa = () => {
           }
         </PDFDownloadLink>
       ) : null}
+      <div className="col-span-1"></div>
     </div>
   );
 };
