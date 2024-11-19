@@ -14,27 +14,27 @@ const UserAccount = () => {
   };
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8 mt-10">
       <img src={"https://homestore.tigo.net.bo/generadorWeb/assets/img/fondo.jpg"} alt="" className="absolute h-screen inset-0 -z-20" width={"100%"} />
       <p className="text-center text-6xl font-bold mb-6 text-blue-50">
         ¿Qué quieres hacer?
       </p>
 
-      <ul className="grid grid-cols-1 md:grid-cols-3" >
+      <ul className="grid grid-cols-1 md:grid-cols-3 mt-24" >
 
         <li  >
           <NavLink to="/buscar" className="no-underline">
             <div className="card rounded-lg shadow-lg hover:shadow-xl transition-all bg-white">
-              <div className="card-body p-1.5">
-                <div className="flex items-center ">
+              <div className="card-body p-1.5 ml-4">
+                <div className="flex items-center p-2 ">
                   <img
                     className="w-1/3 h-auto object-contain"
                     src={img1}
                     alt="Buscar Serial"
                   />
-                  <div className="ml-4">
+                  <div className="ml-4 p-5">
                     
-                    <h5 className="text-lg font-semibold">
+                    <h5 className="text-lg font-semibold ">
                       Búsqueda por Serial
                     </h5>
                     <p className="text-sm text-gray-600">
@@ -48,7 +48,7 @@ const UserAccount = () => {
         </li>
 
         {/* Card 2 */}
-        <li className="col-span-1">
+        <li className="col-span-1 ml-4">
           <NavLink to="/registrarusu" className="no-underline">
             <div className="card rounded-lg shadow-lg hover:shadow-xl transition-all bg-white">
               <div className="card-body p-6">
@@ -59,7 +59,7 @@ const UserAccount = () => {
                     alt="Usuarios"
                   />
                   <div className="ml-4">
-                    <h5 className="text-lg font-semibold">Usuarios</h5>
+                    <h5 className="text-lg font-semibold p-5">Usuarios</h5>
                     <p className="text-sm text-gray-600">
                       Crear, editar y validar usuario
                     </p>
@@ -71,7 +71,7 @@ const UserAccount = () => {
         </li>
 
         {/* Card 3 */}
-        <li className="col-span-1">
+        <li className="col-span-1 ml-5 ">
           <NavLink to="/crearacta" className="no-underline">
             <div className="card rounded-lg shadow-lg hover:shadow-xl transition-all bg-white">
               <div className="card-body ">
