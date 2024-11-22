@@ -7,17 +7,36 @@ import {
 } from "../services/employee_services/UserServices";
 import { LoginService } from "../services/auth_services/login_services";
 import { notify } from "../helpers/notifications";
+import { GetEquipmentBySerial } from "../services/equipment_service/equipment_services"
+import { SignUpService } from "../services/auth_services/signup_services";
 
 export const useUser = create((set) => ({
   user: {},
+  token: "",
   login: async ( email, password ) => {
-    const user = await notify({
+    if (email === "" || password === "") {
+      return;
+    }
+
+    const result = await notify({
       messageList: ["Iniciando sesión", "Inicio de sesión exitoso", "Error al iniciar sesión"],
       funct: LoginService(email, password)
-    })
-    set({ user });
+    });
+
+    console.log(result);
+
+    if (!result) {
+      return;
+    }
+
+    set({ user: result.user });
+    set({ token: result.token });
   },
-  signin: async ( data ) => {
+  signup: async ( data ) => {
+    
+    if (data.name === "" || data.lastname === "" || data.email === "" || data.password === "") {
+      return;
+    }
     const user = await notify({
       messageList: ["Registrando usuario", "Usuario registrado", "Error al registrar usuario"],
       funct: SignUpService(data.name, data.lastname, data.email, data.password)
@@ -25,10 +44,8 @@ export const useUser = create((set) => ({
     set({ user });
   },
   logout: async () => {
-    await notify({
-      messageList: ["Cerrando sesión", "Sesión cerrada", "Error al cerrar sesión"],
-      funct: set({ user: {} })
-    })
+    set({ user: {} });
+    set({ token: "" });
   }
 }));
 
@@ -73,5 +90,54 @@ export const useUserStore = create((set) => ({
   deleteUser: async(user) => {
     await DeleteUser(user);
     set({ user: null })
+  }
+}));
+
+
+export const useEquipmentStore = create((set) => ({
+  equipment: null,
+  inputs: [
+    { text: "Serial", name: "Serial", value: "" },
+    { text: "Tipo", name: "Tipo", value: "" },
+    { text: "Placa", name: "Placa", value: "" },
+    { text: "Marca", name: "Marca", value: "" },
+    { text: "MAC", name: "MAC", value: "" },
+    { text: "Disco", name: "Disco", value: "" },
+    { text: "RAM", name: "RAM", value: "" },
+    { text: "IP", name: "IP", value: "" },
+    { text: "Punto Red", name: "Punto Red", value: "" },
+    { text: "Accesorios", name: "Accesorios", value: "" },
+    { text: "Antiguedad", name: "Antiguedad", value: "" },
+    { text: "version_SO", name: "version_SO", value: "" },
+    { text: "otros", name: "otros", value: "" },
+    { text: "usuario", name: "usuario", value: "" },
+  ],
+
+  fetchEquipment: async (serial) => {
+    const equipment = await GetEquipmentBySerial(serial);
+    console.log(equipment);
+    set({ equipment });
+    set((state) => {
+      const updatedInputs = state.inputs.map((input) => ({
+        ...input,
+        value: equipment[input.name] || "",
+      }));
+
+      console.log(updatedInputs);
+      return { inputs: updatedInputs };
+    });
+  },
+
+  updateEquipment: async (equipment, newFields) => {
+    await compareAndUpdateEquipment(equipment, newFields);
+  },
+
+  createEquipment: async (equipment) => {
+    await CreateEquipment(equipment);
+  },
+
+  deleteEquipment: async(equipment) => {
+    await DeleteEquipment(equipment);
+    set({ equipment: null })
   }
 }));

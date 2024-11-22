@@ -4,21 +4,22 @@ import { Button, Input } from "@nextui-org/react";
 import { useState } from "react";
 import { Checkbox } from "@nextui-org/checkbox";
 import { useUser } from "../../context/stores";
-import { notify } from "../../helpers/notifications";
-import { toast } from "react-toastify";
 
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handlerLogin=() => {
-    login(email, password)
-    notify("Inicio de sesión exitoso");
-    navigate("/home")
-  }
 
   const login = useUser((state) => state.login);
+  const user = useUser((state) => state.user);
+
+  const handleLogin = async () => {
+    await login(email, password);
+    if (user){
+      navigate("/home");
+    }
+  }
 
   return (
     <div className="bg-blue-50 shadow-lg rounded-lg mt-20 p-14 flex flex-col">
@@ -60,7 +61,7 @@ const LoginForm = () => {
         <Button
           variant="solid"
           color="primary"
-          onClick={() => handlerLogin()}
+          onPress={handleLogin}
           className="text-base"
         >
           Iniciar

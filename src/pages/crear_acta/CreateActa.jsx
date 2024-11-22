@@ -5,10 +5,10 @@ import { EquipoOld } from "../../components/EquipoOld";
 import { Aplicaciones } from "../../components/Aplicaciones";
 import { Accordion, AccordionItem, Button, Input } from "@nextui-org/react";
 import { useUserStore } from "../../context/stores";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import logo from "../../assets/colsubsidio.jpg";
-import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import TestPage from "../test";
 
 

@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-import { user } from "@nextui-org/react";
 import axios from "axios";
 
 export const GetUserById = async (id) => {

@@ -12,5 +12,8 @@ export const notify = async ({ messageList, funct, position, duration }) => {
     {  
         position: position || "bottom-center",
         autoClose: duration || 3000,
-    }
-)}
+    })
+
+    return result;
+
+}

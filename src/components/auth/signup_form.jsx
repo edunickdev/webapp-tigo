@@ -6,15 +6,26 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [lastname, setLastName] = useState("");
+
   const [data, setData] = useState({
     name: "",
-    lastName: "",
+    lastname: "",
     email: "",
     password: "",
   });
 
-  const signIn = useUser((state) => state.signin);
+  const signup = useUser((state) => state.signup);
+
+  const hangleSignUp = () => {
+    setData({
+      name: name,
+      lastname: lastname,
+      email: email,
+      password: password,
+    });
+    signup(data);
+  }
 
   return (
     <div className="bg-blue-50 shadow-lg rounded-lg md:mt-0 lg:mt-20 p-14 flex flex-col">
@@ -36,7 +47,7 @@ const SignUpForm = () => {
           variant="underlined"
           label="Apellido(s)"
           placeholder="Ingresa tu(s) apellido(s)"
-          value={lastName}
+          value={lastname}
           onValueChange={setLastName}
           className="text-blue-700"
         />
@@ -60,15 +71,7 @@ const SignUpForm = () => {
           className="text-blue-700"
         />
         <Button
-          onClick={() => {
-            setData({
-              name: name,
-              lastName: lastName,
-              email: email,
-              password: password,
-            });
-            signIn(data)
-          }}
+          onClick={hangleSignUp}
           variant="solid"
           color="primary"
           className="mt-6"

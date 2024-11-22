@@ -1,4 +1,14 @@
+import { useEffect } from "react";
+import { useEquipmentStore } from "../../context/stores";
+
 export const FormSearch = () => {
+    const equipo = useEquipmentStore((state) => state.fetchEquipment);
+
+    useEffect(() => {
+        equipo("1");
+    }, []);
+
+
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-100">
             <form action="" method="get" className="w-full max-w-md p-6 bg-white shadow-md rounded-lg">
