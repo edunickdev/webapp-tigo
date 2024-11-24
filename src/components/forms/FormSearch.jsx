@@ -1,57 +1,66 @@
-import { useEffect } from "react";
-import { useEquipmentStore } from "../../context/stores";
+import { useState } from "react";
+import { useEquipmentStore, useUserStore } from "../../context/stores";
+import { Button, Input } from "@nextui-org/react";
+import { IoSearchSharp } from "react-icons/io5";
 
 export const FormSearch = () => {
     const equipo = useEquipmentStore((state) => state.fetchEquipment);
+    const user = useUserStore((state) => state.fetchUser);
 
-    useEffect(() => {
-        equipo("1");
-    }, []);
-
+    const [serial, setSerial] = useState("");
+    const [documento, setDocumento] = useState("");
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-100">
-            <form action="" method="get" className="w-full max-w-md p-6 bg-white shadow-md rounded-lg">
-                <h1 className="text-center text-3xl font-bold text-gray-700 mb-6">Busca aquí</h1>
+      <div className="grid grid-cols-12 h-[90vh] bg-gray-100 items-center">
+        <div className="col-span-4"></div>
+        
+        <form
+          action=""
+          method="get"
+          className="col-span-4 w-full max-w-md p-6 bg-white shadow-md rounded-lg"
+        >
+          <h2 className="text-center text-2xl text-blue-700">Búsqueda por Serial o Documento</h2>
+          <Input
+            type="text"
+            variant="bordered"
+            label="Ingresa el número de serial"
+            className="col-span-4 my-4"
+            value={serial}
+            onValueChange={setSerial}
+          />
 
-               
-                <div className="mb-4">
-                    <label htmlFor="buscaserial" className="block text-gray-700 font-medium mb-2">
-                        Serial del equipo
-                    </label>
-                    <input 
-                        type="text"
-                        id="buscaserial"
-                        name="buscaserial"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-                        placeholder="Ingresa el serial del equipo"
-                    />
-                </div>
+          <Button
+            radius="sm"
+            className="w-full bg-blue-500 text-white"
+            endContent={<IoSearchSharp />}
+            onPress={() => equipo(serial)}
+          >
+            Buscar por serial
+          </Button>
 
-                <button type="submit" name="btnbuscar" value="ok" className="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition duration-300">
-                    Buscar
-                </button>
+          <h4 className="text-center text-lg font-medium text-gray-700 mt-6 mb-4">
+            O también por:
+          </h4>
 
-                <h4 className="text-center text-lg font-medium text-gray-700 mt-6 mb-4">O también por:</h4>
+          <Input
+            type="text"
+            variant="bordered"
+            label="Ingresa el número de serial"
+            className="col-span-4 my-4"
+            value={documento}
+            onValueChange={setDocumento}
+          />
 
-              
-                <div className="mb-4">
-                    <label htmlFor="buscacedula" className="block text-gray-700 font-medium mb-2">
-                        Número de identificación
-                    </label>
-                    <input
-                        type="text"
-                        id="buscacedula"
-                        name="buscacedula"
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-                        placeholder="Ingresa tu número de identificación"
-                    />
-                </div>
-
-                <button type="submit" name="btnbuscarnum" value="ok" className="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition duration-300">
-                    Buscar
-                </button>
-            </form>
-        </div>
+          <Button
+            radius="sm"
+            className="w-full bg-blue-500 text-white"
+            endContent={<IoSearchSharp />}
+            onPress={() => user(documento)}
+          >
+            Buscar
+          </Button>
+        </form>
+        <div className="col-span-4"></div>
+      </div>
     );
 }

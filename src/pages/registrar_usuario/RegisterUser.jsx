@@ -10,12 +10,13 @@ import {
 } from "@nextui-org/react";
 import { useState } from "react";
 import { IoCreateSharp, IoEye, IoSearchSharp } from "react-icons/io5";
-import { useUserStore } from "../../context/stores";
+import { useUser, useUserStore } from "../../context/stores";
 import FormButtonComponent from "./FormButtonModal";
 import { MdDelete, MdEdit } from "react-icons/md";
 import DeleteButtonModal from "./DeleteButtonModal";
 
 export const RegisterUser = () => {
+  const usr = useUser((state) => state.user);
   const user = useUserStore((state) => state.user);
   const fetchUser = useUserStore((state) => state.fetchUser);
   const [busqueda, setBusqueda] = useState("");
@@ -78,17 +79,21 @@ export const RegisterUser = () => {
                 enable={!user}
                 action={"view"}
               />
-              <FormButtonComponent
-                icon={<MdEdit />}
-                className={"bg-green-700 text-white rounded"}
-                enable={!user}
-                action={"edit"}
-              />
-              <DeleteButtonModal 
-                icon={<MdDelete />} 
-                classname={"bg-red-500 text-white rounded"} 
-                enable={!user}
-              />
+              {usr.cargo !== "Administrador" ? null : (
+                <>
+                  <FormButtonComponent
+                    icon={<MdEdit />}
+                    className={"bg-green-700 text-white rounded"}
+                    enable={!user}
+                    action={"edit"}
+                  />
+                  <DeleteButtonModal
+                    icon={<MdDelete />}
+                    classname={"bg-red-500 text-white rounded"}
+                    enable={!user}
+                  />
+                </>
+              )}
             </TableCell>
           </TableRow>
         </TableBody>

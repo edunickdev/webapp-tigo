@@ -17,14 +17,14 @@ const SignUpForm = () => {
 
   const signup = useUser((state) => state.signup);
 
-  const hangleSignUp = () => {
+  const hangleSignUp = async () => {
     setData({
       name: name,
       lastname: lastname,
       email: email,
       password: password,
     });
-    signup(data);
+    await signup(data);
   }
 
   return (

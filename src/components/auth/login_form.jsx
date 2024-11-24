@@ -12,13 +12,9 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const login = useUser((state) => state.login);
-  const user = useUser((state) => state.user);
 
   const handleLogin = async () => {
-    await login(email, password);
-    if (user){
-      navigate("/home");
-    }
+    await login(email, password, navigate);
   }
 
   return (

@@ -1,9 +1,7 @@
 import CustomCard from "../../components/shared/CustomCard";
-import { useUserStore } from "../../context/stores";
 import { infoAdmin } from "../../helpers/constants";
 
 const UserAccount = () => {
-  const user = useUserStore((state) => state.user);
 
   return (
     <div className="mx-auto py-8 grid grid-cols-12">

@@ -18,7 +18,7 @@ const Navbar = () => {
           Aplicación TIGO
         </Link>
         <div>
-          {!user ? <section className="flex justify-end items-center lg:space-x-4 text-5xl bg-blue-700 rounded-xl px-4 py-2">
+          {user ? <section className="flex justify-end items-center lg:space-x-4 text-5xl bg-blue-700 rounded-xl px-4 py-2">
               {/* <Button variant="flat" isIconOnly className="bg-blue-700">
                 <HiUser className="text-4xl text-blue-200" />
               </Button> */}
@@ -32,7 +32,7 @@ const Navbar = () => {
                 <GoHomeFill className="text-4xl text-blue-200" />
               </Button>
           </section> : null
-            }
+          }
         </div>
       </div>
     </nav>

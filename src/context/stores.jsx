@@ -11,9 +11,9 @@ import { GetEquipmentBySerial } from "../services/equipment_service/equipment_se
 import { SignUpService } from "../services/auth_services/signup_services";
 
 export const useUser = create((set) => ({
-  user: {},
+  user: null,
   token: "",
-  login: async ( email, password ) => {
+  login: async ( email, password, navigate ) => {
     if (email === "" || password === "") {
       return;
     }
@@ -23,7 +23,7 @@ export const useUser = create((set) => ({
       funct: LoginService(email, password)
     });
 
-    console.log(result);
+    console.log(result.user);
 
     if (!result) {
       return;
@@ -31,6 +31,8 @@ export const useUser = create((set) => ({
 
     set({ user: result.user });
     set({ token: result.token });
+
+    navigate("/home");
   },
   signup: async ( data ) => {
     
@@ -43,8 +45,8 @@ export const useUser = create((set) => ({
     })
     set({ user });
   },
-  logout: async () => {
-    set({ user: {} });
+  logout: () => {
+    set({ user: null });
     set({ token: "" });
   }
 }));
@@ -68,9 +70,8 @@ export const useUserStore = create((set) => ({
 
   fetchUser: async (id) => {
     const user = await GetUserById(id);
-    console.log(user);
     set({ user });
-    await set((state) => {
+    set((state) => {
       const updatedInputs = state.inputs.map((input) => ({
         ...input,
         value: user[input.name] || "",
