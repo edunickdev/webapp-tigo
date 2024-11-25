@@ -1,3 +1,4 @@
+import { User } from '@nextui-org/react';
 import { Document, Page, View, Text, Image, StyleSheet } from '@react-pdf/renderer';
 
 
@@ -436,8 +437,6 @@ formRow_header_firma:{
   padding:0,
   margin:0,
 },
-
-
 formRow_header_1:{
   width:'50%',
   flexDirection:'row',
@@ -523,6 +522,12 @@ const TestPage = ({user}) => (<Document>
       <View style={styles.contenedor}>
         <View style={styles.formRow} >
             <View style={[styles.tableCol,  { width: '50%'}]}>
+            <View style={[styles.border_left, { width: '50%', flexDirection: 'row', justifyContent: 'flex-end' }]}>
+            <Image
+              style={styles.image}
+              src="" // Reemplaza con la URL de tu imagen
+            />
+            </View>
               <Text style={styles.text_header}>
                 ANEXO DE ENTREGAS AL TRABAJADOR DE  EQUIPOS HERRAMIENTAS Y FACILIDADES
                 OPERATIVAS
@@ -536,7 +541,7 @@ const TestPage = ({user}) => (<Document>
                     <Text >Préstamo</Text>
                 </View>
               <View style={styles.checkboxLabel} >
-                <Text>Ciudad:  </Text>
+                <Text>Ciudad:{' '}{user.ciudad}  </Text>
               </View>
               <View style={styles.checkboxLabel} >
                 <Text >OC o Ticket: </Text>
@@ -547,7 +552,7 @@ const TestPage = ({user}) => (<Document>
             <View >
               <Text style={[styles.text]}>
                 DATOS DEL USUARIO
-                {user.nombre}
+                
               </Text>
             </View>
         </View>
@@ -558,7 +563,7 @@ const TestPage = ({user}) => (<Document>
                 {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
               </View>
               <View style={styles.tableCol_2}>
-                <Text style={styles.tableCell}>Nombre del Usuario:</Text>
+                <Text style={styles.tableCell}>Nombre del Usuario:{' '}{user.nombre}</Text>
                 {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
               </View>
           </View>
@@ -566,39 +571,40 @@ const TestPage = ({user}) => (<Document>
         
         <View style={styles.tableRow2}>
             <View style={styles.tableCol_3} >
-              <Text>Propiedad del Equipo:</Text>
+              <Text>Propiedad del Equipo:{' '}{user.propiedad = user.propiedad == 1 ? 'colsubsidio' : user.propiedad == 2 ? 'PCCOM' : user.propiedad}
+              </Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
             <View style={styles.tableCol_3} >
-              <Text># Identificación:</Text>
+              <Text># Identificación:{' '}{user.id}</Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
             <View style={styles.tableCol_3}>
-              <Text># Celular:</Text>
+              <Text># Celular:{' '}{user.celular}</Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
         </View>
         <View style={styles.tableRow2}>
             <View style={styles.tableCol_3}>
-              <Text >Cargo:</Text>
+              <Text >Cargo:{' '}{user.cargo}</Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
             <View style={styles.tableCol_3}>
-              <Text>Centro de Costos:</Text>
+              <Text>Centro de Costos:{' '}{user.centrocostos}</Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
             <View style={styles.tableCol_3}>
-              <Text>Centro Logistico:</Text>
+              <Text>Centro Logistico:{' '}{user.centrologistico}</Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
         </View>
         <View style={styles.tableRow2}>
             <View style={styles.tableCol_3_1}>
-              <Text>Sede:</Text>
+              <Text>Sede:{' '}{user.sede}</Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
             <View style={styles.tableCol_3_2}>
-              <Text>Dirección:</Text>
+              <Text>Dirección:{' '}{user.sede}</Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
             <View style={styles.tableCol_3_3}>
@@ -609,22 +615,22 @@ const TestPage = ({user}) => (<Document>
     
         <View style={styles.tableRow2}>
             <View style={styles.tableCol_4_1}>
-              <Text style={styles.tableCell}>Jefe Inmediato:</Text>
+              <Text style={styles.tableCell}>Jefe Inmediato:{' '}{user.jefe}</Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
             <View style={styles.tableCol_4_2}>
-              <Text style={styles.tableCell}>Gerencia:</Text>
+              <Text style={styles.tableCell}>Gerencia:{' '}{user.gerencia}</Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
             <View style={styles.tableCol_4_3}>
-              <Text style={styles.tableCell}>Usuario de Red:</Text>
+              <Text style={styles.tableCell}>Usuario de Red:{' '}{user.usuariored}</Text>
               {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
             </View>
         </View>
         <View >
           <View style={styles.tableRow5} >
               <View style={styles.tableCol_5_1}>
-                <Text >Modalidad de Trabajo:</Text>
+                <Text >Modalidad de Trabajo:{' '}{user.modalidad}</Text>
               </View>
               <View style={styles.tableCol_5_2}>     
                 <Text >Presencial </Text>

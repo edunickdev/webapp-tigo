@@ -1,5 +1,7 @@
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { useUserStore } from "../context/stores";
+import React, { useState } from 'react';
+
 
 export const DatosUser = () => {
   const user = useUserStore((state) => state.user);
@@ -13,49 +15,49 @@ export const DatosUser = () => {
             <span className="text-start">
               <b>Fecha:</b> {user.fecha}
             </span>
-            <span className="text-start">
-              <b>Nombre: </b> {user.nombre}
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Nombre del usuario: </b> {user.nombre}
             </span>
-            <span className="text-start">
-              <b>Propiedad: </b> {user.propiedad}
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Propiedad del equipo: </b> {user.propiedad}
             </span>
-            <span className="text-start">
-              <b>Identificación: </b> {user.id}
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700"># Identificación: </b> {user.id}
             </span>
-            <span className="text-start">
-              <b>Celular: </b> {user.celular}
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700"># Celular: </b> {user.celular}
             </span>
-            <span className="text-start">
-              <b>Cargo: </b> {user.cargo}
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Cargo: </b> {user.cargo}
             </span>
-            <span className="text-start">
-              <b>Centro </b>de Costos: {user.centrocostos}
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Centro de Costos: </b>{user.centrocostos}
             </span>
           </div>
           <div className="col-span-5 flex flex-col justify-start">
-            <span className="text-start">
-              <b>Centro Logístico: </b> {user.centrologistico}
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Centro Logístico: </b> {user.centrologistico}
             </span>
-            <span className="text-start">
-              <b>Sede: </b>
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Sede: </b>
               {user.sede}
             </span>
-            <span className="text-start">
-              <b>Dirección: </b>
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Dirección: </b>
               {user.direccion}
             </span>
-            <span className="text-start">
-              <b>Ubicación: </b>
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Ubicación: </b>
               {user.ciudad}
             </span>
-            <span className="text-start">
-              <b>Modalidad de trabajo: </b> {user.modalidad}
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Modalidad de trabajo: </b> {user.modalidad}
             </span>
-            <span className="text-start">
-              <b>Facilidades operativas: </b> {user.facilidades}
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Facilidades operativas: </b> {user.facilidades}
             </span>
-            <span className="text-start">
-              <b>Tipo de contrato: </b> {user.tipocontrato}
+            <span className="text-start  text-neutral-950">
+              <b className=" text-gray-700">Tipo de contrato de usuario: </b> {user.tipocontrato}
             </span>
           </div>
           <div className="col-span-1"></div>

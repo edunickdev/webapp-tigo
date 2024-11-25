@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 export const EquipoOld = () => {
     const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ export const EquipoOld = () => {
         puntored_a: '',
         serialmon_a: '',
         modelomon_a: '',
+        puntored_a: '',
         otroscelular_a: '',
         placaotros_a: '',
         marcaotros_a: '',
@@ -37,6 +39,10 @@ export const EquipoOld = () => {
         observacion_a: '',
     });
 
+    const { register, handleSubmit,
+        formState: { errors }
+    } = useForm();
+
     const handleChange = (e) => {
         const { name, type, value, checked } = e.target;
         setFormData({
@@ -46,246 +52,68 @@ export const EquipoOld = () => {
     };
 
     return (
-        <div className="mt-8 p-4 bg-gray-100 rounded-lg shadow-md">
+        <div className="container mx-auto mt-8 p-4 bg-gray-100 rounded-lg shadow-md">
             <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold">DATOS DEL EQUIPO ANTERIOR (RENOVACIÓN O DEVOLUCIÓN)</h2>
+                <h2 className="text-2xl font-bold">DATOS DEL EQUIPO ANTERIOR (RENOVACION O DEVOLUCION)</h2>
+
             </div>
 
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit((data) => {
+                console.log(data)
+            })} className="space-y-6">
                 {/* Tipo de Elemento */}
-                <div className="border border-gray-300 p-4 rounded-md">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        <div className="col-span-1">
-                            <label className="block text-sm font-medium text-gray-700">Tipo de Elemento:</label>
-                            <div className="mt-2 space-y-2">
-                                <label className="inline-flex items-center">
-                                    <input
-                                        type="checkbox"
-                                        name="desktop_a"
-                                        checked={formData.desktop_a}
-                                        onChange={handleChange}
-                                        className="form-checkbox h-5 w-5 text-blue-600"
-                                    />
-                                    <span className="ml-2 text-gray-700">Escritorio</span>
-                                </label>
-                                <label className="inline-flex items-center">
-                                    <input
-                                        type="checkbox"
-                                        name="laptop_a"
-                                        checked={formData.laptop_a}
-                                        onChange={handleChange}
-                                        className="form-checkbox h-5 w-5 text-blue-600"
-                                    />
-                                    <span className="ml-2 text-gray-700">Portátil</span>
-                                </label>
-                                <label className="inline-flex items-center">
-                                    <input
-                                        type="checkbox"
-                                        name="tablet_a"
-                                        checked={formData.tablet_a}
-                                        onChange={handleChange}
-                                        className="form-checkbox h-5 w-5 text-blue-600"
-                                    />
-                                    <span className="ml-2 text-gray-700">Tablet</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        {/* Datos del Equipo */}
-                        <div className="col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">Placa</label>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div className="col-span-1 md:col-span-2">
+                        <label className="block text-sm font-medium text-gray-700">Tipo de Elemento</label>
+                        <div className="mt-2 space-y-1">
+                            <div className="inline-flex items-center">
                                 <input
-                                    type="text"
-                                    name="placa_a"
-                                    value={formData.placa_a}
-                                    onChange={handleChange}
-                                    maxLength="14"
-                                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                    type="checkbox"
+                                    className="form-checkbox h-5 w-5 text-blue-600"
+                                    {...register("desktop_a")}
                                 />
+                                <label className="ml-2 text-gray-700" htmlFor='desktop_a'>Escritorio</label>
                             </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">Marca</label>
-                                <select
-                                    name="marca_a"
-                                    value={formData.marca_a}
-                                    onChange={handleChange}
-                                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                >
-                                    <option value=""></option>
-                                    <option value="HEWLETT-PACKARD">HEWLETT-PACKARD</option>
-                                    <option value="LENOVO">LENOVO</option>
-                                    <option value="ASUS">ASUS</option>
-                                    <option value="ACER">ACER</option>
-                                    <option value="DELL">DELL</option>
-                                    <option value="TOUCH DYNAMIC">TOUCH DYNAMIC</option>
-                                    <option value="APPLE">APPLE</option>
-                                </select>
+                            <div className="inline-flex items-center ml-6">
+                                <input type="checkbox" name="laptop_a" className="form-checkbox h-5 w-5 text-blue-600"
+                                    {...register('laptop_a')} />
+                                <label className="ml-2 text-gray-700" htmlFor='laptop_a'>Portátil</label>
                             </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">Disco Duro (GB)</label>
-                                <input
-                                    type="text"
-                                    name="disco_a"
-                                    value={formData.disco_a}
-                                    onChange={handleChange}
-                                    maxLength="60"
-                                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                />
+                            <div className="inline-flex items-center ml-6">
+                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                    {...register('tablet_a')} />
+                                <label className="ml-2 text-gray-700 " htmlFor='tablet_a'>Tablet</label>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Otros datos */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">S/N</label>
-                        <input
-                            type="text"
-                            name="serial_a"
-                            value={formData.serial_a}
-                            onChange={handleChange}
-                            maxLength="60"
-                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                {/* Datos del Equipo */}
+                <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='placa_a'>Placa</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="123456..."
+                            {...register('placa_a', {
+                                required: true,
+                                minLength: 3,
+                                maxLength: 7
+                            })}
                         />
+                        {
+                            errors.placa_a?.type === "required" && <span className="text-xs font-medium text-red-700">la placa es requerida</span>
+                        }
+                        {
+                            errors.placa_a?.type === "minLength" && <span className="text-xs font-medium text-red-700">la placa debe tener al menos 3 caracteres</span>
+                        }
+                        {
+                            errors.placa_a?.type === "maxLength" && <span className="text-xs font-medium text-red-700">la placa debe tener maximo 7 caracteres</span>
+                        }
                     </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Modelo</label>
-                        <input
-                            type="text"
-                            name="modelo_a"
-                            value={formData.modelo_a}
-                            onChange={handleChange}
-                            maxLength="60"
-                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Memoria RAM</label>
-                        <input
-                            type="text"
-                            name="memoria_a"
-                            value={formData.memoria_a}
-                            onChange={handleChange}
-                            maxLength="60"
-                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                        />
-                    </div>
-                </div>
-
-                {/* Nombre de Máquina, MAC, IP */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Nombre de Máquina</label>
-                        <input
-                            type="text"
-                            name="nombre_equipo_a"
-                            value={formData.nombre_equipo_a}
-                            onChange={handleChange}
-                            maxLength="60"
-                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">MAC</label>
-                        <input
-                            type="text"
-                            name="mac_a"
-                            value={formData.mac_a}
-                            onChange={handleChange}
-                            maxLength="60"
-                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Dirección IP</label>
-                        <input
-                            type="text"
-                            name="ip_a"
-                            value={formData.ip_a}
-                            onChange={handleChange}
-                            maxLength="20"
-                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                        />
-                    </div>
-                </div>
-
-                {/* Monitor */}
-                <div className="border border-gray-300 p-4 rounded-md">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700">Monitor Placa</label>
-                            <input
-                                type="text"
-                                name="placamon_a"
-                                value={formData.placamon_a}
-                                onChange={handleChange}
-                                maxLength="14"
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700">Marca</label>
-                            <select
-                                name="marcamon_a"
-                                value={formData.marcamon_a}
-                                onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                            >
-                                <option value=""></option>
-                                <option value="HEWLETT-PACKARD">HEWLETT-PACKARD</option>
-                                <option value="LENOVO">LENOVO</option>
-                                <option value="ASUS">ASUS</option>
-                                <option value="ACER">ACER</option>
-                                <option value="DELL">DELL</option>
-                                <option value="TOUCH DYNAMIC">TOUCH DYNAMIC</option>
-                                <option value="APPLE">APPLE</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700">Punto de Red</label>
-                            <input
-                                type="text"
-                                name="puntored_a"
-                                value={formData.puntored_a}
-                                onChange={handleChange}
-                                maxLength="60"
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                            />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Otros dispositivos */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Otros Dispositivos (Celular)</label>
-                        <input
-                            type="text"
-                            name="otroscelular_a"
-                            value={formData.otroscelular_a}
-                            onChange={handleChange}
-                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Placa</label>
-                        <input
-                            type="text"
-                            name="placaotros_a"
-                            value={formData.placaotros_a}
-                            onChange={handleChange}
-                            maxLength="14"
-                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Marca</label>
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='marca_a'>Marca</label>
                         <select
-                            name="marcaotros_a"
-                            value={formData.marcaotros_a}
-                            onChange={handleChange}
+                            {...register('marca_a')}
+
                             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                         >
                             <option value=""></option>
@@ -298,20 +126,242 @@ export const EquipoOld = () => {
                             <option value="APPLE">APPLE</option>
                         </select>
                     </div>
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='disco_a'>Disco Duro (GB)</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="8 GB..."
+                            {...register('disco_a')}
+                        />
+                    </div>
+                </div>
+
+                {/* Resto de datos del equipo */}
+                <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='serial_a'>S/N</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="PF13GTY3 - 5CD420578T..."
+                            {...register('serial_a', {
+                                required: true
+                            })}
+                        />
+                        {
+                            errors.serial_a && <span className="text-xs font-medium text-red-700">el serial es requerido</span>
+                        }
+                    </div>
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='modelo_a'>Modelo</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="THINKPAD E490..."
+                            {...register('modelo_a', {
+                                required: true
+                            })}
+                        />
+                        {
+                            errors.modelo_a && <span className="text-xs font-medium text-red-700">el modelo es requerido</span>
+                        }
+                    </div>
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='memoria_a'>Memoria RAM</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="DDR3 - SRAM..."
+                            {...register('memoria_a')}
+                        />
+                    </div>
+                </div>
+
+                {/* Datos adicionales */}
+                <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='nombre_equipo_a'>Nombre de Máquina</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="BOGA08PP54TSYA..."
+                            {...register('nombre_equipo_a', {
+                                required: true
+                            })}
+                        />
+                        {
+                            errors.nombre_equipo_a && <span className="text-xs font-medium text-red-700">nombre maquina es requerida</span>
+                        }
+                    </div>
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='mac_a'>MAC</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="98-FB-9P-B2-L6-6C..."
+                            {...register('mac_a', {
+                                required: true
+                            })}
+                        />
+                        {
+                            errors.mac_a && <span className="text-xs font-medium text-red-700">el mac es requerido</span>
+                        }
+                    </div>
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='ip_a'>Dirección IP</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="192.168.1.52..."
+                            {...register('ip_a')}
+                        />
+                    </div>
+                </div>
+
+                {/* Monitor Section */}
+                <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+                    <div className="col-span-1 md:col-span-1">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='placamon_a'>Monitor Placa</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="123456..."
+                            {...register('placamon_a')}
+                        />
+                    </div>
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='marcamon_a'>Monitor Marca</label>
+                        <select
+                            {...register('marcamon_a')}
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                        >
+                            <option value=""></option>
+                            <option value="HEWLETT-PACKARD">HEWLETT-PACKARD</option>
+                            <option value="LENOVO">LENOVO</option>
+                            <option value="ASUS">ASUS</option>
+                            <option value="ACER">ACER</option>
+                            <option value="DELL">DELL</option>
+                            <option value="TOUCH DYNAMIC">TOUCH DYNAMIC</option>
+                            <option value="APPLE">APPLE</option>
+                        </select>
+                    </div>
+                    <div className="col-span-1">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='serialmon_a'>Monitor S/N</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="ESP8266 ARDUINO..."
+                            {...register('serialmon_a')}
+                        />
+                    </div>
+                    <div className="col-span-1">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='modelomon_a'>Monitor Modelo</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="KALLEY GAMER 27 P..."
+                            {...register('modelomon_a')}
+                        />
+                    </div>
+                    <div className="col-span-1">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='puntored_a'>Punto de Red</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="WIFI - VPN..."
+                            {...register('puntored_a')}
+                        />
+                    </div>
+                </div>
+
+                {/* Otros Dispositivos */}
+                <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+                    <div className="col-span-1">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='otroscelular_a'>Otros Dispositivos (Celular)</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="3157689032..."
+                            {...register('otroscelular_a')}
+                        />
+                    </div>
+                    <div className="col-span-1">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='placaotros_a'>Placa otros dispositivos</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="NP326NMPB..."
+                            {...register('placaotros_a')}
+                        />
+                    </div>
+                    <div className="col-span-2">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='marcaotros_a'>Marca otros dispositivos</label>
+                        <select
+                            {...register('marcaotros_a')}
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                            <option value=""></option>
+                            <option value="HEWLETT-PACKARD">HEWLETT-PACKARD</option>
+                            <option value="LENOVO">LENOVO</option>
+                            <option value="ASUS">ASUS</option>
+                            <option value="ACER">ACER</option>
+                            <option value="DELL">DELL</option>
+                            <option value="TOUCH DYNAMIC">TOUCH DYNAMIC</option>
+                            <option value="APPLE">APPLE</option>
+                        </select>
+                    </div>
+                    <div className="col-span-1">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='serialotros_a'>otros dispositivos S/N</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="359761920840193..."
+                            {...register('serialotros_a')}
+                        />
+                    </div>
+                    <div className="col-span-1">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='modelootros_a'>otros dispositivos Modelo</label>
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="SMARTPHONE REDMI NOTE 11 PRO..."
+                            {...register('modelootros_a')}
+                        />
+                    </div>
+                    <div className="col-span-12 border p-2">
+                        <label className="block text-sm font-medium text-gray-700">accesorios asignados</label>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('maletin_a')}
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='maletin_a'>= Maletín</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('guaya_a')}
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='guaya_a'>= Guaya</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('docking_a')}
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='docking_a'>= Docking</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('raton_a')}
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='raton_a'>= Mouse</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('base_a')}
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='base_a'>= Base</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('teclado_a')}
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='teclado_a'>= Teclado</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('cam_a')}
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='cam_a'>= Camara</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('diadema_a')}
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='diadema_a'>= Diadema</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('adaptador_a')}
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='adaptador_a'>= Adaptador</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                                {...register('otros_a')}
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='otros_a'>= Otro</label>
+                            <input className="ml-4" type="text" />
+                        </div>
+                    </div>
                 </div>
 
                 {/* Observaciones */}
+                <div className="grid grid-cols-1 gap-4">
+                    <div className="col-span-6">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor='observacion_a'>Observaciones</label>
+                        <textarea className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Observaciones..."
+                            {...register('observacion_a')}
+                        />
+                    </div>
+                </div>
                 <div>
-                    <label className="block text-sm font-medium text-gray-700">Observaciones</label>
-                    <textarea
-                        name="observacion_a"
-                        value={formData.observacion_a}
-                        onChange={handleChange}
-                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                        placeholder="Observaciones..."
-                    ></textarea>
+                    <button type='submit'>enviar</button>
                 </div>
             </form>
         </div>
-    );
-};
+    )
+}
