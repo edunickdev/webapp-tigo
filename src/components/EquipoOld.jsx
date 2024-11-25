@@ -20,7 +20,6 @@ export const EquipoOld = () => {
         puntored_a: '',
         serialmon_a: '',
         modelomon_a: '',
-        puntored_a: '',
         otroscelular_a: '',
         placaotros_a: '',
         marcaotros_a: '',
