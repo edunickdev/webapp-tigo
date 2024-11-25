@@ -10,13 +10,17 @@ import { IoSearchSharp } from "react-icons/io5";
 import logo from "../../assets/colsubsidio.jpg";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import TestPage from "../test";
-
+import { useForm } from "react-hook-form";
 
 export const CreateActa = () => {
   const fetchUser = useUserStore((state) => state.fetchUser);
   const [busqueda, setBusqueda] = useState("");
   const user = useUserStore((state) => state.user);
   const [state, setState] = useState(false);
+
+  const {register, handleSubmit, 
+    formState: {errors}
+ } = useForm();
 
   return (
     <div className="py-10 grid grid-cols-12">
@@ -25,11 +29,35 @@ export const CreateActa = () => {
       {/* <div className="col-span-5 flex justify-center items-center p-3"> */}
       <div className="col-span-5 flex justify-center items-center p-3">
         <h2 className="font-semibold text-lg">
-          ANEXO DE ENTREGAS AL TRABAJADOR DE EQUIPOS, HERRAMIENTAS Y FACILIDADES
-          OPERATIVAS
+          ANEXO DE ENTREGAS AL TRABAJADOR DE EQUIPOS, HERRAMIENTAS Y FACILIDADES OPERATIVAS
         </h2>
       </div>
-      <Input
+      <div>
+        <label className="flex justify-center " htmlFor="fecha">Fecha:</label>
+        <input className="col-span-4 " type="date"
+          {...register("fecha", {
+            required: {
+              value:true,
+              message: "fecha actual es requerida"
+            },
+          })
+           }
+        />
+      </div>
+      
+      <div className="col-span-3 flex justify-center items-center">
+        <img src={logo} className="w-40" alt="Logo" />
+      </div>
+      <HeaderActa />
+      <div className="col-span-1"></div>
+      <div className="col-span-10">
+        <Accordion variant="shadow">
+          <AccordionItem
+            key="1"
+            aria-label="Accordion 1"
+            title="Datos del Usuario"
+          >
+            <Input
         type="text"
         variant="bordered"
         label="Ingresa el Número de documento o Serial"
@@ -47,18 +75,6 @@ export const CreateActa = () => {
           </Button>
         }
       />
-      <div className="col-span-3 flex justify-center items-center">
-        <img src={logo} className="w-40" alt="Logo" />
-      </div>
-      <HeaderActa />
-      <div className="col-span-1"></div>
-      <div className="col-span-10">
-        <Accordion variant="shadow">
-          <AccordionItem
-            key="1"
-            aria-label="Accordion 1"
-            title="Datos del Usuario"
-          >
             <DatosUser />
           </AccordionItem>
           <AccordionItem
