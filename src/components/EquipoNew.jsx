@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
-import {useForm} from 'react-hook-form';
+import { useForm } from "react-hook-form";
+import { Checkbox } from "@nextui-org/react";
+import { useState } from "react";
 
 export const EquipoNew = () => {
-    const {register, handleSubmit, 
-        formState: {errors}
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
     } = useForm();
 
+    const [selected, setSelected] = useState(null);
 
-    // TODO: el proposito de este componente es hacerlo mas optimo, esto implica pensar si seria conveniente crear en componentes mas pequeños que sean reautilizables
-    // así que es hay que revisarlo.
+    const handleSelect = (value) => {
+        setSelected(value);
+    };
 
     return (
         <div className="container mx-auto mt-8 p-4 bg-gray-100 rounded-lg shadow-md">
@@ -17,48 +22,55 @@ export const EquipoNew = () => {
                 <h3 className="text-lg mt-2">Datos del Equipo Nuevo</h3>
             </div>
 
-            <form onSubmit={handleSubmit((data)=>{
-                console.log(data)
-            })} className="space-y-6">
+            <form
+                onSubmit={handleSubmit((data) => {
+                    console.log(data);
+                })}
+                className="space-y-6"
+            >
                 {/* Tipo de Elemento */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div className="col-span-1 md:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">Tipo de Elemento</label>
+                        <div className="col-span-12 flex justify-center items-center p-5 gap-x-5">
+                            <Checkbox
+                                value="desktop_n"
+                                isSelected={selected === "desktop_n"}
+                                onValueChange={() => handleSelect("desktop_n")}
+                            >
+                                Escritorio
+                            </Checkbox>
+                            <Checkbox
+                                value="laptop_n"
+                                isSelected={selected === "laptop_n"}
+                                onValueChange={() => handleSelect("laptop_n")}
+                            >
+                                Portatil
+                            </Checkbox>
+                            <Checkbox
+                                value="tablet_n"
+                                isSelected={selected === "tablet_n"}
+                                onValueChange={() => handleSelect("tablet_n")}
+                            >
+                                Tablet
+                            </Checkbox>
 
-                        {/*  TODO: aislar este componente y manejar el estado, solo deberia aceptar dejar seleccionado 1, no todos a la vez  */}
-                        <div className="mt-2 space-y-1">
-                            <div className="inline-flex items-center">
-                                <input 
-                                    type="checkbox" 
-                                    className="form-checkbox h-5 w-5 text-blue-600" 
-                                    {...register("desktop_n")}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='desktop_n'>Escritorio</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" name="laptop_n"  className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('laptop_n')} />
-                                <label className="ml-2 text-gray-700" htmlFor='laptop_n'>Portátil</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('tablet_n')} />
-                                <label className="ml-2 text-gray-700 " htmlFor='tablet_n'>Tablet</label>
-                            </div>
                         </div>
                     </div>
                 </div>
+
 
                 {/* Datos del Equipo */}
                 <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
                     <div className="col-span-2">
                         {/* TODO: crear un componente reutilizable que permita reutilizar este componente dado que se repite en muchas casi el mismo codigo en muchas partes */}
                         <label className="block text-sm font-medium text-gray-700" htmlFor='placa_n'>Placa</label>
-                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="123456..." 
-                        {...register('placa_n', {required: true,
-                            minLength: 3,
-                            maxLength: 7
-                        })} 
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="123456..."
+                            {...register('placa_n', {
+                                required: true,
+                                minLength: 3,
+                                maxLength: 7
+                            })}
                         />
                         {
                             errors.placa_n?.type === "required" && <span className="text-xs font-medium text-red-700">la placa es requerida</span>
@@ -69,16 +81,16 @@ export const EquipoNew = () => {
                         {
                             errors.placa_n?.type === "maxLength" && <span className="text-xs font-medium text-red-700">la placa debe tener maximo 7 caracteres</span>
                         }
-                </div>
+                    </div>
                     <div className="col-span-2">
                         {/* TODO: de cara a que estos datos se van a almacenar en la base de datos y se tiene una tabla de marcas, mas que la palabra nombre de la marca, 
                         se requiere tener el indice, al igual que seria mas util cargar esta lista desde la base de datos y no quemarlos, es decir se necesita hacer 
                         la peticion a la base de datos para que sirva todas las marcas existentes */ }
                         <label className="block text-sm font-medium text-gray-700" htmlFor='marca_n'>Marca</label>
-                        <select 
+                        <select
                             {...register('marca_n')}
 
-                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                         >
                             <option value=""></option>
                             <option value="HEWLETT-PACKARD">HEWLETT-PACKARD</option>
@@ -93,7 +105,7 @@ export const EquipoNew = () => {
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='disco_n'>Disco Duro (GB)</label>
                         <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="8 GB..."
-                        {...register('disco_n')}
+                            {...register('disco_n')}
                         />
                     </div>
                 </div>
@@ -103,9 +115,9 @@ export const EquipoNew = () => {
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='serial_n'>S/N</label>
                         <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="PF13GTY3 - 5CD420578T..."
-                        {...register('serial_n', { 
-                            required: true
-                        })}
+                            {...register('serial_n', {
+                                required: true
+                            })}
                         />
                         {
                             errors.serial_n && <span className="text-xs font-medium text-red-700">el serial es requerido</span>
@@ -113,10 +125,10 @@ export const EquipoNew = () => {
                     </div>
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='modelo_n'>Modelo</label>
-                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="THINKPAD E490..." 
-                        {...register('modelo_n', { 
-                            required: true
-                        })}
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="THINKPAD E490..."
+                            {...register('modelo_n', {
+                                required: true
+                            })}
                         />
                         {
                             errors.modelo_n && <span className="text-xs font-medium text-red-700">el modelo es requerido</span>
@@ -125,7 +137,7 @@ export const EquipoNew = () => {
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='memoria_n'>Memoria RAM</label>
                         <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="DDR3 - SRAM..."
-                        {...register('memoria_n')}
+                            {...register('memoria_n')}
                         />
                     </div>
                 </div>
@@ -134,10 +146,10 @@ export const EquipoNew = () => {
                 <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='nombre_equipo_n'>Nombre de Máquina</label>
-                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="BOGA08PP54TSYA..." 
-                        {...register('nombre_equipo_n', { 
-                            required: true
-                        })}
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="BOGA08PP54TSYA..."
+                            {...register('nombre_equipo_n', {
+                                required: true
+                            })}
                         />
                         {
                             errors.nombre_equipo_n && <span className="text-xs font-medium text-red-700">nombre maquina es requerida</span>
@@ -146,9 +158,9 @@ export const EquipoNew = () => {
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='mac_n'>MAC</label>
                         <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="98-FB-9P-B2-L6-6C..."
-                        {...register('mac_n', { 
-                            required: true
-                        })}
+                            {...register('mac_n', {
+                                required: true
+                            })}
                         />
                         {
                             errors.mac_n && <span className="text-xs font-medium text-red-700">el mac es requerido</span>
@@ -157,7 +169,7 @@ export const EquipoNew = () => {
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='ip_n'>Dirección IP</label>
                         <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="192.168.1.52..."
-                        {...register('ip_n')}
+                            {...register('ip_n')}
                         />
                     </div>
                 </div>
@@ -167,14 +179,14 @@ export const EquipoNew = () => {
                     <div className="col-span-1 md:col-span-1">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='placamon_n'>Monitor Placa</label>
                         <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="123456..."
-                        {...register('placamon_n')}
+                            {...register('placamon_n')}
                         />
                     </div>
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='marcamon_n'>Monitor Marca</label>
-                        <select 
+                        <select
                             {...register('marcamon_n')}
-                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                         >
                             <option value=""></option>
                             <option value="HEWLETT-PACKARD">HEWLETT-PACKARD</option>
@@ -188,19 +200,19 @@ export const EquipoNew = () => {
                     </div>
                     <div className="col-span-1">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='serialmon_n'>Monitor S/N</label>
-                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="ESP8266 ARDUINO..." 
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="ESP8266 ARDUINO..."
                             {...register('serialmon_n')}
                         />
                     </div>
                     <div className="col-span-1">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='modelomon_n'>Monitor Modelo</label>
-                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="KALLEY GAMER 27 P..." 
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="KALLEY GAMER 27 P..."
                             {...register('modelomon_n')}
                         />
                     </div>
                     <div className="col-span-1">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='puntored_n'>Punto de Red</label>
-                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="WIFI - VPN..." 
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="WIFI - VPN..."
                             {...register('puntored_n')}
                         />
                     </div>
@@ -216,7 +228,7 @@ export const EquipoNew = () => {
                     </div>
                     <div className="col-span-1">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='placaotros_n'>Placa otros dispositivos</label>
-                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="NP326NMPB..." 
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="NP326NMPB..."
                             {...register('placaotros_n')}
                         />
                     </div>
@@ -224,7 +236,7 @@ export const EquipoNew = () => {
                         <label className="block text-sm font-medium text-gray-700" htmlFor='marcaotros_n'>Marca otros dispositivos</label>
                         <select
                             {...register('marcaotros_n')}
-                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md">
                             <option value=""></option>
                             <option value="HEWLETT-PACKARD">HEWLETT-PACKARD</option>
                             <option value="LENOVO">LENOVO</option>
@@ -249,75 +261,75 @@ export const EquipoNew = () => {
                     </div>
                     <div className="col-span-12 border p-2">
                         <label className="block text-sm font-medium text-gray-700">accesorios asignados</label>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
                                 {...register('maletin_n')}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='maletin_n'>= Maletín</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='maletin_n'>= Maletín</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
                                 {...register('guaya_n')}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='guaya_n'>= Guaya</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='guaya_n'>= Guaya</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
                                 {...register('docking_n')}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='docking_n'>= Docking</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='docking_n'>= Docking</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
                                 {...register('raton_n')}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='raton_n'>= Mouse</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='raton_n'>= Mouse</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
                                 {...register('base_n')}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='base_n'>= Base</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='base_n'>= Base</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
                                 {...register('teclado_n')}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='teclado_n'>= Teclado</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='teclado_n'>= Teclado</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
                                 {...register('cam_n')}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='cam_n'>= Camara</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='cam_n'>= Camara</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
                                 {...register('diadema_n')}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='diadema_n'>= Diadema</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='diadema_n'>= Diadema</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
                                 {...register('adaptador_n')}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='adaptador_n'>= Adaptador</label>
-                            </div>
-                            <div className="inline-flex items-center ml-6">
-                                <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" 
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='adaptador_n'>= Adaptador</label>
+                        </div>
+                        <div className="inline-flex items-center ml-6">
+                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
                                 {...register('otros_n')}
-                                />
-                                <label className="ml-2 text-gray-700" htmlFor='otros_n'>= Otro</label>
-                                <input className="ml-4" type="text" />
-                            </div>
+                            />
+                            <label className="ml-2 text-gray-700" htmlFor='otros_n'>= Otro</label>
+                            <input className="ml-4" type="text" />
                         </div>
                     </div>
-                               
+                </div>
+
                 {/* Observaciones */}
                 <div className="grid grid-cols-1 gap-4">
                     <div className="col-span-6">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='observacion_n'>Observaciones</label>
-                        <textarea className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Observaciones..." 
+                        <textarea className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Observaciones..."
                             {...register('observacion_n')}
                         />
                     </div>
@@ -327,5 +339,6 @@ export const EquipoNew = () => {
                 </div>
             </form>
         </div>
-    )
-}
+    );
+};
+
