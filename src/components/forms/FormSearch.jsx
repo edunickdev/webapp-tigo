@@ -80,11 +80,11 @@ export const FormSearch = () => {
         color="primary"
       >
         <TableHeader>
-          <TableColumn className="text-center">Nombre del usuario</TableColumn>
+          <TableColumn className="text-center">Acta / usuario</TableColumn>
           <TableColumn className="text-center">
-            Identificación del usuario
+            Serial Equipo
           </TableColumn>
-          <TableColumn className="text-center">Acciones</TableColumn>
+          <TableColumn className="text-center"></TableColumn>
         </TableHeader>
         <TableBody>
           <TableRow>
