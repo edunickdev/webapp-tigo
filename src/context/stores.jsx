@@ -9,6 +9,8 @@ import { LoginService } from "../services/auth_services/login_services";
 import { notify } from "../helpers/notifications";
 import { GetEquipmentBySerial } from "../services/equipment_service/equipment_services"
 import { SignUpService } from "../services/auth_services/signup_services";
+import { fetchBrands } from "../services/equipment_service/brands_service";
+
 
 export const useUser = create((set) => ({
   user: null,
@@ -24,6 +26,7 @@ export const useUser = create((set) => ({
     });
 
     console.log(result.user);
+    console.log(result.token);
 
     if (!result) {
       return;
@@ -91,6 +94,9 @@ export const useUserStore = create((set) => ({
   deleteUser: async(user) => {
     await DeleteUser(user);
     set({ user: null })
+  },
+  resetUser: () => {
+    set({ user: null });
   }
 }));
 
@@ -120,7 +126,7 @@ export const useEquipmentStore = create((set) => ({
     set({ equipment });
     set((state) => {
       const updatedInputs = state.inputs.map((input) => ({
-        ...input,
+        ...input, 
         value: equipment[input.name] || "",
       }));
 
@@ -142,3 +148,32 @@ export const useEquipmentStore = create((set) => ({
     set({ equipment: null })
   }
 }));
+
+
+export const useBrandsStore = create((set) => ({
+  brands: [],
+  brand: null,
+  fetchMarcas: async () => {
+    try {
+      const response = await fetchBrands();
+      set({ brands: response.data["response"] });
+    } catch (error) {
+      console.error("Error fetching brands:", error);
+    }
+  },
+  setBrand: (brand) => {
+    set({ brand });
+  },
+}));
+
+
+export const useNewEquipmentStore = create((set) => ({
+  newEquipment: {},
+  setNewEquipment: (newEquipment) => {
+    set({ newEquipment });
+  },
+  resetNewEquipment: () => {
+    set({ newEquipment: {} });
+  },
+}));
+
