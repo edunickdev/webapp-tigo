@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const GetUserById = async (id) => {
   const response = await axios
-    .get(`http://localhost:8000/api/usuario/${id}`)
+    .get(`http://localhost:8000/api/usuario/${id}/`)
     .then((res) => {
       return res.data;
     })
@@ -67,3 +67,15 @@ export const DeleteUser = async (usr) => {
   );
   return response.data;
 }
+
+// export const GetUsuarioByIdentificacion = async (identificacion) => {
+//   const response = await axios
+//     .get(`http://localhost:8000/api/usuarios/${identificacion}/`)
+//     .then((res) => {
+//       return res.data;
+//     })
+//     .catch((err) => {
+//       throw err;
+//     });
+//   return response;
+// };
