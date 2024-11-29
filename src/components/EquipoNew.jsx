@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Checkbox } from "@nextui-org/react";
+import { useBrandsStore, useNewEquipmentStore } from "../context/stores";
 import { useState } from "react";
 
 export const EquipoNew = () => {
@@ -15,6 +16,10 @@ export const EquipoNew = () => {
         setSelected(value);
     };
 
+    const brands = useBrandsStore((state) => state.brands);
+
+    const setEquipment = useNewEquipmentStore((state) => state.setNewEquipment);
+
     return (
         <div className="container mx-auto mt-8 p-4 bg-gray-100 rounded-lg shadow-md">
             <div className="text-center mb-6">
@@ -24,7 +29,7 @@ export const EquipoNew = () => {
 
             <form
                 onSubmit={handleSubmit((data) => {
-                    console.log(data);
+                    setEquipment(data);
                 })}
                 className="space-y-6"
             >
@@ -89,17 +94,13 @@ export const EquipoNew = () => {
                         <label className="block text-sm font-medium text-gray-700" htmlFor='marca_n'>Marca</label>
                         <select
                             {...register('marca_n')}
-
                             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                         >
-                            <option value=""></option>
-                            <option value="HEWLETT-PACKARD">HEWLETT-PACKARD</option>
-                            <option value="LENOVO">LENOVO</option>
-                            <option value="ASUS">ASUS</option>
-                            <option value="ACER">ACER</option>
-                            <option value="DELL">DELL</option>
-                            <option value="TOUCH DYNAMIC">TOUCH DYNAMIC</option>
-                            <option value="APPLE">APPLE</option>
+                            {
+                                brands && brands.map((brand, index) => (
+                                    <option key={index} value={brand}>{brand}</option>
+                                ))
+                            }
                         </select>
                     </div>
                     <div className="col-span-2">
@@ -188,14 +189,11 @@ export const EquipoNew = () => {
                             {...register('marcamon_n')}
                             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                         >
-                            <option value=""></option>
-                            <option value="HEWLETT-PACKARD">HEWLETT-PACKARD</option>
-                            <option value="LENOVO">LENOVO</option>
-                            <option value="ASUS">ASUS</option>
-                            <option value="ACER">ACER</option>
-                            <option value="DELL">DELL</option>
-                            <option value="TOUCH DYNAMIC">TOUCH DYNAMIC</option>
-                            <option value="APPLE">APPLE</option>
+                            {
+                                brands && brands.map((brand, index) => (
+                                    <option key={index} value={index}>{brand}</option>
+                                ))
+                            }
                         </select>
                     </div>
                     <div className="col-span-1">
@@ -237,14 +235,11 @@ export const EquipoNew = () => {
                         <select
                             {...register('marcaotros_n')}
                             className="mt-1 block w-full p-2 border border-gray-300 rounded-md">
-                            <option value=""></option>
-                            <option value="HEWLETT-PACKARD">HEWLETT-PACKARD</option>
-                            <option value="LENOVO">LENOVO</option>
-                            <option value="ASUS">ASUS</option>
-                            <option value="ACER">ACER</option>
-                            <option value="DELL">DELL</option>
-                            <option value="TOUCH DYNAMIC">TOUCH DYNAMIC</option>
-                            <option value="APPLE">APPLE</option>
+                            {
+                                brands && brands.map((brand, index) => (
+                                    <option key={index} value={index}>{brand}</option>
+                                ))
+                            }
                         </select>
                     </div>
                     <div className="col-span-1">

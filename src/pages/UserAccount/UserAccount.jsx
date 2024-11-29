@@ -17,8 +17,6 @@ const UserAccount = () => {
       <p className="text-center text-6xl font-bold mb-6 text-blue-50 col-span-12">
         ¿Qué quieres hacer?
       </p>
-  
-      {/* Primera sección */}
       <section className="grid grid-cols-12 col-span-12">
         <div className="col-span-1"></div>
         <div className="col-span-10 grid grid-cols-10 gap-x-5">
@@ -31,3 +29,5 @@ const UserAccount = () => {
     </div>
   );
 }
+
+export default UserAccount;

@@ -4,8 +4,8 @@ import { EquipoNew } from "../../components/EquipoNew";
 import { EquipoOld } from "../../components/EquipoOld";
 import { Aplicaciones } from "../../components/Aplicaciones";
 import { Accordion, AccordionItem, Button, Input } from "@nextui-org/react";
-import { useUserStore } from "../../context/stores";
-import { useState } from "react";
+import { useBrandsStore, useNewEquipmentStore, useUserStore } from "../../context/stores";
+import { useEffect, useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import logo from "../../assets/colsubsidio.jpg";
 import { PDFDownloadLink } from "@react-pdf/renderer";
@@ -16,11 +16,31 @@ export const CreateActa = () => {
   const fetchUser = useUserStore((state) => state.fetchUser);
   const [busqueda, setBusqueda] = useState("");
   const user = useUserStore((state) => state.user);
+  const clearUser = useUserStore((state) => state.resetUser);
   const [state, setState] = useState(false);
 
+  const fetchMarcas = useBrandsStore((state) => state.fetchMarcas);
+
+  const handleBrands = async () => {
+    await fetchMarcas();
+  }
+
+  useEffect(() => {
+    handleBrands();
+  }, []);
+  
   const {register, handleSubmit, 
     formState: {errors}
- } = useForm();
+  } = useForm();
+
+  const equipment = useNewEquipmentStore((state) => state.newEquipment);
+  const clearEquipment = useNewEquipmentStore((state) => state.resetNewEquipment);
+
+  const handleData = (data) => {
+    clearUser();
+    clearEquipment();
+    setState(true);
+  }
 
   return (
     <div className="py-10 grid grid-cols-12">
@@ -41,7 +61,7 @@ export const CreateActa = () => {
               message: "fecha actual es requerida"
             },
           })
-           }
+          }
         />
       </div>
       
@@ -93,7 +113,7 @@ export const CreateActa = () => {
             <Aplicaciones />
           </AccordionItem>
         </Accordion>
-        <Button isDisabled={user ? false : true} onPress={() => setState(true)} >
+        <Button isDisabled={user && equipment ? false : true} onPress={() => setState(true)} >
           Generar Acta
         </Button>
       </div>
@@ -101,7 +121,7 @@ export const CreateActa = () => {
 
       {state ? (
         <PDFDownloadLink
-          document={<TestPage user={user} />}
+          document={<TestPage user={user} equipment={equipment} />}
           fileName="prueba.pdf"
           className="col-span-12 w-full h-96"
         >
