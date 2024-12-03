@@ -1,517 +1,551 @@
 import { Document, Page, View, Text, Image, StyleSheet } from '@react-pdf/renderer';
+// import { Aplicaciones } from '../components/Aplicaciones';
+import logo from "../assets/colsubsidio.jpg";
+import logoDos from "../assets/somos.jpg";
 
 const styles = StyleSheet.create({
   page: {
     padding: 40,
   },
-  contenedor:{
-    margin:0,
-    border:1,
-    borderColor:'000',
-    fontSize:8,
-    fontWeight:'bold'
+  contenedor: {
+    margin: 0,
+    border: 1,
+    borderColor: '000',
+    fontSize: 8,
+    fontWeight: 'bold',
   },
-  height20:{
-    height:27,
+  height20: {
+    height: 27,
   },
   border_left: {
-    borderLeft:1,
+    borderLeft: 1,
   },
   border_right: {
-    borderRight:1,
+    borderRight: 1,
+  },
+  textBold: {
+    fontWeight: "bold", 
+    fontSize: 8,
   },
   formRow: {
-    fontSize:8,
+    fontSize: 8,
     flexDirection: 'row',
-    border:1,
-    width:'100%',
-    height:50
+    border: 1,
+    width: '100%',
+    height: 50
   },
-  formcolumn:{
-    fontSize:8,
-    border:1,
-    padding:10,
+  formcolumn: {
+    fontSize: 8,
+    border: 1,
+    padding: 10,
   },
   formRow_5: {
     flexDirection: 'row',
-    width:'100%',
-    textAlign:'center'
+    width: '100%',
+    textAlign: 'center',
+    height: 16,
   },
-  text_header:{
-  fontSize:8,
-  textAlign:'center',
-  padding:5,
-  marginTop:15,
+  text_header: {
+    fontSize: 8,
+    textAlign: 'center',
+    padding: 5,
+    marginTop: 15,
   },
   checkboxLabel: {
-  fontSize: 8,
-  flexDirection:'row',
-  justifyContent:'space-between',
-  padding:5,
-  paddingRight:20,
-  borderBottom:1
-},
-text:{
-  padding:3,
-},
-contenedor__text:{
-  marginTop:15,
-  gap:5,
-},
-tablebackground:{
-  fontSize: 8,
-  height:16,
-  borderBottom:1,
-  backgroundColor:'#B3B2AE',
-  textAlign:'center',
-},
-tablebackground_2:{
-  fontSize: 8,
-  height:14,
-  paddingTop:3,
-  borderBottom:1,
-  borderLeft:1,
-  backgroundColor:'#B3B2AE',
-  textAlign:'center',
-},
-tablebackground_5:{
-  fontSize: 8,
-  height:16,
-  backgroundColor:'#B3B2AE',
-  paddingTop:5,
-  margin:0
-},
-tableCol_1:{
-  width:'38%',
-  fontSize:8,
-  fontWeight:"bold",
-  borderRight:1,
-  padding: 5,
+    fontSize: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 5,
+    paddingRight: 20,
+    borderBottom: 1
+  },
+  text: {
+    padding: 3,
+  },
+  contenedor__text: {
+    marginTop: 15,
+    gap: 5,
+  },
+  tablebackground: {
+    fontSize: 8,
+    height: 16,
+    borderBottom: 1,
+    backgroundColor: '#B3B2AE',
+    textAlign: 'center',
+  },
+  tablebackground_2: {
+    fontSize: 8,
+    height: 14,
+    paddingTop: 3,
+    borderBottom: 1,
+    borderLeft: 1,
+    backgroundColor: '#B3B2AE',
+    textAlign: 'center',
+  },
+  tablebackground_5: {
+    fontSize: 8,
+    height: 16,
+    backgroundColor: '#B3B2AE',
+    paddingTop: 5,
+    margin: 0
+  },
+  tableCol_1: {
+    width: '38%',
+    fontSize: 8,
+    fontWeight: "bold",
+    borderRight: 1,
+    padding: 4,
 
-},
-tableCol_2:{
-  fontSize:8,
-  textAlign:"center",
-  padding: 5,
-  fontWeight:'extrabold'
-},
-tableRow2: {
-  fontSize:8,
-  width:'100%',
-  flexDirection: 'row',
-  borderBottom:1,
-  height:25,
-  // justifyContent:'space-between',
+  },
+  tableCol_2: {
+    fontSize: 8,
+    textAlign: "center",
+    padding: 5,
+    fontWeight: 'extrabold'
+  },
+  tableRow2: {
+    fontSize: 8,
+    width: '100%',
+    flexDirection: 'row',
+    borderBottom: 1,
+    height: 25,
+    // justifyContent:'space-between',
 
-},
-tableCol_3: {
-  width: '34%',
-  borderRightWidth: 1,
-  borderRightColor: '#000',
-  padding: 5,
-},
-tableCol_3_1: {
-  width: '36%',
-  borderRightWidth: 1,
-  borderRightColor: '#000',
-  padding: 5,
-},
-tableCol_3_2: {
-  width: '44%',
-  borderRightWidth: 1,
-  borderRightColor: '#000',
-  padding: 5,
-},
-tableCol_3_3: {
-  width: '15%',
-  borderRightColor: '#000',
-  textAlign:'left',
-  padding: 5,
+  },
+  tableCol_3: {
+    width: '34%',
+    borderRightWidth: 1,
+    borderRightColor: '#000',
+    padding: 5,
+  },
+  tableCol_3_1: {
+    width: '36%',
+    borderRightWidth: 1,
+    borderRightColor: '#000',
+    padding: 5,
+  },
+  tableCol_3_2: {
+    width: '44%',
+    borderRightWidth: 1,
+    borderRightColor: '#000',
+    padding: 5,
+  },
+  tableCol_3_3: {
+    width: '15%',
+    borderRightColor: '#000',
+    textAlign: 'left',
+    padding: 5,
 
-},
-tableCol_4_1:{
-  width:"50%",
-  padding: 5,
-  borderRight:1,
-  borderLeft:1
-},
-tableCol_4_2:{
-  width:'25%',
-  padding: 5,
-  borderRight:1
+  },
+  tableCol_4_1: {
+    width: "50%",
+    padding: 5,
+    borderRight: 1,
+    borderLeft: 1
+  },
+  tableCol_4_2: {
+    width: '25%',
+    padding: 5,
+    borderRight: 1
 
 
-},
-tableCol_4_3:{
-  width:'25%',
-  padding: 5,
+  },
+  tableCol_4_3: {
+    width: '25%',
+    padding: 5,
 
-},
-tableRow5: {
-  fontSize:8,
-  borderBottom:1,
-  width:'100%',
-  flexDirection: 'row',
-  height:20,
-  textAlign:'center'
-},
-tableCol_5_1:{
-  width:'34%',
-  borderRight:1,
-  padding:5
+  },
+  tableRow5: {
+    fontSize: 8,
+    borderBottom: 1,
+    width: '100%',
+    flexDirection: 'row',
+    height: 20,
+    textAlign: 'center'
+  },
+  tableCol_5_1: {
+    width: '34%',
+    borderRight: 1,
+    padding: 5
 
-},
-tableCol_5_2:{
-  width:'16%',
-  borderRight:1,
-  padding:5
+  },
+  tableCol_5_2: {
+    width: '16%',
+    borderRight: 1,
+    padding: 5
 
-},
-tableCol_5_3:{
-  width:'25%',
-  borderRight:1,
-  padding:3
+  },
+  tableCol_5_3: {
+    width: '25%',
+    borderRight: 1,
+    padding: 3
 
-},
-tableCol_5_4:{
-  width:'25%',
-  borderRight:1,
-  padding:3
+  },
+  tableCol_5_4: {
+    width: '25%',
+    borderRight: 1,
+    padding: 3
 
-},
-tableCol_6_1:{
-  width:'34%',
-  borderRight:1,
-  padding:3,
+  },
+  tableCol_6_1: {
+    width: '34%',
+    borderRight: 1,
+    padding: 3,
 
-},
-tableCol_6_2:{
-  width:'30%',
-  borderRight:1,
-  flexDirection:'row',
-  padding:3,
-  gap:19
-},
-tableCol_6_4:{
-  padding:3,
-},
-container__datos_equipos:{
-  flexDirection:'row',
-  fontSize:8,
-  padding:0,
-  margin:0
+  },
+  tableCol_6_2: {
+    width: '30%',
+    borderRight: 1,
+    flexDirection: 'row',
+    padding: 3,
+    gap: 19
+  },
+  tableCol_6_4: {
+    padding: 3,
+  },
+  container__datos_equipos: {
+    flexDirection: 'row',
+    fontSize: 8,
+    padding: 0,
+    margin: 0
 
-},
-datos_equipos:{
-  width:'20%',
-  padding:0,
-  margin:0,
-},
-equipos:{
-  borderBottom:1,
-  borderRight:1,
-  width:'100%',
-  height:90,
-  padding:8,
-},
-equipos__monitor:{
-  borderBottom:1,
-  borderRight:1,
-  width:'100%',
-  height:40,
-  padding:8,
-},
-datos_equipos_1:{
-  marginTop:5,
+  },
+  datos_equipos: {
+    width: '20%',
+    padding: 0,
+    margin: 0,
+  },
+  equipos: {
+    borderBottom: 1,
+    borderRight: 1,
+    width: '100%',
+    height: 60,
+    padding: 8,
+  },
+  equipos__monitor: {
+    borderBottom: 1,
+    borderRight: 1,
+    width: '100%',
+    height: 40,
+    padding: 5,
+  },
+  datos_equipos_1: {
+    marginTop: 5,
 
-},
-celular:{
-  paddingTop:10
-},
-datos__equipos_placa:{
-  width:'10%',
-},
-datos__equipos_placa_2:{
-  width:'18%',
-},
-datos__equipos_text:{
-  borderRight:1,
-  borderBottom:1,
-  padding:4,
-  margin:0,
-  height:30
-},
-datos__equipos_text_2:{
-  borderRight:1,
-  borderBottom:1,
-  padding:4,
-  margin:0,
-  height:20
-},
-datos__equipos_memoria:{
-  flexDirection:'row',
+  },
+  celular: {
+    paddingTop: 10
+  },
+  datos__equipos_placa: {
+    width: '10%',
+  },
+  datos__equipos_placa_2: {
+    width: '18%',
+  },
+  datos__equipos_text: {
+    borderRight: 1,
+    borderBottom: 1,
+    padding: 4,
+    margin: 0,
+    height: 20,
+  },
+  datos__equipos_text_2: {
+    borderRight: 1,
+    borderBottom: 1,
+    padding: 4,
+    margin: 0,
+    height: 20
+  },
+  datos__equipos_memoria: {
+    margin: 0,
+    padding: 0,
+    borderLeft: 1,
+  },
 
-},
-datos__equipos_memoria_1:{
-  width:"50%",
-  margin:0,
-  padding:0,
-  borderLeft:1
-},
-datos__equipos_memoria_disco:{
-  borderBottom:1,
-  padding:2.6,
-  margin:0
-},
-b:{
-  width:'30%',
-},
-contenedor__accesorios:{
-  height:96,
-  borderBottom:1,
-  paddingLeft:10,
-  gap:5
-},
-accesorios:{
-  flexDirection:'row',
-  marginTop:5,
-  gap:5
-},
-accesorios_2:{
-  flexDirection:'row',
-  marginTop:5,
-  gap:18
-},
-formRow4: {
-  fontSize:8,
-  flexDirection: 'row',
-  borderBottom:1,
-  borderLeft:1,
-  borderRight:1,
-  width:'100%',
-  textAlign:'center',
-  height:16, 
-},
-formRow4_pruebas: {
-  fontSize:8,
-  flexDirection: 'row',
-  borderBottom:1,
-  borderLeft:1,
-  borderRight:1,
-  width:'100%',
-  textAlign:'center',
-  height:80, 
-},
-contenedor_formRow5:{
-  margin:0,
-  padding:0
-},
-formRow5: {
-  border:1,
-  fontSize:8,
-  flexDirection: 'row',
-  backgroundColor:'#B3B2AE',
-  textAlign:'center',
-  height:16,
-  marginTop:40
-},
-formRow4_1:{
-  width:'42%',
-  borderRight:1,
-  textAlign:'start',
-  paddingTop:5,
-},
-formRow4_1_pruebas_b:{
-  width:'82%',
-  borderRight:1,
-  paddingTop:5,
-  backgroundColor:'#B3B2AE',
-  textAlign:'center'
-},
-formRow4_1_observaciones:{
-  width:'82%',
-  borderRight:1,
-  textAlign:'start',
-  paddingTop:5,
-},
-formRow4_1_1:{
-  width:'42%',
-  borderRight:1,  
-  textAlign:'center',
-  paddingTop:3,
-},
-formRow4_2:{
-  width:'20%',
-  borderRight:1,
-  paddingTop:3,
-},
-formRow4_3:{
-  borderRight:1,
-  width:'38%',
-  paddingTop:3,
-},
-formRow4_3_i:{
-  borderRight:1,
-  width:'20%',
-  padding:3,
-  textAlign:'start',
-},
-formRow4_3_i_1:{
-  borderRight:1,
-  width:'4%',
-  paddingTop:3,
-  textAlign:'start',
-},
-formRow4_3_pruebas:{
-  width:'48%',
-  paddingTop:3,
-  backgroundColor:'#B3B2AE',
-},
-formRow4_3_pruebas_b:{
-  width:'48%',
-  paddingTop:3,
-},
-formRow4_3_pruebas_c:{
-  width:'48%',
-  paddingTop:3,
-  textAlign:'start',
-  backgroundColor:'#B3B2AE',
-},
-formRow4_3_pruebas_c_b:{
-  width:'48%',
-  paddingTop:3,
-  textAlign:'center',
-  backgroundColor:'#B3B2AE',
-},
-formRow4_3_observaciones:{
-  width:'48%',
-  gap:10,
-  paddingTop:3,
-},
-formRow4_3_C:{
-  borderRight:1,
-  width:'38%',
-  paddingTop:3,
-  textAlign:'start',
-  paddingLeft:5
-},
-formRow4_3_3:{
-  borderRight:1,
-  width:'38%',
-  paddingTop:3,
-  backgroundColor:'#B3B2AE',
+  datos__equipos_memoria_1: {
+    width: "50%",
+    margin: 0,
+    padding: 0,
+    borderLeft: 1,
+  },
+  datos__equipos_memoria_disco: {
+    // width: "40%",
+    borderRight: 1,
+    padding: 0,
+    margin: 0,
+  },
+  b: {
+    width: '30%',
+  },
+  contenedor__accesorios: {
+    height: 60,
+    borderBottom: 1,
+    paddingLeft: 10,
+    gap: 5,
+  },
+  accesorios: {
+    flexDirection: 'row',
+    marginTop: 5,
+    gap: 10,
+  },
+  accesorios_2: {
+    flexDirection: 'row',
+    marginTop: 5,
+    gap: 10,
+  },
+  formRow4: {
+    fontSize: 8,
+    flexDirection: 'row',
+    borderBottom: 1,
+    borderLeft: 1,
+    borderRight: 1,
+    width: '100%',
+    textAlign: 'center',
+    height: 16,
+  },
+  formRow4_pruebas: {
+    fontSize: 8,
+    flexDirection: 'row',
+    borderBottom: 1,
+    borderLeft: 1,
+    borderRight: 1,
+    width: '100%',
+    textAlign: 'center',
+    height: 50,
+  },
+  contenedor_formRow5: {
+    margin: 0,
+    padding: 0,
+  },
+  formRow5: {
+    border: 1,
+    fontSize: 8,
+    flexDirection: 'row',
+    backgroundColor: '#B3B2AE',
+    textAlign: 'center',
+    height: 16,
+    marginTop: 0,
+  },
+  formRow4_1: {
+    width: '34%',
+    borderRight: 1,
+    textAlign: 'start',
+    paddingTop: 5,
+  },
+  formRow4_1_pruebas_b: {
+    width: '82%',
+    borderRight: 1,
+    paddingTop: 5,
+    backgroundColor: '#B3B2AE',
+    textAlign: 'center'
+  },
+  formRow4_1_observaciones: {
+    width: '82%',
+    borderRight: 1,
+    textAlign: 'start',
+    paddingTop: 5,
+  },
+  formRow4_1_1: {
+    width: '42%',
+    borderRight: 1,
+    textAlign: 'center',
+    paddingTop: 3,
+  },
+  formRow4_2: {
+    width: '20%',
+    borderRight: 1,
+    paddingTop: 3,
+  },
+  formRow4_3: {
+    borderRight: 1,
+    width: '38%',
+    paddingTop: 3,
+  },
+  formRow4_3_i: {
+    borderRight: 1,
+    width: '20%',
+    padding: 3,
+    textAlign: 'start',
+  },
+  formRow4_3_i_1: {
+    borderRight: 1,
+    width: '4%',
+    paddingTop: 3,
+    textAlign: 'start',
+  },
+  formRow4_3_pruebas: {
+    width: '48%',
+    paddingTop: 3,
+    backgroundColor: '#B3B2AE',
+  },
+  formRow4_3_pruebas_b: {
+    width: '48%',
+    paddingTop: 3,
+  },
+  formRow4_3_pruebas_c: {
+    width: '48%',
+    paddingTop: 3,
+    textAlign: 'start',
+  },
+  formRow4_3_pruebas_c_b: {
+    width: '48%',
+    paddingTop: 3,
+    textAlign: 'center',
+    backgroundColor: '#B3B2AE',
+  },
+  formRow4_3_observaciones: {
+    width: '48%',
+    gap: 10,
+    paddingTop: 3,
+  },
+  formRow4_3_C: {
+    borderRight: 1,
+    width: '38%',
+    paddingTop: 3,
+    textAlign: 'start',
+    paddingLeft: 5
+  },
+  formRow4_3_3: {
+    borderRight: 1,
+    width: '38%',
+    paddingTop: 3,
+    backgroundColor: '#B3B2AE',
 
-},
-formRow4_4:{
-  width:'10%',
-  paddingTop:3,
-},
-formRow4_4_4:{
-  width:'10%',
-  paddingTop:3,
-  backgroundColor:'#B3B2AE',
+  },
+  formRow4_4: {
+    width: '10%',
+    paddingTop: 3,
+  },
+  formRow4_4_4: {
+    width: '10%',
+    paddingTop: 3,
+    backgroundColor: '#B3B2AE',
 
-},
-formRow_header:{
-  flexDirection:'row',
-  border:1,
-  fontSize:8,
-  padding:5
-},
-formRow_header_22:{
-  flexDirection:'row',
-  textAlign:'center',
-  borderRight:1,
-  borderLeft:1,
-  fontSize:10,
-  padding:0,
-  margin:0,
-},
-formRow_header_firma:{
-  flexDirection:'row',
-  textAlign:'center',
+  },
+  formRow_header: {
+    flexDirection: 'row',
+    border: 1,
+    fontSize: 8,
+    padding: 5
+  },
+  formRow_header_22: {
+    flexDirection: 'row',
+    textAlign: 'center',
+    borderRight: 1,
+    borderLeft: 1,
+    fontSize: 10,
+    padding: 0,
+    margin: 0,
+  },
+  formRow_header_firma: {
+    flexDirection: 'row',
+    textAlign: 'center',
 
-  fontSize:10,
-  padding:0,
-  margin:0,
-},
-formRow_header_1:{
-  width:"50%",
-  flexDirection:'row',
-  paddingTop:8,
-  gap:100,
-},
+    fontSize: 10,
+    padding: 0,
+    margin: 0,
+  },
+  formRow_header_1: {
+    width: "50%",
+    flexDirection: 'row',
+    paddingTop: 8,
+    gap: 100,
+  },
 
-formRow_header_2:{
-  width:"50%",
+  formRow_header_2: {
+    width: "50%",
 
-},
-formRow_header_1_1:{
-  width:"50%",
-  flexDirection:'row',
-  backgroundColor:'#B3B2AE',
-  padding:2,
-  borderRight:1,
+  },
+  formRow_header_1_1: {
+    width: "50%",
+    flexDirection: 'row',
+    backgroundColor: '#B3B2AE',
+    padding: 2,
+    borderRight: 1,
 
-},
-formRow_header_firma_1_1:{
-  width:"50%",
-  borderBottom:1,
-  height:50,
-  paddingLeft:10,
-  textAlign:'start',
-  paddingTop:34,
-  borderLeft:1,
-  borderRight:1
-},
-formRow_header_firma_2_1:{
-  width:"50%",
-  borderBottom:1,  
-  height:50,
-  paddingLeft:10,
-  textAlign:'start',
-  paddingTop:34,
-  borderRight:1
-},
-formRow_header_nombre_1_1:{
-  width:"50%",
-  borderBottom:1,
-  height:16,
-  textAlign:'start',
-  borderLeft:1,
-  borderRight:1,
-  paddingLeft:10,
-  paddingTop:2
-},
-formRow_header_nombre_2_1:{
-  width:"50%",
-  borderBottom:1,  
-  textAlign:'start',
-  paddingTop:34,
-  borderRight:1
-},
-formRow_header_2_2:{
-  width:"50%",
-  backgroundColor:'#B3B2AE',
-  padding:2,
-},
+  },
+  formRow_header_firma_1_1: {
+    width: "50%",
+    borderBottom: 1,
+    height: 50,
+    paddingLeft: 10,
+    textAlign: 'start',
+    paddingTop: 34,
+    borderLeft: 1,
+    borderRight: 1
+  },
+  formRow_header_firma_2_1: {
+    width: "50%",
+    borderBottom: 1,
+    height: 50,
+    paddingLeft: 10,
+    textAlign: 'start',
+    paddingTop: 34,
+    borderRight: 1
+  },
+  formRow_header_nombre_1_1: {
+    width: "50%",
+    borderBottom: 1,
+    height: 16,
+    textAlign: 'start',
+    borderLeft: 1,
+    borderRight: 1,
+    paddingLeft: 10,
+    paddingTop: 2
+  },
+  formRow_header_nombre_2_1: {
+    width: "50%",
+    borderBottom: 1,
+    textAlign: 'start',
+    paddingTop: 34,
+    borderRight: 1
+  },
+  formRow_header_2_2: {
+    width: "50%",
+    backgroundColor: '#B3B2AE',
+    padding: 2,
+  },
 
-text2:{
-  margin:0,
-  paddingBottom:-2
-},
-button:{
-},
-text_footer:{
-  fontSize:8,
-  marginTop:20
-},
+  text2: {
+    margin: 0,
+    paddingBottom: -2
+  },
+  button: {
+  },
+  text_footer: {
+    fontSize: 8,
+    marginTop: 20,
+  },
 
+  textpagi: {
+    fontSize: 7,
+    textAlign: "center",
+    marginTop: 10,
+  },
+
+  image: {
+    position: "absolute",
+    top: 10, // Distancia desde el borde superior
+    right: 50, // Distancia desde el borde derecho
+    width: 50,
+    height: 50,
+  },
+
+  imageDos: {
+    position: "absolute",
+    bottom: 10, // Distancia desde el borde inferior
+    right: 50, // Distancia desde el borde derecho
+    width: 50,
+    height: 50,
+  },
 });
 
 const TestPage = ({ user, equipment }) => (
   <Document>
     <Page style={styles.page}>
+      <Text style={styles.textpagi}>pagina 1 de 2</Text>
+      <Image src={logo} style={styles.image} />
+
       <View style={styles.contenedor}>
         <View style={styles.formRow}>
           <View style={[styles.tableCol, { width: "50%" }]}>
@@ -525,6 +559,7 @@ const TestPage = ({ user, equipment }) => (
                 },
               ]}
             >
+
             </View>
             <Text style={styles.text_header}>
               ANEXO DE ENTREGAS AL TRABAJADOR DE EQUIPOS HERRAMIENTAS Y
@@ -570,16 +605,13 @@ const TestPage = ({ user, equipment }) => (
           <View style={styles.tableCol_3}>
             <Text>
               Propiedad del Equipo:{" "}
-              {
-                (user.propiedad_equipo =
-                  user.propiedad_equipo == 1
-                    ? "colsubsidio"
-                    : user.propiedad_equipo == 2
-                    ? "PCCOM"
-                    : user.propiedad_equipo)
-              }
+              {user.propiedad_equipo == 1
+                ? "Colsubsidio"
+                : user.propiedad_equipo == 2
+                  ? "PCCOM"
+                  : "Sin especificar"}
             </Text>
-            {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
+
           </View>
           <View style={styles.tableCol_3}>
             <Text># Identificación: {user.id}</Text>
@@ -714,18 +746,18 @@ const TestPage = ({ user, equipment }) => (
               {/* columna numero 1 comienza y fila numero 1 */}
               <View style={styles.equipos}>
                 <View>
-                  <Text>Tipo de Elemento:</Text>
+                  <Text style={styles.textBold}>Tipo de Elemento:</Text>
                   <View style={styles.datos_equipos_1}>
-                    <Text>Escritorio: </Text>
-                    <Text>Portátil: </Text>
-                    <Text>Tablet: </Text>
+                    <Text style={styles.textBold}>Escritorio:</Text>
+                    <Text style={styles.textBold}>Portátil:</Text>
+                    <Text style={styles.textBold}>Tablet: </Text>
                   </View>
                 </View>
               </View>
               {/* columna numero 1 termina*/}
               {/* fila  numero 2 comienza */}
               <View style={styles.equipos__monitor}>
-                <Text>Monitor</Text>
+                <Text>Monitor:</Text>
               </View>
 
               {/* fila  numero 3 comienza */}
@@ -746,7 +778,7 @@ const TestPage = ({ user, equipment }) => (
             </View>
             {/* columna numero 2 comienza */}
             <View style={styles.datos__equipos_placa}>
-              <Text style={styles.datos__equipos_text}>Placa: {equipment.placa_n} </Text>
+              <Text style={styles.datos__equipos_text}>Placa:  </Text>
               <Text style={styles.datos__equipos_text}>S/N:</Text>
               <Text style={styles.datos__equipos_text}>Nombre de Máquina:</Text>
               <Text style={styles.datos__equipos_text_2}>Placa:</Text>
@@ -757,20 +789,18 @@ const TestPage = ({ user, equipment }) => (
             {/* columna numero 2 termina*/}
             {/* columna numero 3 comienza*/}
             <View style={styles.datos__equipos_placa_2}>
-              <Text style={styles.datos__equipos_text}>
-                {"Aqui va la data"}
-              </Text>
-              <Text style={styles.datos__equipos_text}> </Text>
-              <Text style={styles.datos__equipos_text}> </Text>
-              <Text style={styles.datos__equipos_text_2}> </Text>
-              <Text style={styles.datos__equipos_text_2}> </Text>
-              <Text style={styles.datos__equipos_text_2}> </Text>
-              <Text style={styles.datos__equipos_text_2}> </Text>
+              <Text style={styles.datos__equipos_text}>{equipment.placa_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.serial_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.nombre_equipo_n}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.placamon_n}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.serialmon_n}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.placaotros_n}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.serialotros_n}</Text>
             </View>
             {/* columna numero 3 termina*/}
             {/* columna numero 4 comienza*/}
             <View style={styles.datos__equipos_placa}>
-              <Text style={styles.datos__equipos_text}>Marca: {equipment.marca_n} </Text>
+              <Text style={styles.datos__equipos_text}>Marca: </Text>
               <Text style={styles.datos__equipos_text}>Modelo:</Text>
               <Text style={styles.datos__equipos_text}>MAC:</Text>
               <Text style={styles.datos__equipos_text_2}>Marca:</Text>
@@ -781,50 +811,34 @@ const TestPage = ({ user, equipment }) => (
             {/* columna numero 4 termina*/}
             {/* columna numero 5 comienza*/}
             <View style={styles.datos__equipos_placa_2}>
-              <Text style={styles.datos__equipos_text}></Text>
-              <Text style={styles.datos__equipos_text}></Text>
-              <Text style={styles.datos__equipos_text}></Text>
-              <Text style={styles.datos__equipos_text_2}></Text>
-              <Text style={styles.datos__equipos_text_2}></Text>
-              <Text style={styles.datos__equipos_text_2}></Text>
-              <Text style={styles.datos__equipos_text_2}></Text>
+              <Text style={styles.datos__equipos_text}>{equipment.marca_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.modelo_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.mac_n}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.marcamon_n}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.modelomon_n}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.marcaotros_n}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.modelootros_n}</Text>
             </View>
             {/* columna numero 5 termina*/}
 
             <View style={styles.b}>
               <View style={styles.datos__equipos_memoria}>
                 <View style={styles.datos__equipos_memoria_1}>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    Disco Duro: (GB){" "}
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    Memoria RAM:{" "}
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    Dirección IP:
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    Punto de Red:{" "}
-                  </Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>Disco Duro: (GB){" "}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>Memoria RAM:{" "}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>Dirección IP:</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>Punto de Red:{" "}</Text>
                 </View>
                 <View style={styles.datos__equipos_memoria_1}>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    {"data    "}
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    {"data    "}
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    {"data    "}
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    {"data    "}
-                  </Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.disco_n}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.memoria_n}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.ip_n}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.puntored_n}</Text>
                 </View>
               </View>
               <View>
                 <Text style={[styles.tablebackground_2]}>
-                  ACCESORIOS ASIGNADOS
+                  <b>ACCESORIOS ASIGNADOS</b>
                 </Text>
                 <View style={styles.contenedor__accesorios}>
                   <View style={styles.accesorios}>
@@ -838,13 +852,12 @@ const TestPage = ({ user, equipment }) => (
                     <Text>Teclado:{"---"} </Text>
                   </View>
                   <View style={styles.accesorios}>
+
                     <Text>Cámara: {"---"}</Text>
                     <Text>Diadema:{"---"}</Text>
                   </View>
                   <View style={styles.accesorios}>
                     <Text>Adaptador: {"---"}</Text>
-                  </View>
-                  <View style={styles.accesorios}>
                     <Text>Otro</Text>
                     <Text>{"__________________________"}</Text>
                   </View>
@@ -907,15 +920,13 @@ const TestPage = ({ user, equipment }) => (
             {/* columna numero 2 termina*/}
             {/* columna numero 3 comienza*/}
             <View style={styles.datos__equipos_placa_2}>
-              <Text style={styles.datos__equipos_text}>
-                {"Aqui va la data"}
-              </Text>
-              <Text style={styles.datos__equipos_text}> </Text>
-              <Text style={styles.datos__equipos_text}> </Text>
-              <Text style={styles.datos__equipos_text_2}> </Text>
-              <Text style={styles.datos__equipos_text_2}> </Text>
-              <Text style={styles.datos__equipos_text_2}> </Text>
-              <Text style={styles.datos__equipos_text_2}> </Text>
+              <Text style={styles.datos__equipos_text}>{equipment.placa_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.serial_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.nombre_equipo_a}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.placamon_a}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.serialmon_a}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.placaotros_a}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.serialotros_a}</Text>
             </View>
             {/* columna numero 3 termina*/}
             {/* columna numero 4 comienza*/}
@@ -931,13 +942,13 @@ const TestPage = ({ user, equipment }) => (
             {/* columna numero 4 termina*/}
             {/* columna numero 5 comienza*/}
             <View style={styles.datos__equipos_placa_2}>
-              <Text style={styles.datos__equipos_text}></Text>
-              <Text style={styles.datos__equipos_text}></Text>
-              <Text style={styles.datos__equipos_text}></Text>
-              <Text style={styles.datos__equipos_text_2}></Text>
-              <Text style={styles.datos__equipos_text_2}></Text>
-              <Text style={styles.datos__equipos_text_2}></Text>
-              <Text style={styles.datos__equipos_text_2}></Text>
+              <Text style={styles.datos__equipos_text}>{equipment.marca_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.modelo_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.mac_a}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.marcamon_a}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.modelomon_a}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.marcaotros_a}</Text>
+              <Text style={styles.datos__equipos_text_2}>{equipment.modelootros_a}</Text>
             </View>
             {/* columna numero 5 termina*/}
 
@@ -958,18 +969,10 @@ const TestPage = ({ user, equipment }) => (
                   </Text>
                 </View>
                 <View style={styles.datos__equipos_memoria_1}>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    {"data    "}
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    {"data    "}
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    {"data    "}
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    {"data    "}
-                  </Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.disco_a}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.memoria_a}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.ip_a}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.puntored_a}</Text>
                 </View>
               </View>
               <View>
@@ -1020,7 +1023,7 @@ const TestPage = ({ user, equipment }) => (
           <View style={[styles.formRow4, { width: "100%" }]}>
             {/* filas*/}
             <Text style={styles.formRow4_1}>Sistema Operativo:</Text>
-            <Text style={styles.formRow4_2}></Text>
+            <Text style={styles.formRow4_2}>{ }</Text>
             <Text style={styles.formRow4_2}></Text>
             <Text style={styles.formRow4_3}></Text>
             <Text style={styles.formRow4_4}></Text>
@@ -1200,6 +1203,9 @@ const TestPage = ({ user, equipment }) => (
                 artículos 18 y 19.
               </Text>
             </View>
+            
+              <Image src={logoDos} style={styles.imageDos} />
+            
             <View style={[styles.contenedor__text]}>
               <Text> - Responsabilidad en cuanto a medidas de seguridad: </Text>
               <Text>
@@ -1226,6 +1232,11 @@ const TestPage = ({ user, equipment }) => (
                 claves de usuario a sistemas de información y del software
                 corporativo.
               </Text>
+              <View style={styles.content}>
+                <Text style={styles.textpagi}>pagina 2 de 2</Text>
+              </View>
+              <Image src={logo} style={styles.image} />
+
               <Text>
                 {" "}
                 - Responsabilidad en cuanto a medidas de Salud y Seguridad en el
@@ -1336,10 +1347,10 @@ const TestPage = ({ user, equipment }) => (
 
             <View style={styles.formRow_header_firma}>
               <Text style={styles.formRow_header_nombre_1_1}>
-                Nombre Completo: {"MANUEL FERNANDO SUAREZ SANCHEZ"}
+                Nombre Completo: {user.nombre}
               </Text>
               <Text style={styles.formRow_header_nombre_1_1}>
-                Nombre Completo:{"LIZ CAROL MOLINA RINCON"}
+                Nombre Completo:{user.first_name}
               </Text>
             </View>
             <View style={styles.formRow_header_22}>
@@ -1355,10 +1366,10 @@ const TestPage = ({ user, equipment }) => (
 
             <View style={styles.formRow_header_firma}>
               <Text style={styles.formRow_header_nombre_1_1}>
-                Nombre Completo: {"MANUEL FERNANDO SUAREZ SANCHEZ"}
+                Nombre Completo: { }
               </Text>
               <Text style={styles.formRow_header_nombre_1_1}>
-                Nombre Completo:{"LIZ CAROL MOLINA RINCON"}
+                Nombre Completo:{user.jefe_inmediato}
               </Text>
             </View>
           </View>
@@ -1413,12 +1424,14 @@ const TestPage = ({ user, equipment }) => (
                 alterna su jornada laboral con trabajo presencial en la sede de
                 Colsubsidio y el domicilio del trabajador registrado.{" "}
               </Text>
+              
+                <Image src={logoDos} style={styles.imageDos} />
             </View>
           </View>
         </View>
       </View>
     </Page>
-  </Document>
+  </Document >
 );
 
 export default TestPage;

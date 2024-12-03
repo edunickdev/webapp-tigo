@@ -10,8 +10,19 @@ import { notify } from "../helpers/notifications";
 import { GetEquipmentBySerial } from "../services/equipment_service/equipment_services"
 import { SignUpService } from "../services/auth_services/signup_services";
 import { fetchBrands } from "../services/equipment_service/brands_service";
+import axios from "axios";
 
-
+export const useEquipmentStore = create((set) => ({
+  equipment: null,
+  saveEquipment: async (equipmentData) => {
+      try {
+          const newEquipment = await SaveEquipment(equipmentData);
+          set({ equipment: newEquipment });
+          console.log("Equipo guardado correctamente:", newEquipment);
+      } catch (error) {
+          console.error("Error al guardar el equipo:", error);
+      }
+  
 export const useUser = create((set) => ({
   user: null,
   token: "",
