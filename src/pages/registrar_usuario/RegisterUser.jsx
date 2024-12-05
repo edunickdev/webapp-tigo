@@ -15,6 +15,7 @@ import FormButtonComponent from "./FormButtonModal";
 import { MdDelete, MdEdit } from "react-icons/md";
 import DeleteButtonModal from "./DeleteButtonModal";
 
+
 export const RegisterUser = () => {
   const usr = useUser((state) => state.user);
   const user = useUserStore((state) => state.user);
@@ -42,6 +43,8 @@ export const RegisterUser = () => {
           </Button>
         }
       />
+
+
       <div className="col-span-4"></div>
       <div className="col-span-2"></div>
       <Table

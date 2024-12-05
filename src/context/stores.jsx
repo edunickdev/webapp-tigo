@@ -12,60 +12,6 @@ import { SignUpService } from "../services/auth_services/signup_services";
 import { fetchBrands } from "../services/equipment_service/brands_service";
 import axios from "axios";
 
-export const useEquipmentStore = create((set) => ({
-  equipment: null,
-  saveEquipment: async (equipmentData) => {
-      try {
-          const newEquipment = await SaveEquipment(equipmentData);
-          set({ equipment: newEquipment });
-          console.log("Equipo guardado correctamente:", newEquipment);
-      } catch (error) {
-          console.error("Error al guardar el equipo:", error);
-      }
-  
-export const useUser = create((set) => ({
-  user: null,
-  token: "",
-  login: async ( email, password, navigate ) => {
-    if (email === "" || password === "") {
-      return;
-    }
-
-    const result = await notify({
-      messageList: ["Iniciando sesión", "Inicio de sesión exitoso", "Error al iniciar sesión"],
-      funct: LoginService(email, password)
-    });
-
-    console.log(result.user);
-    console.log(result.token);
-
-    if (!result) {
-      return;
-    }
-
-    set({ user: result.user });
-    set({ token: result.token });
-
-    navigate("/home");
-  },
-  signup: async ( data ) => {
-    
-    if (data.name === "" || data.lastname === "" || data.email === "" || data.password === "") {
-      return;
-    }
-    const user = await notify({
-      messageList: ["Registrando usuario", "Usuario registrado", "Error al registrar usuario"],
-      funct: SignUpService(data.name, data.lastname, data.email, data.password)
-    })
-    set({ user });
-  },
-  logout: () => {
-    set({ user: null });
-    set({ token: "" });
-  }
-}));
-
-
 export const useUserStore = create((set) => ({
   user: null,
   inputs: [
@@ -111,7 +57,6 @@ export const useUserStore = create((set) => ({
   }
 }));
 
-
 export const useEquipmentStore = create((set) => ({
   equipment: null,
   inputs: [
@@ -137,10 +82,9 @@ export const useEquipmentStore = create((set) => ({
     set({ equipment });
     set((state) => {
       const updatedInputs = state.inputs.map((input) => ({
-        ...input, 
+        ...input,
         value: equipment[input.name] || "",
       }));
-
       console.log(updatedInputs);
       return { inputs: updatedInputs };
     });
@@ -154,12 +98,11 @@ export const useEquipmentStore = create((set) => ({
     await CreateEquipment(equipment);
   },
 
-  deleteEquipment: async(equipment) => {
+  deleteEquipment: async (equipment) => {
     await DeleteEquipment(equipment);
-    set({ equipment: null })
+    set({ equipment: null });
   }
 }));
-
 
 export const useBrandsStore = create((set) => ({
   brands: [],
@@ -188,3 +131,45 @@ export const useNewEquipmentStore = create((set) => ({
   },
 }));
 
+
+export const useUser = create((set) => ({
+  user: null,
+  token: "",
+  login: async ( email, password, navigate ) => {
+    if (email === "" || password === "") {
+      return;
+    }
+
+    const result = await notify({
+      messageList: ["Iniciando sesión", "Inicio de sesión exitoso", "Error al iniciar sesión"],
+      funct: LoginService(email, password)
+    });
+
+    console.log(result.user);
+    console.log(result.token);
+
+    if (!result) {
+      return;
+    }
+
+    set({ user: result.user });
+    set({ token: result.token });
+
+    navigate("/home");
+  },
+  signup: async ( data ) => {
+    
+    if (data.name === "" || data.lastname === "" || data.email === "" || data.password === "") {
+      return;
+    }
+    const user = await notify({
+      messageList: ["Registrando usuario", "Usuario registrado", "Error al registrar usuario"],
+      funct: SignUpService(data.name, data.lastname, data.email, data.password)
+    })
+    set({ user });
+  },
+  logout: () => {
+    set({ user: null });
+    set({ token: "" });
+  }
+}));
