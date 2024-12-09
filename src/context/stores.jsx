@@ -9,55 +9,7 @@ import { LoginService } from "../services/auth_services/login_services";
 import { notify } from "../helpers/notifications";
 import { GetEquipmentBySerial, CreateEquipment } from "../services/equipment_service/equipment_services"
 import { SignUpService } from "../services/auth_services/signup_services";
-<<<<<<< Updated upstream
-import { fetchBrands } from "../services/equipment_service/brands_service";
-
-
-export const useUser = create((set) => ({
-  user: null,
-  token: "",
-  login: async ( email, password, navigate ) => {
-    if (email === "" || password === "") {
-      return;
-    }
-
-    const result = await notify({
-      messageList: ["Iniciando sesión", "Inicio de sesión exitoso", "Error al iniciar sesión"],
-      funct: LoginService(email, password)
-    });
-
-    console.log(result.user);
-    console.log(result.token);
-
-    if (!result) {
-      return;
-    }
-
-    set({ user: result.user });
-    set({ token: result.token });
-
-    navigate("/home");
-  },
-  signup: async ( data ) => {
-    
-    if (data.name === "" || data.lastname === "" || data.email === "" || data.password === "") {
-      return;
-    }
-    const user = await notify({
-      messageList: ["Registrando usuario", "Usuario registrado", "Error al registrar usuario"],
-      funct: SignUpService(data.name, data.lastname, data.email, data.password)
-    })
-    set({ user });
-  },
-  logout: () => {
-    set({ user: null });
-    set({ token: "" });
-  }
-}));
-
-=======
 import { fetchFields } from "../services/equipment_service/brands_service";
->>>>>>> Stashed changes
 
 export const useUserStore = create((set) => ({
   user: null,
@@ -149,9 +101,6 @@ export const useEquipmentStore = create((set) => ({
 
   deleteEquipment: async(equipment) => {
     await DeleteEquipment(equipment);
-<<<<<<< Updated upstream
-    set({ equipment: null })
-=======
     set({ equipment: null });
   },
   setEquipment: (equipment) => {
@@ -159,7 +108,6 @@ export const useEquipmentStore = create((set) => ({
   },
   resetEquipment: () => {
     set({ equipment: null });
->>>>>>> Stashed changes
   }
 }));
 
