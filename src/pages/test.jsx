@@ -656,7 +656,7 @@ const TestPage = ({ user, equipment }) => (
             </Text>
           </View>
           <View style={styles.tableCol_3}>
-            <Text># Identificación: {user.id} </Text>
+            <Text># Identificación: {user.identificacion} </Text>
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
           <View style={styles.tableCol_3}>
@@ -1377,20 +1377,15 @@ const TestPage = ({ user, equipment }) => (
           <View style={styles.button}>
             <View style={styles.formRow_header_22}>
               <Text style={styles.formRow_header_1_1}>USUARIO</Text>
-              <Text style={styles.formRow_header_2_2}>
-                REPRESENTANTE SOPORTE TI
-              </Text>
+              <Text style={styles.formRow_header_2_2}>REPRESENTANTE SOPORTE TI</Text>
             </View>
             <View style={styles.formRow_header_firma}>
               <Text style={styles.formRow_header_firma_1_1}>Firma</Text>
               <Text style={styles.formRow_header_firma_2_1}>Firma</Text>
             </View>
             <View style={styles.formRow_header_firma}>
-              <Text style={styles.formRow_header_nombre_1_1}>Nombre Completo: {user.nombre}
-              </Text>
-              <Text style={styles.formRow_header_nombre_1_1}>
-              Nombre Completo: {user.first_name}
-              </Text>
+              <Text style={styles.formRow_header_nombre_1_1}>Nombre Completo: {user.nombre}</Text>
+              <Text style={styles.formRow_header_nombre_1_1}>Nombre Completo: {user.first_name}</Text>
             </View>
             <View style={styles.formRow_header_22}>
               <Text style={styles.formRow_header_1_1}>
