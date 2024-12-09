@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const fetchBrands = async () => {
+export const fetchFields = async () => {
     try {
-        const response = await axios.get("http://localhost:8000/equipo/marcas");
+        const response = await axios.get("http://localhost:8000/equipo/fields");
 
         return response;
     } catch (error) {

@@ -7,8 +7,9 @@ import {
 } from "../services/employee_services/UserServices";
 import { LoginService } from "../services/auth_services/login_services";
 import { notify } from "../helpers/notifications";
-import { GetEquipmentBySerial } from "../services/equipment_service/equipment_services"
+import { GetEquipmentBySerial, CreateEquipment } from "../services/equipment_service/equipment_services"
 import { SignUpService } from "../services/auth_services/signup_services";
+<<<<<<< Updated upstream
 import { fetchBrands } from "../services/equipment_service/brands_service";
 
 
@@ -54,6 +55,9 @@ export const useUser = create((set) => ({
   }
 }));
 
+=======
+import { fetchFields } from "../services/equipment_service/brands_service";
+>>>>>>> Stashed changes
 
 export const useUserStore = create((set) => ({
   user: null,
@@ -139,24 +143,37 @@ export const useEquipmentStore = create((set) => ({
     await compareAndUpdateEquipment(equipment, newFields);
   },
 
-  createEquipment: async (equipment) => {
-    await CreateEquipment(equipment);
+  createEquipment: async (equipment, accesories, userId) => {
+    await CreateEquipment(equipment, accesories, userId.id);
   },
 
   deleteEquipment: async(equipment) => {
     await DeleteEquipment(equipment);
+<<<<<<< Updated upstream
     set({ equipment: null })
+=======
+    set({ equipment: null });
+  },
+  setEquipment: (equipment) => {
+    set({ equipment });
+  },
+  resetEquipment: () => {
+    set({ equipment: null });
+>>>>>>> Stashed changes
   }
 }));
 
 
 export const useBrandsStore = create((set) => ({
   brands: [],
+  accesories: [],
   brand: null,
-  fetchMarcas: async () => {
+  accesory: [],
+  fetchFields: async () => {
     try {
-      const response = await fetchBrands();
-      set({ brands: response.data["response"] });
+      const response = await fetchFields();
+      set({ brands: response.data["brands"] });
+      set({ accesories: response.data["accessories"] });
     } catch (error) {
       console.error("Error fetching brands:", error);
     }

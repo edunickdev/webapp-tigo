@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
   marginTop:15,
   },
   checkboxLabel: {
+<<<<<<< Updated upstream
   fontSize: 8,
   flexDirection:'row',
   justifyContent:'space-between',
@@ -127,6 +128,91 @@ tableCol_3_3: {
   borderRightColor: '#000',
   textAlign:'left',
   padding: 5,
+=======
+    fontSize: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 5,
+    paddingRight: 20,
+    borderBottom: 1
+  },
+  text: {
+    padding: 3,
+  },
+  contenedor__text: {
+    marginTop: 15,
+    gap: 5,
+  },
+  tablebackground: {
+    fontSize: 8,
+    height: 16,
+    borderBottom: 1,
+    backgroundColor: '#B3B2AE',
+    textAlign: 'center',
+  },
+  tablebackground_2: {
+    fontSize: 8,
+    height: 14,
+    paddingTop: 3,
+    borderBottom: 1,
+    borderLeft: 1,
+    backgroundColor: '#B3B2AE',
+    textAlign: 'center',
+  },
+  tablebackground_5: {
+    fontSize: 8,
+    height: 16,
+    backgroundColor: '#B3B2AE',
+    paddingTop: 5,
+    margin: 0
+  },
+  tableCol_1: {
+    width: '38%',
+    fontSize: 8,
+    fontWeight: "bold",
+    borderRight: 1,
+    padding: 4,
+  },
+  
+  tableCol_2: {
+    fontSize: 8,
+    textAlign: "center",
+    padding: 5,
+    fontWeight: 'extrabold'
+  },
+  tableRow2: {
+    fontSize: 8,
+    width: '100%',
+    flexDirection: 'row',
+    borderBottom: 1,
+    height: 25,
+    justifyContent:'space-between',
+  },
+
+  tableCol_3: {
+    width: '34%',
+    borderRightWidth: 1,
+    borderRightColor: '#000',
+    padding: 5,
+  },
+  tableCol_3_1: {
+    width: '36%',
+    borderRightWidth: 1,
+    borderRightColor: '#000',
+    padding: 5,
+  },
+  tableCol_3_2: {
+    width: '44%',
+    borderRightWidth: 1,
+    borderRightColor: '#000',
+    padding: 5,
+  },
+  tableCol_3_3: {
+    width: '15%',
+    borderRightColor: '#000',
+    textAlign: 'left',
+    padding: 5,
+>>>>>>> Stashed changes
 
 },
 tableCol_4_1:{
@@ -507,6 +593,30 @@ text_footer:{
   marginTop:20
 },
 
+<<<<<<< Updated upstream
+=======
+  textpagi: {
+    fontSize: 7,
+    textAlign: "center",
+    marginTop: 10,
+  },
+
+  image: {
+    position: "absolute",
+    top: 10,
+    right: 50,
+    width: 50,
+    height: 50,
+  },
+
+  imageDos: {
+    position: "absolute",
+    bottom: 10,
+    right: 50,
+    width: 50,
+    height: 50,
+  },
+>>>>>>> Stashed changes
 });
 
 const TestPage = ({ user, equipment }) => (

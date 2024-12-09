@@ -1,24 +1,27 @@
-import { useForm } from "react-hook-form";
-import { Checkbox } from "@nextui-org/react";
-import { useBrandsStore, useNewEquipmentStore } from "../context/stores";
+import { useForm, Controller } from "react-hook-form";
+import { useBrandsStore, useEquipmentStore, useUserStore } from "../context/stores";
 import { useState } from "react";
 
 export const EquipoNew = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
-    } = useForm();
+        control,
+        formState: { errors }
+    } = useForm({
+        defaultValues: {
+            tipo_elemento: ""
+        },
+    });
 
-    const [selected, setSelected] = useState(null);
-
-    const handleSelect = (value) => {
-        setSelected(value);
-    };
+    const [typeElement, setTypeElement] = useState("");
 
     const brands = useBrandsStore((state) => state.brands);
+    const accesories = useBrandsStore((state) => state.accesories);
 
-    const setEquipment = useNewEquipmentStore((state) => state.setNewEquipment);
+    const setEquipment = useEquipmentStore((state) => state.setEquipment);
+    const createEquipment = useEquipmentStore((state) => state.createEquipment);
+    const userId = useUserStore((state) => state.user);
 
     return (
         <div className="container mx-auto mt-8 p-4 bg-gray-100 rounded-lg shadow-md">
@@ -30,6 +33,7 @@ export const EquipoNew = () => {
             <form
                 onSubmit={handleSubmit((data) => {
                     setEquipment(data);
+                    createEquipment(data, accesories, userId, typeElement);
                 })}
                 className="space-y-6"
             >
@@ -38,28 +42,31 @@ export const EquipoNew = () => {
                     <div className="col-span-1 md:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">Tipo de Elemento</label>
                         <div className="col-span-12 flex justify-center items-center p-5 gap-x-5">
-                            <Checkbox
-                                value="desktop_n"
-                                isSelected={selected === "desktop_n"}
-                                onValueChange={() => handleSelect("desktop_n")}
-                            >
-                                Escritorio
-                            </Checkbox>
-                            <Checkbox
-                                value="laptop_n"
-                                isSelected={selected === "laptop_n"}
-                                onValueChange={() => handleSelect("laptop_n")}
-                            >
-                                Portatil
-                            </Checkbox>
-                            <Checkbox
-                                value="tablet_n"
-                                isSelected={selected === "tablet_n"}
-                                onValueChange={() => handleSelect("tablet_n")}
-                            >
-                                Tablet
-                            </Checkbox>
-
+                            <Controller
+                                name="tipo_elemento"
+                                control={control}
+                                render={({ field: { value, onChange } }) => (
+                                        <div className="col-span-12 flex justify-center items-center p-5 gap-x-5">
+                                            {["desktop_n", "laptop_n", "tablet_n"].map(
+                                                (element, index) => (
+                                                    <div key={index} className="inline-flex items-center ml-6">
+                                                        <label className="ml-2 text-gray-700" htmlFor={element}> {element === "desktop_n" ? "Escritorio" : element === "laptop_n" ? "Portatil" : "Tablet"} </label>
+                                                        <input
+                                                            type="checkbox"
+                                                            id={element}
+                                                            className="h-5 w-5 text-blue-600"
+                                                            checked={value === element}
+                                                            onChange={() => {
+                                                                onChange(element)
+                                                                setTypeElement(element)
+                                                            }}
+                                                        />
+                                                    </div>
+                                                )
+                                            )}
+                                        </div>
+                                )}
+                            />
                         </div>
                     </div>
                 </div>
@@ -98,7 +105,7 @@ export const EquipoNew = () => {
                         >
                             {
                                 brands && brands.map((brand, index) => (
-                                    <option key={index} value={brand}>{brand}</option>
+                                    <option key={index} value={index}>{brand}</option>
                                 ))
                             }
                         </select>
@@ -256,67 +263,14 @@ export const EquipoNew = () => {
                     </div>
                     <div className="col-span-12 border p-2">
                         <label className="block text-sm font-medium text-gray-700">accesorios asignados</label>
-                        <div className="inline-flex items-center ml-6">
-                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('maletin_n')}
-                            />
-                            <label className="ml-2 text-gray-700" htmlFor='maletin_n'>= Maletín</label>
-                        </div>
-                        <div className="inline-flex items-center ml-6">
-                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('guaya_n')}
-                            />
-                            <label className="ml-2 text-gray-700" htmlFor='guaya_n'>= Guaya</label>
-                        </div>
-                        <div className="inline-flex items-center ml-6">
-                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('docking_n')}
-                            />
-                            <label className="ml-2 text-gray-700" htmlFor='docking_n'>= Docking</label>
-                        </div>
-                        <div className="inline-flex items-center ml-6">
-                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('raton_n')}
-                            />
-                            <label className="ml-2 text-gray-700" htmlFor='raton_n'>= Mouse</label>
-                        </div>
-                        <div className="inline-flex items-center ml-6">
-                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('base_n')}
-                            />
-                            <label className="ml-2 text-gray-700" htmlFor='base_n'>= Base</label>
-                        </div>
-                        <div className="inline-flex items-center ml-6">
-                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('teclado_n')}
-                            />
-                            <label className="ml-2 text-gray-700" htmlFor='teclado_n'>= Teclado</label>
-                        </div>
-                        <div className="inline-flex items-center ml-6">
-                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('cam_n')}
-                            />
-                            <label className="ml-2 text-gray-700" htmlFor='cam_n'>= Camara</label>
-                        </div>
-                        <div className="inline-flex items-center ml-6">
-                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('diadema_n')}
-                            />
-                            <label className="ml-2 text-gray-700" htmlFor='diadema_n'>= Diadema</label>
-                        </div>
-                        <div className="inline-flex items-center ml-6">
-                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('adaptador_n')}
-                            />
-                            <label className="ml-2 text-gray-700" htmlFor='adaptador_n'>= Adaptador</label>
-                        </div>
-                        <div className="inline-flex items-center ml-6">
-                            <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
-                                {...register('otros_n')}
-                            />
-                            <label className="ml-2 text-gray-700" htmlFor='otros_n'>= Otro</label>
-                            <input className="ml-4" type="text" />
-                        </div>
+                        { accesories && accesories.map((accesory, index) => (
+                            <div key={index} className="inline-flex items-center ml-6">
+                                <label className="ml-2 text-gray-700" htmlFor={`${accesory.toLowerCase()}_n`}>{accesory} = </label>
+                                <input type="checkbox" className="h-5 w-5 text-blue-600"
+                                    {...register(`${accesory.toLowerCase()}_n`)}
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
 
