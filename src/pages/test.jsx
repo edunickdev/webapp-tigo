@@ -5,17 +5,15 @@ import logoDos from "../assets/somos.jpg";
 
 const styles = StyleSheet.create({
   page: {
-    padding: 40,
+    padding: 30,
   },
   contenedor: {
-    margin: 0,
+    marginTop: 8,
     border: 1,
-    borderColor: '000',
-    fontSize: 8,
-    fontWeight: 'bold',
+    fontSize: 6,
   },
   height20: {
-    height: 27,
+    height: 20,
   },
   border_left: {
     borderLeft: 1,
@@ -25,20 +23,13 @@ const styles = StyleSheet.create({
   },
   textBold: {
     fontWeight: "bold", 
-    fontSize: 8,
   },
   formRow: {
-    fontSize: 8,
+    fontSize: 6,
     flexDirection: 'row',
-    border: 1,
     width: '100%',
-    height: 50
   },
-  formcolumn: {
-    fontSize: 8,
-    border: 1,
-    padding: 10,
-  },
+
   formRow_5: {
     flexDirection: 'row',
     width: '100%',
@@ -46,69 +37,99 @@ const styles = StyleSheet.create({
     height: 16,
   },
   text_header: {
-    fontSize: 8,
+    fontSize: 6,
     textAlign: 'center',
-    padding: 5,
-    marginTop: 15,
+    marginTop:10,
+    padding:2
   },
   checkboxLabel: {
-    fontSize: 8,
+    fontSize: 6,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 5,
+    padding: 2,
     paddingRight: 20,
     borderBottom: 1
   },
-  text: {
-    padding: 3,
+  checkboxLabel2: {
+    fontSize: 6,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 2,
+    paddingRight: 20,
   },
+  text: {
+    borderTop:1,
+    borderBottom:1,
+    paddingTop:3
+  },
+  text_2: {
+    
+    paddingTop:3                                                
+  },
+ ///////////////////////////////////////////////////////////////////////////////////////
   contenedor__text: {
-    marginTop: 15,
-    gap: 5,
+    marginTop: 18,
+    border:1,
+    fontSize:6,
+  },
+  contenedor__text1: {
+    marginTop: 13,
+    fontSize:6,
   },
   tablebackground: {
-    fontSize: 8,
-    height: 16,
-    borderBottom: 1,
+    fontSize: 6,
     backgroundColor: '#B3B2AE',
     textAlign: 'center',
+    margin:0,
+    padding:0,
+    
+  },
+  tablebackground1: {
+    fontSize: 6,
+    backgroundColor: '#B3B2AE',
+    textAlign: 'center',
+    margin:0,
+    padding:0
   },
   tablebackground_2: {
-    fontSize: 8,
-    height: 14,
-    paddingTop: 3,
+    fontSize: 6,
     borderBottom: 1,
-    borderLeft: 1,
     backgroundColor: '#B3B2AE',
     textAlign: 'center',
+    margin:0,
+    padding:0
+
   },
   tablebackground_5: {
-    fontSize: 8,
-    height: 16,
+    fontSize: 6,
+    height: 8,
     backgroundColor: '#B3B2AE',
     paddingTop: 5,
     margin: 0
   },
   tableCol_1: {
+    height: 16,
     width: '38%',
-    fontSize: 8,
-    fontWeight: "bold",
+    fontSize: 6,
     borderRight: 1,
-    padding: 4,
+    borderBottom: 1,
+    padding:2
+
 
   },
   tableCol_2: {
-    fontSize: 8,
-    textAlign: "center",
-    padding: 5,
-    fontWeight: 'extrabold'
+    fontSize: 6,
+    padding: 2,
+    borderBottom:1,
+    height: 16,
+    width: '62%',
+
+
   },
   tableRow2: {
-    fontSize: 8,
-    width: '100%',
+    fontSize: 6,
     flexDirection: 'row',
     borderBottom: 1,
-    height: 25,
     // justifyContent:'space-between',
 
   },
@@ -156,36 +177,40 @@ const styles = StyleSheet.create({
 
   },
   tableRow5: {
-    fontSize: 8,
+    fontSize: 6,
     borderBottom: 1,
     width: '100%',
     flexDirection: 'row',
-    height: 20,
-    textAlign: 'center'
+    height:11
   },
   tableCol_5_1: {
     width: '34%',
     borderRight: 1,
-    padding: 5
+paddingLeft:4,
+paddingTop:1
+
 
   },
   tableCol_5_2: {
     width: '16%',
     borderRight: 1,
-    padding: 5
+paddingLeft:4,
+paddingTop:1
+
 
   },
   tableCol_5_3: {
     width: '25%',
     borderRight: 1,
-    padding: 3
+paddingTop:1,
+paddingLeft:4,
+
 
   },
   tableCol_5_4: {
     width: '25%',
     borderRight: 1,
-    padding: 3
-
+paddingLeft:4
   },
   tableCol_6_1: {
     width: '34%',
@@ -197,114 +222,145 @@ const styles = StyleSheet.create({
     width: '30%',
     borderRight: 1,
     flexDirection: 'row',
-    padding: 3,
-    gap: 19
+    gap: 25,
+    paddingLeft:4
   },
   tableCol_6_4: {
-    padding: 3,
+    paddingLeft:4
+ 
   },
   container__datos_equipos: {
     flexDirection: 'row',
-    fontSize: 8,
+    fontSize: 6,
     padding: 0,
-    margin: 0
+    margin: 0,
 
   },
   datos_equipos: {
     width: '20%',
-    padding: 0,
-    margin: 0,
+   
   },
   equipos: {
     borderBottom: 1,
     borderRight: 1,
     width: '100%',
-    height: 60,
-    padding: 8,
+    padding: 6,
   },
   equipos__monitor: {
     borderBottom: 1,
     borderRight: 1,
     width: '100%',
-    height: 40,
-    padding: 5,
+    padding: 6,
+  },
+  equipos__monitor1: {
+    borderBottom: 1,
+    borderRight: 1,
+    width: '100%',
+    padding: 6,
+  },
+  
+  equipos__monitor2: {
+    borderBottom: 1,
+    borderRight: 1,
+    width: '100%',
+    paddingLeft:4,
+    paddingTop:10
+    
+
   },
   datos_equipos_1: {
     marginTop: 5,
 
   },
   celular: {
-    paddingTop: 10
+    paddingTop: 2
   },
   datos__equipos_placa: {
-    width: '10%',
+    width: '8%',
   },
   datos__equipos_placa_2: {
-    width: '18%',
+    width: '25%',
+
+
   },
   datos__equipos_text: {
     borderRight: 1,
     borderBottom: 1,
-    padding: 4,
-    margin: 0,
-    height: 20,
+    padding:2,
+    height:13
+  },
+  datos__equipos_text3: {
+    borderRight: 1,
+    borderBottom: 1,
+    padding:2,  
+  },
+  datos__equipos_text4: {
+    borderRight: 1,
+    borderBottom: 1,
+    padding:2,
+    height:18
   },
   datos__equipos_text_2: {
     borderRight: 1,
     borderBottom: 1,
-    padding: 4,
+    padding: 3.7,
     margin: 0,
-    height: 20
   },
   datos__equipos_memoria: {
     margin: 0,
-    padding: 0,
-    borderLeft: 1,
+    padding: 2,
+    flexDirection:'row'
   },
 
   datos__equipos_memoria_1: {
     width: "50%",
     margin: 0,
     padding: 0,
-    borderLeft: 1,
+
   },
   datos__equipos_memoria_disco: {
     // width: "40%",
     borderRight: 1,
     padding: 0,
     margin: 0,
+    borderBottom:1,
+    height:8,
+    width:'100%'
+  },
+  datos__equipos_memoria_disco1: {
+    // width: "40%",
+    padding: 0,
+    margin: 0,
+    borderBottom:1,
+    height:8,
+    width:'100%'
   },
   b: {
     width: '30%',
   },
   contenedor__accesorios: {
-    height: 60,
-    borderBottom: 1,
-    paddingLeft: 10,
-    gap: 5,
+    paddingLeft: 5,
+    paddingTop:5
   },
   accesorios: {
     flexDirection: 'row',
-    marginTop: 5,
-    gap: 10,
+    gap: 20,
   },
   accesorios_2: {
     flexDirection: 'row',
-    marginTop: 5,
-    gap: 10,
+    gap: 40,
+    paddingTop:3
   },
   formRow4: {
-    fontSize: 8,
+    fontSize: 6,
     flexDirection: 'row',
     borderBottom: 1,
-    borderLeft: 1,
-    borderRight: 1,
     width: '100%',
     textAlign: 'center',
-    height: 16,
+    height: 10,
   },
   formRow4_pruebas: {
-    fontSize: 8,
+    fontSize: 6,
     flexDirection: 'row',
     borderBottom: 1,
     borderLeft: 1,
@@ -319,23 +375,21 @@ const styles = StyleSheet.create({
   },
   formRow5: {
     border: 1,
-    fontSize: 8,
+    fontSize: 6,
     flexDirection: 'row',
     backgroundColor: '#B3B2AE',
     textAlign: 'center',
-    height: 16,
     marginTop: 0,
   },
   formRow4_1: {
-    width: '34%',
-    borderRight: 1,
+    width: '42%',
+    borderRight: 1,   
     textAlign: 'start',
-    paddingTop: 5,
   },
   formRow4_1_pruebas_b: {
     width: '82%',
     borderRight: 1,
-    paddingTop: 5,
+    paddingTop: 1,
     backgroundColor: '#B3B2AE',
     textAlign: 'center'
   },
@@ -343,60 +397,56 @@ const styles = StyleSheet.create({
     width: '82%',
     borderRight: 1,
     textAlign: 'start',
-    paddingTop: 5,
+    paddingTop: 1,
   },
   formRow4_1_1: {
     width: '42%',
     borderRight: 1,
     textAlign: 'center',
-    paddingTop: 3,
+    paddingTop: 1,
   },
   formRow4_2: {
     width: '20%',
     borderRight: 1,
-    paddingTop: 3,
+    paddingTop: 1,
   },
   formRow4_3: {
     borderRight: 1,
     width: '38%',
-    paddingTop: 3,
+    paddingTop: 1,
   },
   formRow4_3_i: {
     borderRight: 1,
     width: '20%',
-    padding: 3,
     textAlign: 'start',
+    paddingLeft:3
   },
   formRow4_3_i_1: {
     borderRight: 1,
     width: '4%',
-    paddingTop: 3,
     textAlign: 'start',
   },
   formRow4_3_pruebas: {
     width: '48%',
-    paddingTop: 3,
+    paddingTop: 1,
     backgroundColor: '#B3B2AE',
   },
   formRow4_3_pruebas_b: {
     width: '48%',
-    paddingTop: 3,
   },
   formRow4_3_pruebas_c: {
     width: '48%',
-    paddingTop: 3,
     textAlign: 'start',
   },
   formRow4_3_pruebas_c_b: {
     width: '48%',
-    paddingTop: 3,
+    paddingTop: 1,
     textAlign: 'center',
     backgroundColor: '#B3B2AE',
   },
   formRow4_3_observaciones: {
     width: '48%',
     gap: 10,
-    paddingTop: 3,
   },
   formRow4_3_C: {
     borderRight: 1,
@@ -408,47 +458,48 @@ const styles = StyleSheet.create({
   formRow4_3_3: {
     borderRight: 1,
     width: '38%',
-    paddingTop: 3,
+    paddingTop: 1,
     backgroundColor: '#B3B2AE',
 
   },
   formRow4_4: {
     width: '10%',
-    paddingTop: 3,
+    paddingTop: 1 ,
   },
   formRow4_4_4: {
     width: '10%',
-    paddingTop: 3,
+    paddingTop: 1,
     backgroundColor: '#B3B2AE',
 
   },
+  formcolumn:{
+    padding:4
+  },
   formRow_header: {
     flexDirection: 'row',
-    border: 1,
-    fontSize: 8,
-    padding: 5
+    borderTop: 1,
+    fontSize: 6,
+    padding: 5,
+    marginTop:15
   },
   formRow_header_22: {
     flexDirection: 'row',
     textAlign: 'center',
     borderRight: 1,
-    borderLeft: 1,
-    fontSize: 10,
+    fontSize: 6,
     padding: 0,
     margin: 0,
   },
   formRow_header_firma: {
     flexDirection: 'row',
     textAlign: 'center',
-
-    fontSize: 10,
+    fontSize: 6,
     padding: 0,
     margin: 0,
   },
   formRow_header_1: {
     width: "50%",
     flexDirection: 'row',
-    paddingTop: 8,
     gap: 100,
   },
 
@@ -460,44 +511,38 @@ const styles = StyleSheet.create({
     width: "50%",
     flexDirection: 'row',
     backgroundColor: '#B3B2AE',
-    padding: 2,
-    borderRight: 1,
+    paddingTop:2
 
   },
   formRow_header_firma_1_1: {
     width: "50%",
     borderBottom: 1,
-    height: 50,
-    paddingLeft: 10,
+    height: 30,
     textAlign: 'start',
-    paddingTop: 34,
-    borderLeft: 1,
-    borderRight: 1
+    paddingTop: 20,
+    borderRight: 1,
+    paddingLeft:10
   },
   formRow_header_firma_2_1: {
     width: "50%",
     borderBottom: 1,
-    height: 50,
+    height: 30,
     paddingLeft: 10,
     textAlign: 'start',
-    paddingTop: 34,
-    borderRight: 1
-  },
+    paddingTop:20,
+  },/////////////////////////////////////////////////////////////////////////////////////////
   formRow_header_nombre_1_1: {
-    width: "50%",
-    borderBottom: 1,
-    height: 16,
+    width: "49.8%",
+    height: 10,
     textAlign: 'start',
     borderLeft: 1,
-    borderRight: 1,
     paddingLeft: 10,
-    paddingTop: 2
+    paddingTop:1
   },
   formRow_header_nombre_2_1: {
     width: "50%",
     borderBottom: 1,
     textAlign: 'start',
-    paddingTop: 34,
     borderRight: 1
   },
   formRow_header_2_2: {
@@ -508,13 +553,12 @@ const styles = StyleSheet.create({
 
   text2: {
     margin: 0,
-    paddingBottom: -2
   },
   button: {
   },
   text_footer: {
-    fontSize: 8,
-    marginTop: 20,
+    fontSize: 6,
+    marginTop:14
   },
 
   textpagi: {
@@ -522,117 +566,115 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10,
   },
+  tp:{
+    padding:8
+  },
 
   image: {
     position: "absolute",
-    top: 10, // Distancia desde el borde superior
-    right: 50, // Distancia desde el borde derecho
-    width: 50,
-    height: 50,
+    right: 32, // Distancia desde el borde derecho
+    width: 80,
+    height: 25,
   },
-
+  image2: {
+    position: "absolute",
+    right: 10, // Distancia desde el borde derecho
+    width: 80,
+    height: 25,
+  },
   imageDos: {
     position: "absolute",
-    bottom: 10, // Distancia desde el borde inferior
-    right: 50, // Distancia desde el borde derecho
-    width: 50,
-    height: 50,
+    bottom: -32, // Distancia desde el borde inferior
+    right: 0.1, // Distancia desde el borde derecho
+    width: 70,
+    height: 30,
   },
+  
+  imageDos2: {
+    position: "absolute",
+    bottom: -210, // Distancia desde el borde inferior
+    right: 0.1, // Distancia desde el borde derecho
+    width: 70,
+    height: 30,
+  },
+  border22:{
+    borderBottom:1,
+    height:60
+  }
 });
 
 const TestPage = ({ user, equipment }) => (
   <Document>
     <Page style={styles.page}>
-      <Text style={styles.textpagi}>pagina 1 de 2</Text>
-      <Image src={logo} style={styles.image} />
-
-      <View style={styles.contenedor}>
+    <Text style={styles.textpagi}>pagina 1 de 2</Text>
+    <Image src={logo} style={styles.image} />
+    <View style={styles.contenedor}>
         <View style={styles.formRow}>
-          <View style={[styles.tableCol, { width: "50%" }]}>
-            <View
-              style={[
-                styles.border_left,
-                {
-                  width: "50%",
-                  flexDirection: "row",
-                  justifyContent: "flex-end",
-                },
-              ]}
-            >
-
-            </View>
-            <Text style={styles.text_header}>
-              ANEXO DE ENTREGAS AL TRABAJADOR DE EQUIPOS HERRAMIENTAS Y
-              FACILIDADES OPERATIVAS
-            </Text>
-          </View>
-          <View style={[styles.border_left, { width: "50%" }]}>
-            <View style={styles.checkboxLabel}>
-              <Text>Asignación</Text>
-              <Text>Renovación</Text>
-              <Text>Retiro</Text>
-              <Text>Préstamo</Text>
-            </View>
-            <View style={styles.checkboxLabel}>
-              <Text>Ciudad: {user.ciudad} </Text>
-            </View>
-            <View style={styles.checkboxLabel}>
-              <Text>OC o Ticket: </Text>
-            </View>
-          </View>
+              <View style={[styles.tableCol, { width: "45%" }]}>
+                <Text style={styles.text_header}>
+                  ANEXO DE ENTREGAS AL TRABAJADOR DE EQUIPOS HERRAMIENTAS Y
+                  FACILIDADES OPERATIVAS
+                </Text>
+              </View>
+              <View style={[styles.border_left, { width: "60%" }]}>
+                <View style={styles.checkboxLabel}>
+                  <Text>Asignación</Text>
+                  <Text>Renovación</Text>
+                  <Text>Retiro</Text>
+                  <Text>Préstamo</Text>
+                </View>
+                <View style={styles.checkboxLabel}>
+                <Text>Ciudad: {user.ciudad} </Text>
+                </View>
+                <View style={styles.checkboxLabel2}>
+                  <Text>OC o Ticket: </Text>
+                </View>
+              </View>
         </View>
         <View style={[styles.tablebackground, { width: "100%" }]}>
-          <View>
             <Text style={[styles.text]}>DATOS DEL USUARIO</Text>
+        </View>
+        <View style={styles.formRow}>
+          <View style={[styles.tableCol_1]}>
+            <Text>Fecha (DD/MM/AAAA):</Text>
+          </View>
+          <View style={styles.tableCol_2}>
+            <Text style={styles.tableCell}>
+            Nombre del Usuario: {user.nombre}
+            </Text>     
           </View>
         </View>
-        <View style={styles.height20}>
-          <View style={styles.formRow}>
-            <View style={[styles.tableCol_1]}>
-              <Text>Fecha (DD/MM/AAAA):</Text>
-              {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
-            </View>
-            <View style={styles.tableCol_2}>
-              <Text style={styles.tableCell}>
-                Nombre del Usuario: {user.nombre}
-              </Text>
-              {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
-            </View>
-          </View>
-        </View>
-
         <View style={styles.tableRow2}>
           <View style={styles.tableCol_3}>
             <Text>
-              Propiedad del Equipo:{" "}
+            Propiedad del Equipo:{" "}
               {user.propiedad_equipo == 1
                 ? "Colsubsidio"
                 : user.propiedad_equipo == 2
                   ? "PCCOM"
                   : "Sin especificar"}
             </Text>
-
           </View>
           <View style={styles.tableCol_3}>
-            <Text># Identificación: {user.id}</Text>
+            <Text># Identificación: {user.id} </Text>
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
           <View style={styles.tableCol_3}>
-            <Text># Celular: {user.celular}</Text>
+            <Text># Celular: {user.celular} </Text>
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
         </View>
         <View style={styles.tableRow2}>
           <View style={styles.tableCol_3}>
-            <Text>Cargo: {user.cargo}</Text>
+            <Text>Cargo:{user.cargo}</Text>
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
           <View style={styles.tableCol_3}>
-            <Text>Centro de Costos: {user.centro_costos}</Text>
+            <Text>Centro de Costos:{user.centro_costos} </Text>
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
           <View style={styles.tableCol_3}>
-            <Text>Centro Logistico: {user.centro_logistico}</Text>
+            <Text>Centro Logistico:{user.centro_logistico}</Text>
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
         </View>
@@ -642,7 +684,7 @@ const TestPage = ({ user, equipment }) => (
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
           <View style={styles.tableCol_3_2}>
-            <Text>Dirección: {user.sede}</Text>
+            <Text>Dirección:{user.sede} </Text>
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
           <View style={styles.tableCol_3_3}>
@@ -650,7 +692,6 @@ const TestPage = ({ user, equipment }) => (
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
         </View>
-
         <View style={styles.tableRow2}>
           <View style={styles.tableCol_4_1}>
             <Text style={styles.tableCell}>
@@ -659,12 +700,12 @@ const TestPage = ({ user, equipment }) => (
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
           <View style={styles.tableCol_4_2}>
-            <Text style={styles.tableCell}>Gerencia: {user.gerencia}</Text>
+            <Text style={styles.tableCell}>Gerencia:{user.gerencia} </Text>
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
           <View style={styles.tableCol_4_3}>
             <Text style={styles.tableCell}>
-              Usuario de Red: {user.usuario_red}
+              Usuario de Red:{user.usuario_red}
             </Text>
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
@@ -672,7 +713,7 @@ const TestPage = ({ user, equipment }) => (
         <View>
           <View style={styles.tableRow5}>
             <View style={styles.tableCol_5_1}>
-              <Text>Modalidad de Trabajo: {user.modalidad_trabajo}</Text>
+              <Text>Modalidad de Trabajo:{user.modalidad_trabajo} </Text>
             </View>
             <View style={styles.tableCol_5_2}>
               <Text>Presencial </Text>
@@ -687,60 +728,58 @@ const TestPage = ({ user, equipment }) => (
             </View>
           </View>
         </View>
-
-        <View>
-          <View style={styles.tableRow5}>
-            <View style={styles.tableCol_5_1}>
-              <Text>Facilidades Operativas que se Entregan:</Text>
-            </View>
-            <View style={styles.tableCol_5_2}>
-              <Text>Carnet </Text>
-            </View>
-            <View style={styles.tableCol_6_2}>
-              <View>
-                <Text>Tarjeta de Acceso:</Text>
-              </View>
-              <View>
-                <Text> Código:</Text>
-              </View>
-            </View>
-
-            <View style={styles.tableCol_6_4}>
-              <Text>otro:</Text>
-            </View>
-          </View>
-          <View style={styles.tableRow5}>
-            <View style={styles.tableCol_5_1}>
-              <Text>Tipo de Contrato del Usuario: :</Text>
-            </View>
-            <View style={styles.tableCol_5_2}>
-              <Text>Trabajador: </Text>
-            </View>
-            <View style={styles.tableCol_5_3}>
-              <Text>Estudiante en Práctica:</Text>
-              {/* <Text style={styles.inputPlaceholder}>373679</Text> */}
-            </View>
-            <View style={styles.tableCol_5_4}>
-              <Text>Contratista: :</Text>
-              {/* <Text style={styles.inputPlaceholder}>Seleccionar...</Text> */}
-            </View>
-          </View>
-        </View>
-        {/* ------------------------------------------------------------------------------- */}
         <View>
           <View>
-            <View style={[styles.tablebackground, { width: "100%" }]}>
-              <Text style={[styles.text]}>
-                DATOS EQUIPOS, CELULARES Y HERRAMIENTAS DE TRABAJO
-              </Text>
+            <View style={styles.tableRow5}>
+              <View style={styles.tableCol_5_1}>
+                <Text>Facilidades Operativas que se Entregan:</Text>
+              </View>
+              <View style={styles.tableCol_5_2}>
+                <Text>Carnet </Text>
+              </View>
+              <View style={styles.tableCol_6_2}>
+                <View>
+                  <Text>Tarjeta de Acceso:</Text>
+                </View>
+                <View>
+                  <Text> Código:</Text>
+                </View>
+              </View>
+
+              <View style={styles.tableCol_6_4}>
+                <Text>otro:</Text>
+              </View>
             </View>
+            <View style={styles.tableRow5}>
+              <View style={styles.tableCol_5_1}>
+                <Text>Tipo de Contrato del Usuario: :</Text>
+              </View>
+              <View style={styles.tableCol_5_2}>
+                <Text>Trabajador: </Text>
+              </View>
+              <View style={styles.tableCol_5_3}>
+                <Text>Estudiante en Práctica:</Text>
+                {/* <Text style={styles.inputPlaceholder}>373679</Text> */}
+              </View>
+              <View style={styles.tableCol_5_4}>
+                <Text>Contratista: :</Text>
+                {/* <Text style={styles.inputPlaceholder}>Seleccionar...</Text> */}
+              </View>
+            </View>
+          </View>
+          <View>
+              <View style={[styles.tablebackground, { width: "100%" }]}>
+                <Text style={[styles.text_2]}>
+                  DATOS EQUIPOS, CELULARES Y HERRAMIENTAS DE TRABAJO
+                </Text>
+              </View>
           </View>
           <View style={[styles.tablebackground]}>
-            <View style={[styles.sectionTitle, { width: "100%" }]}>
-              <Text style={[styles.text]}>DATOS DEL EQUIPO NUEVO</Text>
-            </View>
+              <View style={[styles.sectionTitle, { width: "100%" }]}>
+                <Text style={[styles.text]}>DATOS DEL EQUIPO NUEVO</Text>
+              </View>
           </View>
-          {/* ----------- */}
+            {/* -----contenedorrrrrrrrrrrrrrrrrrrrrrrrr------ */}
           <View style={styles.container__datos_equipos}>
             <View style={styles.datos_equipos}>
               {/* columna numero 1 comienza y fila numero 1 */}
@@ -756,12 +795,12 @@ const TestPage = ({ user, equipment }) => (
               </View>
               {/* columna numero 1 termina*/}
               {/* fila  numero 2 comienza */}
-              <View style={styles.equipos__monitor}>
+              <View style={styles.equipos__monitor1}>
                 <Text>Monitor:</Text>
               </View>
 
               {/* fila  numero 3 comienza */}
-              <View style={styles.equipos__monitor}>
+              <View style={styles.equipos__monitor2}>
                 <Text>
                   Otros Dispositivos: (Si fue asignado celular, relacione
                   número){" "}
@@ -776,51 +815,51 @@ const TestPage = ({ user, equipment }) => (
                 </Text>
               </View>
             </View>
-            {/* columna numero 2 comienza */}
+            {/* columna numero 2 comienza ddddddddddddddddddddddddddddddddddddddddddddd*/}
             <View style={styles.datos__equipos_placa}>
               <Text style={styles.datos__equipos_text}>Placa:  </Text>
               <Text style={styles.datos__equipos_text}>S/N:</Text>
-              <Text style={styles.datos__equipos_text}>Nombre de Máquina:</Text>
-              <Text style={styles.datos__equipos_text_2}>Placa:</Text>
-              <Text style={styles.datos__equipos_text_2}>S/N</Text>
-              <Text style={styles.datos__equipos_text_2}>Placa:</Text>
-              <Text style={styles.datos__equipos_text_2}>S/N:</Text>
+              <Text style={styles.datos__equipos_text3}>Nombre de Máquina:</Text>
+              <Text style={styles.datos__equipos_text}>Placa:</Text>
+              <Text style={styles.datos__equipos_text}>S/N</Text>
+              <Text style={styles.datos__equipos_text}>Placa:</Text>
+              <Text style={styles.datos__equipos_text}>S/N:</Text>
             </View>
             {/* columna numero 2 termina*/}
             {/* columna numero 3 comienza*/}
             <View style={styles.datos__equipos_placa_2}>
               <Text style={styles.datos__equipos_text}>{equipment.placa_n}</Text>
               <Text style={styles.datos__equipos_text}>{equipment.serial_n}</Text>
-              <Text style={styles.datos__equipos_text}>{equipment.nombre_equipo_n}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.placamon_n}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.serialmon_n}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.placaotros_n}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.serialotros_n}</Text>
+              <Text style={styles.datos__equipos_text4}>{equipment.nombre_equipo_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.placamon_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.serialmon_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.placaotros_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.serialotros_n}</Text>
             </View>
             {/* columna numero 3 termina*/}
             {/* columna numero 4 comienza*/}
             <View style={styles.datos__equipos_placa}>
               <Text style={styles.datos__equipos_text}>Marca: </Text>
               <Text style={styles.datos__equipos_text}>Modelo:</Text>
-              <Text style={styles.datos__equipos_text}>MAC:</Text>
-              <Text style={styles.datos__equipos_text_2}>Marca:</Text>
-              <Text style={styles.datos__equipos_text_2}>Modelo:</Text>
-              <Text style={styles.datos__equipos_text_2}>Marca:</Text>
-              <Text style={styles.datos__equipos_text_2}>Modelo:</Text>
+              <Text style={styles.datos__equipos_text4}>MAC:</Text>
+              <Text style={styles.datos__equipos_text}>Marca:</Text>
+              <Text style={styles.datos__equipos_text}>Modelo:</Text>
+              <Text style={styles.datos__equipos_text}>Marca:</Text>
+              <Text style={styles.datos__equipos_text}>Modelo:</Text>
             </View>
             {/* columna numero 4 termina*/}
             {/* columna numero 5 comienza*/}
             <View style={styles.datos__equipos_placa_2}>
               <Text style={styles.datos__equipos_text}>{equipment.marca_n}</Text>
               <Text style={styles.datos__equipos_text}>{equipment.modelo_n}</Text>
-              <Text style={styles.datos__equipos_text}>{equipment.mac_n}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.marcamon_n}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.modelomon_n}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.marcaotros_n}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.modelootros_n}</Text>
+              <Text style={styles.datos__equipos_text4}>{equipment.mac_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.marcamon_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.modelomon_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.marcaotros_n}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.modelootros_n}</Text>
             </View>
             {/* columna numero 5 termina*/}
-
+//////////////////////////////////////////////////////////////////////////////////////////
             <View style={styles.b}>
               <View style={styles.datos__equipos_memoria}>
                 <View style={styles.datos__equipos_memoria_1}>
@@ -830,69 +869,70 @@ const TestPage = ({ user, equipment }) => (
                   <Text style={styles.datos__equipos_memoria_disco}>Punto de Red:{" "}</Text>
                 </View>
                 <View style={styles.datos__equipos_memoria_1}>
-                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.disco_n}</Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.memoria_n}</Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.ip_n}</Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.puntored_n}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco1}>{equipment.disco_n}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco1}>{equipment.memoria_n}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco1}>{equipment.ip_n}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco1}>{equipment.puntored_n}</Text>
                 </View>
               </View>
-              <View>
+              <View style={styles.border22}>
                 <Text style={[styles.tablebackground_2]}>
-                  <b>ACCESORIOS ASIGNADOS</b>
+                  ACCESORIOS ASIGNADOS
                 </Text>
+               
                 <View style={styles.contenedor__accesorios}>
                   <View style={styles.accesorios}>
-                    <Text>Maletín:{"---"} </Text>
-                    <Text>Guaya:{"---"} </Text>
-                    <Text>Maletín:{"---"}</Text>
+                    <Text>Maletín:</Text>
+                    <Text>Guaya: </Text>
+                    <Text>Maletín:</Text>
                   </View>
                   <View style={styles.accesorios}>
-                    <Text>Mouse: :{"---"} </Text>
-                    <Text>Base: :{"---"} </Text>
-                    <Text>Teclado:{"---"} </Text>
+                    <Text>Mouse:  </Text>
+                    <Text>Base:  </Text>
+                    <Text>Teclado: </Text>
                   </View>
                   <View style={styles.accesorios}>
-
-                    <Text>Cámara: {"---"}</Text>
-                    <Text>Diadema:{"---"}</Text>
+                    <Text>Cámara: </Text>
+                    <Text>Diadema:</Text>
+                    <Text>Adaptador:</Text>
                   </View>
-                  <View style={styles.accesorios}>
-                    <Text>Adaptador: {"---"}</Text>
-                    <Text>Otro</Text>
-                    <Text>{"__________________________"}</Text>
+                  <View style={styles.accesorios}>    
+                    <Text>Otro{'_________________'}</Text>
                   </View>
                 </View>
               </View>
-            </View>
+              
+            </View>   
           </View>
-          <View style={[styles.tablebackground]}>
+               <View style={[styles.tablebackground]}>
             <View style={[styles.sectionTitle, { width: "100%" }]}>
               <Text style={[styles.text]}>
                 DATOS DEL EQUIPO ANTERIOR (RENOVACIÓN O DEVOLUCIÓN)
               </Text>
             </View>
           </View>
+          
           <View style={styles.container__datos_equipos}>
             <View style={styles.datos_equipos}>
               {/* columna numero 1 comienza y fila numero 1 */}
               <View style={styles.equipos}>
                 <View>
-                  <Text>Tipo de Elemento:</Text>
+                  <Text style={styles.textBold}>Tipo de Elemento:</Text>
                   <View style={styles.datos_equipos_1}>
-                    <Text>Escritorio: </Text>
-                    <Text>Portátil: </Text>
-                    <Text>Tablet: </Text>
+                    <Text style={styles.textBold}>Escritorio:</Text>
+                    <Text style={styles.textBold}>Portátil:</Text>
+                    <Text style={styles.textBold}>Tablet: </Text>
                   </View>
                 </View>
               </View>
               {/* columna numero 1 termina*/}
               {/* fila  numero 2 comienza */}
-              <View style={styles.equipos__monitor}>
-                <Text>Monitor</Text>
+              <View style={styles.equipos__monitor1}>
+                <Text>Monitor:</Text>
               </View>
 
               {/* fila  numero 3 comienza */}
-              <View style={styles.equipos__monitor}>
+              <View style={styles.equipos__monitor2}>
                 <Text>
                   Otros Dispositivos: (Si fue asignado celular, relacione
                   número){" "}
@@ -907,108 +947,97 @@ const TestPage = ({ user, equipment }) => (
                 </Text>
               </View>
             </View>
-            {/* columna numero 2 comienza */}
+            {/* columna numero 2 comienza ddddddddddddddddddddddddddddddddddddddddddddd*/}
             <View style={styles.datos__equipos_placa}>
+              <Text style={styles.datos__equipos_text}>Placa:  </Text>
+              <Text style={styles.datos__equipos_text}>S/N:</Text>
+              <Text style={styles.datos__equipos_text3}>Nombre de Máquina:</Text>
+              <Text style={styles.datos__equipos_text}>Placa:</Text>
+              <Text style={styles.datos__equipos_text}>S/N</Text>
               <Text style={styles.datos__equipos_text}>Placa:</Text>
               <Text style={styles.datos__equipos_text}>S/N:</Text>
-              <Text style={styles.datos__equipos_text}>Nombre de Máquina:</Text>
-              <Text style={styles.datos__equipos_text_2}>Placa:</Text>
-              <Text style={styles.datos__equipos_text_2}>S/N</Text>
-              <Text style={styles.datos__equipos_text_2}>Placa:</Text>
-              <Text style={styles.datos__equipos_text_2}>S/N:</Text>
             </View>
             {/* columna numero 2 termina*/}
             {/* columna numero 3 comienza*/}
             <View style={styles.datos__equipos_placa_2}>
               <Text style={styles.datos__equipos_text}>{equipment.placa_a}</Text>
               <Text style={styles.datos__equipos_text}>{equipment.serial_a}</Text>
-              <Text style={styles.datos__equipos_text}>{equipment.nombre_equipo_a}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.placamon_a}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.serialmon_a}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.placaotros_a}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.serialotros_a}</Text>
+              <Text style={styles.datos__equipos_text4}>{equipment.nombre_equipo_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.placamon_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.serialmon_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.placaotros_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.serialotros_a}</Text>
             </View>
             {/* columna numero 3 termina*/}
             {/* columna numero 4 comienza*/}
             <View style={styles.datos__equipos_placa}>
+              <Text style={styles.datos__equipos_text}>Marca: </Text>
+              <Text style={styles.datos__equipos_text}>Modelo:</Text>
+              <Text style={styles.datos__equipos_text4}>MAC:</Text>
               <Text style={styles.datos__equipos_text}>Marca:</Text>
               <Text style={styles.datos__equipos_text}>Modelo:</Text>
-              <Text style={styles.datos__equipos_text}>MAC:</Text>
-              <Text style={styles.datos__equipos_text_2}>Marca:</Text>
-              <Text style={styles.datos__equipos_text_2}>Modelo:</Text>
-              <Text style={styles.datos__equipos_text_2}>Marca:</Text>
-              <Text style={styles.datos__equipos_text_2}>Modelo:</Text>
+              <Text style={styles.datos__equipos_text}>Marca:</Text>
+              <Text style={styles.datos__equipos_text}>Modelo:</Text>
             </View>
             {/* columna numero 4 termina*/}
             {/* columna numero 5 comienza*/}
             <View style={styles.datos__equipos_placa_2}>
               <Text style={styles.datos__equipos_text}>{equipment.marca_a}</Text>
               <Text style={styles.datos__equipos_text}>{equipment.modelo_a}</Text>
-              <Text style={styles.datos__equipos_text}>{equipment.mac_a}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.marcamon_a}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.modelomon_a}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.marcaotros_a}</Text>
-              <Text style={styles.datos__equipos_text_2}>{equipment.modelootros_a}</Text>
+              <Text style={styles.datos__equipos_text4}>{equipment.mac_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.marcamon_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.modelomon_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.marcaotros_a}</Text>
+              <Text style={styles.datos__equipos_text}>{equipment.modelootros_a}</Text>
             </View>
             {/* columna numero 5 termina*/}
-
+//////////////////////////////////////////////////////////////////////////////////////////
             <View style={styles.b}>
               <View style={styles.datos__equipos_memoria}>
                 <View style={styles.datos__equipos_memoria_1}>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    Disco Duro: (GB){" "}
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    Memoria RAM:{" "}
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    Dirección IP:
-                  </Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>
-                    Punto de Red:{" "}
-                  </Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>Disco Duro: (GB){" "}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>Memoria RAM:{" "}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>Dirección IP:</Text>
+                  <Text style={styles.datos__equipos_memoria_disco}>Punto de Red:{" "}</Text>
                 </View>
                 <View style={styles.datos__equipos_memoria_1}>
-                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.disco_a}</Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.memoria_a}</Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.ip_a}</Text>
-                  <Text style={styles.datos__equipos_memoria_disco}>{equipment.puntored_a}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco1}>{equipment.disco_a}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco1}>{equipment.memoria_a}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco1}>{equipment.ip_a}</Text>
+                  <Text style={styles.datos__equipos_memoria_disco1}>{equipment.puntored_a}</Text>
                 </View>
               </View>
-              <View>
+              <View style={styles.border22}>
                 <Text style={[styles.tablebackground_2]}>
                   ACCESORIOS ASIGNADOS
                 </Text>
+               
                 <View style={styles.contenedor__accesorios}>
                   <View style={styles.accesorios}>
-                    <Text>Maletín:{"---"} </Text>
-                    <Text>Guaya:{"---"} </Text>
-                    <Text>Maletín:{"---"}</Text>
+                    <Text>Maletín:</Text>
+                    <Text>Guaya: </Text>
+                    <Text>Maletín:</Text>
                   </View>
                   <View style={styles.accesorios}>
-                    <Text>Mouse: :{"---"} </Text>
-                    <Text>Base: :{"---"} </Text>
-                    <Text>Teclado:{"---"} </Text>
+                    <Text>Mouse:  </Text>
+                    <Text>Base:  </Text>
+                    <Text>Teclado: </Text>
                   </View>
                   <View style={styles.accesorios}>
-                    <Text>Cámara: {"---"}</Text>
-                    <Text>Diadema:{"---"}</Text>
+                    <Text>Cámara: </Text>
+                    <Text>Diadema:</Text>
+                    <Text>Adaptador:</Text>
                   </View>
-                  <View style={styles.accesorios}>
-                    <Text>Adaptador: {"---"}</Text>
-                  </View>
-                  <View style={styles.accesorios}>
-                    <Text>Otro</Text>
-                    <Text>{"__________________________"}</Text>
+                  <View style={styles.accesorios}>    
+                    <Text>Otro{'_________________'}</Text>
                   </View>
                 </View>
               </View>
-            </View>
+              
+            </View>   
           </View>
-        </View>
-        {/* ---------------------------section 4---------------------------------------------------- */}
-      </View>
-      <View style={styles.contenedor_formRow5}>
+          //////////////////////////////vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+          <View style={styles.contenedor_formRow5}>
         {/* columnas */}
         <View style={[styles.formRow5, { width: "100%" }]}>
           {/* filas*/}
@@ -1019,6 +1048,7 @@ const TestPage = ({ user, equipment }) => (
           <Text style={styles.formRow4_4}>Tamaño</Text>
         </View>
         {/* fila 2 */}
+        //////////////////////////////////////
         <View>
           <View style={[styles.formRow4, { width: "100%" }]}>
             {/* filas*/}
@@ -1040,6 +1070,7 @@ const TestPage = ({ user, equipment }) => (
             </Text>
             <Text style={styles.formRow4_4_4}>Tamaño</Text>
           </View>
+          ///////////////000
           <View style={[styles.formRow4, { width: "100%" }]}>
             {/* filas*/}
             <Text style={styles.formRow4_1}>Versionamiento Office:</Text>
@@ -1087,6 +1118,7 @@ const TestPage = ({ user, equipment }) => (
             <Text style={styles.formRow4_3_i}>Acceso Voice Mail:</Text>
             <Text style={styles.formRow4_3_i_1}></Text>
           </View>
+          11111111111111111111111111
           <View style={[styles.formRow4, { width: "100%" }]}>
             {/* filas*/}
             <Text style={styles.formRow4_1}></Text>
@@ -1140,6 +1172,7 @@ const TestPage = ({ user, equipment }) => (
               ELEMENTOS PENDIENTES POR DEVOLVER
             </Text>
           </View>
+          ''''''''''''''''''''''''''''''''
           <View style={[styles.formRow4_pruebas, { width: "100%" }]}>
             {/* filas*/}
             <Text style={styles.formRow4_1_observaciones}></Text>
@@ -1171,7 +1204,7 @@ const TestPage = ({ user, equipment }) => (
               El trabajador entiende y acepta con la firma de este documento las
               siguientes cláusulas de responsabilidad:
             </Text>
-            <View style={[styles.contenedor__text]}>
+            <View style={[styles.contenedor__text1]}>
               <Text>
                 {" "}
                 - Responsabilidad en cuanto al cuidado de las herramientas de
@@ -1203,10 +1236,20 @@ const TestPage = ({ user, equipment }) => (
                 artículos 18 y 19.
               </Text>
             </View>
-            
-              <Image src={logoDos} style={styles.imageDos} />
-            
-            <View style={[styles.contenedor__text]}>
+          </View>
+        </View>
+      </View>
+        <Image src={logoDos} style={styles.imageDos} />
+        </View>
+      
+    </View>
+    <View style={styles.content}>
+      <Text style={styles.textpagi}></Text>
+      <Text style={styles.textpagi}></Text>
+      <Text style={styles.textpagi}>pagina 2 de 2</Text>
+      <Image src={logo} style={styles.image2} />
+      <View style={[styles.contenedor__text]}>
+        <View style={styles.tp}>
               <Text> - Responsabilidad en cuanto a medidas de seguridad: </Text>
               <Text>
                 Comprendo que las herramientas de trabajo están destinadas para
@@ -1232,10 +1275,7 @@ const TestPage = ({ user, equipment }) => (
                 claves de usuario a sistemas de información y del software
                 corporativo.
               </Text>
-              <View style={styles.content}>
-                <Text style={styles.textpagi}>pagina 2 de 2</Text>
-              </View>
-              <Image src={logo} style={styles.image} />
+              
 
               <Text>
                 {" "}
@@ -1317,9 +1357,10 @@ const TestPage = ({ user, equipment }) => (
                   obstáculo.
                 </Text>
               </View>
-            </View>
-          </View>
-          <View style={styles.formRow_header}>
+              </View>
+
+                ///////////////////////////////////////////////////////////////////////////////////
+                <View style={styles.formRow_header}>
             <View style={styles.formRow_header_1}>
               <Text>Cláusula de Tratamiento de datos:</Text>
               <Text>{"[x]"}</Text>
@@ -1344,13 +1385,11 @@ const TestPage = ({ user, equipment }) => (
               <Text style={styles.formRow_header_firma_1_1}>Firma</Text>
               <Text style={styles.formRow_header_firma_2_1}>Firma</Text>
             </View>
-
             <View style={styles.formRow_header_firma}>
-              <Text style={styles.formRow_header_nombre_1_1}>
-                Nombre Completo: {user.nombre}
+              <Text style={styles.formRow_header_nombre_1_1}>Nombre Completo: {user.nombre}
               </Text>
               <Text style={styles.formRow_header_nombre_1_1}>
-                Nombre Completo:{user.first_name}
+              Nombre Completo: {user.first_name}
               </Text>
             </View>
             <View style={styles.formRow_header_22}>
@@ -1359,6 +1398,7 @@ const TestPage = ({ user, equipment }) => (
               </Text>
               <Text style={styles.formRow_header_2_2}>JEFE INMEDIATO</Text>
             </View>
+            88888888888
             <View style={styles.formRow_header_firma}>
               <Text style={styles.formRow_header_firma_1_1}>Firma</Text>
               <Text style={styles.formRow_header_firma_2_1}>Firma</Text>
@@ -1369,11 +1409,13 @@ const TestPage = ({ user, equipment }) => (
                 Nombre Completo: { }
               </Text>
               <Text style={styles.formRow_header_nombre_1_1}>
-                Nombre Completo:{user.jefe_inmediato}
+              Nombre Completo: {user.jefe_inmediato}
               </Text>
             </View>
           </View>
-          <View style={styles.text_footer}>
+            </View>
+    </View>
+    <View style={styles.text_footer}>
             <Text style={{ marginBottom: 25 }}>INSTRUCCIONES:</Text>
             <Text style={{ marginBottom: 15 }}>
               Los trabajadores bajo la modalidad de trabajo de teletrabajo
@@ -1425,12 +1467,13 @@ const TestPage = ({ user, equipment }) => (
                 Colsubsidio y el domicilio del trabajador registrado.{" "}
               </Text>
               
-                <Image src={logoDos} style={styles.imageDos} />
+                <Image src={logoDos} style={styles.imageDos2} />
             </View>
           </View>
-        </View>
-      </View>
     </Page>
+
+
+    
   </Document >
 );
 
