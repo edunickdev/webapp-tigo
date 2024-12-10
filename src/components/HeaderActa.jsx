@@ -5,7 +5,7 @@ export const HeaderActa = () => {
   const [selected, setSelected] = useState(null);
 
   const handleSelect = (value) => {
-    setSelected(value);  // Actualiza el valor del checkbox seleccionado
+    setSelected(value);  
   };
 
   return (

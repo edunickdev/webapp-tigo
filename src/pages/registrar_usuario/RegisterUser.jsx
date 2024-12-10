@@ -67,7 +67,7 @@ export const RegisterUser = () => {
                 : "No se tiene nombre"}
             </TableCell>
             <TableCell className="w-72 text-center">
-              {user && user.id ? user.id : "No se tiene documento"}
+              {user && user.identificacion ? user.identificacion : "No se tiene documento"}
             </TableCell>
             <TableCell className="flex justify-center items-center gap-x-1">
               <FormButtonComponent
