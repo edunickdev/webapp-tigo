@@ -20,7 +20,7 @@ export const CreateActa = () => {
   const clearUser = useUserStore((state) => state.resetUser);
   const [state, setState] = useState(false);
 
-  const fetchMarcas = useBrandsStore((state) => state.fetchMarcas);
+  const fetchMarcas = useBrandsStore((state) => state.fetchFields);
 
   const handleBrands = async () => {
     await fetchMarcas();
