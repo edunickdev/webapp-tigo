@@ -32,7 +32,7 @@ export const Firmas = () => {
                     </tr>
                     <tr>
                         <td className="text-sm text-red-600">
-                            Nombre completo:
+                            Nombre completo: {user.nombre}
                             <input
                                 type="text"
                                 name="firmaUsuario"

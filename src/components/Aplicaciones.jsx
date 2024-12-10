@@ -31,8 +31,18 @@ export const Aplicaciones = () => {
     vpn: false,
     usb: false,
     sap: false,
-    google: false,
-    sharepoint: false,
+    observacion_apli: "",
+    maletin_apli: false,
+    guaya_apli: false,
+    docking_apli: false,
+    raton_apli: false,
+    base_apli: false,
+    teclado_apli: false,
+    cam_apli: false,
+    diadema_apli: false,
+    adaptador_apli: false,
+    otros_apli: false,
+
   });
 
   const handleInputChange = (e) => {
@@ -378,9 +388,103 @@ export const Aplicaciones = () => {
               />
             </td>
           </tr>
-          {/* Continúa con los otros campos de la misma manera */}
+          {/* <div className="grid grid-cols-1 gap-4">
+            <div className="col-span-6">
+              <label className="block text-sm font-medium text-gray-700" htmlFor='observacion_apli'>Observaciones</label>
+              <textarea className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Observaciones..."
+                {...register('observacion_apli')}
+              />
+            </div>
+          </div> */}
+          {/* <div className="col-span-12 border p-2">
+            <label className="block text-sm font-medium text-gray-700">ELEMENTOS PENDIENTES POR DEVOLVER</label>
+            <div className="inline-flex items-center ml-6">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                {...register('maletin_apli')}
+              />
+              <label className="ml-2 text-gray-700" htmlFor='maletin_apli'>= Maletín</label>
+            </div>
+            <div className="inline-flex items-center ml-6">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                {...register('guaya_apli')}
+              />
+              <label className="ml-2 text-gray-700" htmlFor='guaya_apli'>= Guaya</label>
+            </div>
+            <div className="inline-flex items-center ml-6">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                {...register('docking_apli')}
+              />
+              <label className="ml-2 text-gray-700" htmlFor='docking_apli'>= Docking</label>
+            </div>
+            <div className="inline-flex items-center ml-6">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                {...register('raton_apli')}
+              />
+              <label className="ml-2 text-gray-700" htmlFor='raton_apli'>= Mouse</label>
+            </div>
+            <div className="inline-flex items-center ml-6">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                {...register('base_apli')}
+              />
+              <label className="ml-2 text-gray-700" htmlFor='base_apli'>= Base</label>
+            </div>
+            <div className="inline-flex items-center ml-6">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                {...register('teclado_apli')}
+              />
+              <label className="ml-2 text-gray-700" htmlFor='teclado_apli'>= Teclado</label>
+            </div>
+            <div className="inline-flex items-center ml-6">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                {...register('cam_apli')}
+              />
+              <label className="ml-2 text-gray-700" htmlFor='cam_apli'>= Camara</label>
+            </div>
+            <div className="inline-flex items-center ml-6">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                {...register('diadema_apli')}
+              />
+              <label className="ml-2 text-gray-700" htmlFor='diadema_apli'>= Diadema</label>
+            </div>
+            <div className="inline-flex items-center ml-6">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                {...register('adaptador_apli')}
+              />
+              <label className="ml-2 text-gray-700" htmlFor='adaptador_apli'>= Adaptador</label>
+            </div>
+            <div className="inline-flex items-center ml-6">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600"
+                {...register('otros_apli')}
+              />
+              <label className="ml-2 text-gray-700" htmlFor='otros_apli'>= Otro</label>
+              <input className="ml-4" type="text" />
+            </div>
+          </div> */}
+
+
+          {/* <div>
+          
+            <button type='submit'>enviar</button>
+          </div> */}
         </tbody>
       </table>
     </div>
   );
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

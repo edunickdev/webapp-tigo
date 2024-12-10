@@ -12,6 +12,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import TestPage from "../test";
 import { useForm } from "react-hook-form";
 
+
 export const CreateActa = () => {
   const fetchUser = useUserStore((state) => state.fetchUser);
   const [busqueda, setBusqueda] = useState("");

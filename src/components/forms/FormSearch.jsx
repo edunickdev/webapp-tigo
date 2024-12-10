@@ -17,8 +17,11 @@ export const FormSearch = () => {
   const fetchUser = useUserStore((state) => state.fetchUser);
   const user = useUserStore((state) => state.user);
 
+
   const [serial, setSerial] = useState("");
   const [identificacion, setIdentificacion] = useState("");
+
+  
 
   return (
     <div className="grid grid-cols-12 h-[90vh] bg-gray-100 items-center">
@@ -44,7 +47,13 @@ export const FormSearch = () => {
           radius="sm"
           className="w-full bg-blue-500 text-white"
           endContent={<IoSearchSharp />}
-          onPress={() => fetchEquipment(serial)}
+          onPress={() => {
+            if (serial.trim()) {
+              fetchEquipment(serial);
+            } else {
+              alert("Por favor ingresa un número de serial.");
+            }
+          }}
         >
           Buscar por serial
         </Button>
@@ -66,7 +75,14 @@ export const FormSearch = () => {
           radius="sm"
           className="w-full bg-blue-500 text-white"
           endContent={<IoSearchSharp />}
-          onPress={() => fetchUser(identificacion)}
+          onPress={() => {
+            if (identificacion.trim()) {
+              fetchUser(identificacion);
+            } else {
+              alert("Por favor ingresa un número de documento.");
+            }
+          }}
+
         >
           Buscar
         </Button>
@@ -80,16 +96,17 @@ export const FormSearch = () => {
         color="primary"
       >
         <TableHeader>
-          <TableColumn className="text-center">Nombre del usuario</TableColumn>
+          <TableColumn className="text-center">Acta / usuario</TableColumn>
           <TableColumn className="text-center">
-            Identificación del usuario
+            Serial Equipo
           </TableColumn>
-          <TableColumn className="text-center">Acciones</TableColumn>
+          <TableColumn className="text-center"></TableColumn>
         </TableHeader>
         <TableBody>
           <TableRow>
             {/* Celda 1 */}
             <TableCell className="w-72 text-center">
+              {equipo && equipo.serial.length > 0 ? equipo.serial : "No existe este equipo"}
               {user && user.nombre.length > 0 ? user.nombre : "No se tiene nombre"}
             </TableCell>
 
