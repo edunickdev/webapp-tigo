@@ -19,7 +19,7 @@ export const inputs = [
 
 export const select_inputs = [
   {
-    name: "propiedad",
+    name: "propiedad_equipo",
     text: "Propiedad",
     options: [
       { value: 1, text: "Colsubsidio" },
@@ -28,7 +28,7 @@ export const select_inputs = [
     ],
   },
   {
-    name: "modalidad",
+    name: "modalidad_trabajo",
     text: "Modalidad",
     options: [
       { value: 1, text: "Presencial" },
@@ -43,7 +43,7 @@ export const select_inputs = [
     ],
   },
   {
-    name: "facilidades",
+    name: "facilidades_operativas",
     text: "Facilidades",
     options: [
       { value: 1, text: "Carnet" },
@@ -55,7 +55,7 @@ export const select_inputs = [
     ],
   },
   {
-    name: "tipocontrato",
+    name: "tipo_contrato",
     text: "Tipo de contrato",
     options: [
       { value: 1, text: "Trabajador" },

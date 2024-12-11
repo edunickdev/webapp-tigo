@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import axios from "axios";
+import uuid from "react-uuid";
 
 export const GetUserById = async (id) => {
   const response = await axios
@@ -50,11 +51,9 @@ export const compareAndUpdateUser = async (originalUser, updatedUser) => {
 
 export const CreateUser = async (usr) => {
   usr.sede = parseInt(usr.sede);
+  usr["id"] = uuid();
 
-  const response = await axios.post(
-    `http://localhost:8000/api/usuario/update/`,
-    usr
-  );
+  const response = await axios.post(`http://localhost:8000/api/usuario/update/`, usr);
   return response.data;
 };
 
@@ -68,14 +67,3 @@ export const DeleteUser = async (usr) => {
   return response.data;
 }
 
-// export const GetUsuarioByIdentificacion = async (identificacion) => {
-//   const response = await axios
-//     .get(`http://localhost:8000/api/usuarios/${identificacion}/`)
-//     .then((res) => {
-//       return res.data;
-//     })
-//     .catch((err) => {
-//       throw err;
-//     });
-//   return response;
-// };

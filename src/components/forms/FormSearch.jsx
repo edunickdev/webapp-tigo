@@ -14,14 +14,12 @@ import { IoSearchSharp } from "react-icons/io5";
 
 export const FormSearch = () => {
   const fetchEquipment = useEquipmentStore((state) => state.fetchEquipment);
+  const equipo = useEquipmentStore((state) => state.equipment);
   const fetchUser = useUserStore((state) => state.fetchUser);
   const user = useUserStore((state) => state.user);
 
-
   const [serial, setSerial] = useState("");
   const [identificacion, setIdentificacion] = useState("");
-
-  
 
   return (
     <div className="grid grid-cols-12 h-[90vh] bg-gray-100 items-center">
@@ -40,7 +38,7 @@ export const FormSearch = () => {
           label="Ingresa el número de serial"
           className="col-span-4 my-4"
           value={serial}
-          onChange={(e) => setSerial(e.target.value)}
+          onValueChange={setSerial}
         />
 
         <Button
@@ -48,8 +46,8 @@ export const FormSearch = () => {
           className="w-full bg-blue-500 text-white"
           endContent={<IoSearchSharp />}
           onPress={() => {
-            if (serial.trim()) {
-              fetchEquipment(serial);
+            if (serial) {
+              fetchEquipment(serial.toString());
             } else {
               alert("Por favor ingresa un número de serial.");
             }
@@ -68,7 +66,7 @@ export const FormSearch = () => {
           label="Ingresa el número de documento"
           className="col-span-4 my-4"
           value={identificacion}
-          onChange={(e) => setIdentificacion(e.target.value)}
+          onValueChange={setIdentificacion}
         />
 
         <Button

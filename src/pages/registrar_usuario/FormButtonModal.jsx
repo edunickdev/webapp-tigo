@@ -99,13 +99,10 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
                     variant="ghost"
                     className="w-36"
                     onPress={handleSubmit(async (data) => {
-                      console.log('se creo algo')
                       if (action === "create") {
                         createUser(data);
                       } else {
                         updateUser(user, data);
-                      console.log('no se creo nadaaaaaaaaaaaaaaaa')
-
                       }
                     })}
                   >

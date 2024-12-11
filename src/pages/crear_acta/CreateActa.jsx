@@ -4,7 +4,7 @@ import { EquipoNew } from "../../components/EquipoNew";
 import { EquipoOld } from "../../components/EquipoOld";
 import { Aplicaciones } from "../../components/Aplicaciones";
 import { Accordion, AccordionItem, Button, Input } from "@nextui-org/react";
-import { useBrandsStore, useNewEquipmentStore, useUserStore } from "../../context/stores";
+import { useBrandsStore, useEquipmentStore, useUserStore } from "../../context/stores";
 import { useEffect, useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import logo from "../../assets/colsubsidio.jpg";
@@ -17,7 +17,6 @@ export const CreateActa = () => {
   const fetchUser = useUserStore((state) => state.fetchUser);
   const [busqueda, setBusqueda] = useState("");
   const user = useUserStore((state) => state.user);
-  const clearUser = useUserStore((state) => state.resetUser);
   const [state, setState] = useState(false);
 
   const fetchMarcas = useBrandsStore((state) => state.fetchFields);
@@ -30,18 +29,11 @@ export const CreateActa = () => {
     handleBrands();
   }, []);
   
-  const {register, handleSubmit, 
+  const {register, 
     formState: {errors}
   } = useForm();
 
-  const equipment = useNewEquipmentStore((state) => state.newEquipment);
-  const clearEquipment = useNewEquipmentStore((state) => state.resetNewEquipment);
-
-  const handleData = (data) => {
-    clearUser();
-    clearEquipment();
-    setState(true);
-  }
+  const equipment = useEquipmentStore((state) => state.equipment);
 
   return (
     <div className="py-10 grid grid-cols-12">

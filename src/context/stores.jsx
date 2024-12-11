@@ -14,17 +14,24 @@ import { fetchFields } from "../services/equipment_service/brands_service";
 export const useUserStore = create((set) => ({
   user: null,
   inputs: [
-    { text: "Identificación", name: "id", value: "" },
-    { text: "Nombre", name: "nombre", value: "" },
-    { text: "Celular", name: "celular", value: "" },
-    { text: "Cargo", name: "cargo", value: "" },
-    { text: "Centro de costos", name: "centrocostos", value: "" },
-    { text: "Centro Logístico", name: "centrologistico", value: "" },
-    { text: "Ciudad", name: "ciudad", value: "" },
-    { text: "Sede", name: "sede", value: "" },
-    { text: "Jefe inmediato", name: "jefe", value: "" },
-    { text: "Gerencia", name: "gerencia", value: "" },
-    { text: "Usuario de red", name: "usuariored", value: "" },
+    { text: "Identificación",       name: "identificacion",         value: "" },
+    { text: "Nombre",               name: "nombre",                 value: "" },
+    { text: "Celular",              name: "celular",                value: "" },
+    { text: "cargo",                name: "cargo",                  value: "" },
+    { text: "centro_costos",        name: "centro_costos",          value: "" },
+    { text: "Centro Logístico",     name: "centro_logistico",       value: "" },
+    { text: "Ciudad",               name: "ciudad",                 value: "" },
+    { text: "Sede",                 name: "sede",                   value: "Sin Sede" },
+    { text: "Jefe inmediato",       name: "jefe_inmediato",         value: "" },
+    { text: "Gerencia",             name: "gerencia",               value: "" },
+    { text: "Usuario de red",       name: "usuario_red",            value: "" },
+    { text: "Ubicacion",            name: "ubicacion",              value: "sin ubicacion" },
+    { text: "Facilidades Operativa",name: "facilidades_operativa",  value: "" },
+    { text: "Identificacion",       name: "identificacion",         value: "" },
+    { text: "Modalidad Trabajo",    name: "modalidad_trabajo",      value: "" },
+    { text: "Propiedad Equipo",     name: "propiedad_equipo",       value: "" },
+    { text: "Tipo Contrato",        name: "tipo_contrato",          value: "" },
+
   ],
 
   fetchUser: async (id) => {
@@ -44,6 +51,7 @@ export const useUserStore = create((set) => ({
   },
 
   createUser: async (user) => {
+    console.log(user);
     await CreateUser(user);
   },
 

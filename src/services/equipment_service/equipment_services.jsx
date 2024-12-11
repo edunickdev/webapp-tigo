@@ -2,7 +2,7 @@ import axios from "axios";
 import uuid from 'react-uuid'
 
 export const GetEquipmentBySerial = async (serial) => {
-  const response = await axios.get(`http://localhost:8000/equipo/${serial}`);
+  const response = await axios.get(`http://localhost:8000/equipo/serial/${serial}`);
 
   return response.data;
 };
@@ -15,8 +15,8 @@ export const CreateEquipment = async (equipment, accesories, userId, element) =>
     "id": uuid(),
     "serial": equipment["serial_n"],
     "placa": equipment["placa_n"],
-    "Marca": parseInt(equipment["marca_n"]) + 1,
-    "Modelo": equipment["modelo_n"],
+    "marca": parseInt(equipment["marca_n"]) + 1,
+    "modelo": equipment["modelo_n"],
     "nombre_maquina": equipment["nombre_equipo_n"],
     "mac": equipment["mac_n"],
     "disco": equipment["disco_n"],
@@ -43,7 +43,7 @@ export const CreateEquipment = async (equipment, accesories, userId, element) =>
   })
 
   temp["accesorios"] = accessoryList;
-  temp["Usuario"] = userId;
+  temp["usuario"] = userId;
 
   console.log(temp);
   const result = await axios.post("http://localhost:8000/equipo/create", temp);
