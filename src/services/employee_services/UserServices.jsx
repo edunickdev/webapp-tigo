@@ -50,7 +50,7 @@ export const compareAndUpdateUser = async (originalUser, updatedUser) => {
 };
 
 export const CreateUser = async (usr) => {
-  usr.sede = parseInt(usr.sede);
+  usr.sede = parseInt(usr.sede) + 1;
   usr["id"] = uuid();
 
   const response = await axios.post(`http://localhost:8000/api/usuario/update/`, usr);
@@ -58,7 +58,6 @@ export const CreateUser = async (usr) => {
 };
 
 export const DeleteUser = async (usr) => {
-  console.log(usr);
   const response = await axios.delete(
     `http://localhost:8000/api/usuario/update/`, {
       data: usr
@@ -67,3 +66,8 @@ export const DeleteUser = async (usr) => {
   return response.data;
 }
 
+export const GetSedes = async () => {
+  const response = await axios.get(`http://localhost:8000/api/usuario/sedes/`);
+
+  return response.data
+}

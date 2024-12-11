@@ -3,6 +3,7 @@ import {
   compareAndUpdateUser,
   CreateUser,
   DeleteUser,
+  GetSedes,
   GetUserById,
 } from "../services/employee_services/UserServices";
 import { LoginService } from "../services/auth_services/login_services";
@@ -21,17 +22,10 @@ export const useUserStore = create((set) => ({
     { text: "centro_costos",        name: "centro_costos",          value: "" },
     { text: "Centro Logístico",     name: "centro_logistico",       value: "" },
     { text: "Ciudad",               name: "ciudad",                 value: "" },
-    { text: "Sede",                 name: "sede",                   value: "Sin Sede" },
     { text: "Jefe inmediato",       name: "jefe_inmediato",         value: "" },
     { text: "Gerencia",             name: "gerencia",               value: "" },
     { text: "Usuario de red",       name: "usuario_red",            value: "" },
     { text: "Ubicacion",            name: "ubicacion",              value: "sin ubicacion" },
-    { text: "Facilidades Operativa",name: "facilidades_operativa",  value: "" },
-    { text: "Identificacion",       name: "identificacion",         value: "" },
-    { text: "Modalidad Trabajo",    name: "modalidad_trabajo",      value: "" },
-    { text: "Propiedad Equipo",     name: "propiedad_equipo",       value: "" },
-    { text: "Tipo Contrato",        name: "tipo_contrato",          value: "" },
-
   ],
 
   fetchUser: async (id) => {
@@ -51,7 +45,6 @@ export const useUserStore = create((set) => ({
   },
 
   createUser: async (user) => {
-    console.log(user);
     await CreateUser(user);
   },
 
@@ -85,14 +78,12 @@ export const useEquipmentStore = create((set) => ({
 
   fetchEquipment: async (serial) => {
     const equipment = await GetEquipmentBySerial(serial);
-    console.log(equipment);
     set({ equipment });
     set((state) => {
       const updatedInputs = state.inputs.map((input) => ({
         ...input,
         value: equipment[input.name] || "",
       }));
-      console.log(updatedInputs);
       return { inputs: updatedInputs };
     });
   },
@@ -161,9 +152,6 @@ export const useUser = create((set) => ({
       funct: LoginService(email, password)
     });
 
-    console.log(result.user);
-    console.log(result.token);
-
     if (!result) {
       return;
     }
@@ -188,4 +176,71 @@ export const useUser = create((set) => ({
     set({ user: null });
     set({ token: "" });
   }
+}));
+
+export const useSedesStore = create((set, get) => ({
+  sedes: [],
+  facilidades: [],
+  modalidades: [],
+  contratos: [],
+  propiedades: [],
+  loading: true,
+  select_inputs: [],
+  fetchSedes: async () => {
+    const info = await GetSedes();
+    const sedesTemp = info.sedes;
+    const facilidadesTemp = info.facilidades;
+    const modalidadesTemp = info.modalidades;
+    const contratosTemp = info.tipo_contrato;
+    const propiedadesTemp = info.propiedad;
+
+    // Actualiza cada lista global
+    set({
+      sedes: sedesTemp.map((sede) => ({
+        value: sede.id,
+        text: sede.nombre,
+      })),
+    });
+
+    set({
+      facilidades: facilidadesTemp.map((facilidad) => ({
+        value: facilidad.id,
+        text: facilidad.facilidades_operativas,
+      })),
+    });
+
+    set({
+      modalidades: modalidadesTemp.map((modalidad) => ({
+        value: modalidad.id,
+        text: modalidad.modalidad_trabajo,
+      })),
+    });
+
+    set({
+      contratos: contratosTemp.map((contrato) => ({
+        value: contrato.id,
+        text: contrato.tipo_contrato,
+      })),
+    });
+
+    set({
+      propiedades: propiedadesTemp.map((propiedad) => ({
+        value: propiedad.id,
+        text: propiedad.propiedad,
+      })),
+    });
+
+    // Combina las listas globales en select_inputs
+    const { sedes, facilidades, modalidades, contratos, propiedades } = get();
+
+    set({
+      select_inputs: [
+        { name: "sede", text: "Sede", options: sedes },
+        { name: "facilidades_operativas", text: "Facilidad", options: facilidades },
+        { name: "modalidad_trabajo", text: "Modalidad", options: modalidades },
+        { name: "tipo_contrato", text: "Tipo de contrato", options: contratos },
+        { name: "propiedad_equipo", text: "Propiedad", options: propiedades },
+      ],
+    });
+  },
 }));

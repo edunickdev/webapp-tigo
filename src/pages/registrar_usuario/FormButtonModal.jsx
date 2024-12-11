@@ -9,10 +9,10 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
-import { select_inputs } from "../../helpers/constants";
 import SelectionButton from "../../components/shared/SelectionButton";
 import InputControlled from "../../components/shared/InputControlled";
-import { useUserStore } from "../../context/stores";
+import { useSedesStore, useUserStore } from "../../context/stores";
+import { useEffect } from "react";
 
 const FormButtonComponent = ({ icon, className, enable, action }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -21,6 +21,13 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
   const createUser = useUserStore((state) => state.createUser);
   const updateUser = useUserStore((state) => state.updateUser);
   const inputs = useUserStore((state) => state.inputs);
+  const getSedes = useSedesStore((state) => state.fetchSedes);
+
+  const select_inputs = useSedesStore((state) => state.select_inputs);
+
+  useEffect(() => {
+    getSedes();
+  }, []);
 
   return (
     <form
@@ -72,7 +79,7 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
                   />
                 </div>
                 <div className="col-span-4 flex flex-col justify-start items-center mt-8 gap-y-5">
-                  {select_inputs.map((select_input, index) => (
+                  {select_inputs && select_inputs.map((select_input, index) => (
                     <SelectionButton
                       user={user}
                       key={index}
@@ -82,6 +89,7 @@ const FormButtonComponent = ({ icon, className, enable, action }) => {
                       action={action}
                     />
                   ))}
+                  
                 </div>
               </ModalBody>
               <ModalFooter>

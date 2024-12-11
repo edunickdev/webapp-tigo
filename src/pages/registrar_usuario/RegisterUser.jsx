@@ -14,11 +14,13 @@ import { useUser, useUserStore } from "../../context/stores";
 import FormButtonComponent from "./FormButtonModal";
 import { MdDelete, MdEdit } from "react-icons/md";
 import DeleteButtonModal from "./DeleteButtonModal";
+import { AiOutlineClear } from "react-icons/ai";
 
 
 export const RegisterUser = () => {
   const usr = useUser((state) => state.user);
   const user = useUserStore((state) => state.user);
+  const resetUser = useUserStore((state) => state.resetUser);
   const fetchUser = useUserStore((state) => state.fetchUser);
   const [busqueda, setBusqueda] = useState("");
 
@@ -75,6 +77,14 @@ export const RegisterUser = () => {
                 className={"bg-yellow-500 text-white rounded-md"}
                 enable={user ? true : false}
                 action={"create"}
+              />
+              <Button
+                isIconOnly
+                color="danger"
+                variant="solid"
+                onPress={() => resetUser()}
+                className="rounded-md"
+                endContent={<AiOutlineClear />}
               />
               <FormButtonComponent
                 icon={<IoEye />}
