@@ -1,5 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
-import { useBrandsStore, useEquipmentStore, useUserStore } from "../context/stores";
+import { useBrandsStore, useEquipmentStore, useUserStore, useModelsStore } from "../context/stores";
 import { useState } from "react";
 
 export const EquipoNew = () => {
@@ -18,6 +18,8 @@ export const EquipoNew = () => {
 
     const brands = useBrandsStore((state) => state.brands);
     const accesories = useBrandsStore((state) => state.accesories);
+    const models = useModelsStore((state) => state.models);
+
 
     const setEquipment = useEquipmentStore((state) => state.setEquipment);
     const createEquipment = useEquipmentStore((state) => state.createEquipment);
@@ -95,9 +97,6 @@ export const EquipoNew = () => {
                         }
                     </div>
                     <div className="col-span-2">
-                        {/* TODO: de cara a que estos datos se van a almacenar en la base de datos y se tiene una tabla de marcas, mas que la palabra nombre de la marca, 
-                        se requiere tener el indice, al igual que seria mas util cargar esta lista desde la base de datos y no quemarlos, es decir se necesita hacer 
-                        la peticion a la base de datos para que sirva todas las marcas existentes */ }
                         <label className="block text-sm font-medium text-gray-700" htmlFor='marca_n'>Marca</label>
                         <select
                             {...register('marca_n')}
@@ -110,6 +109,7 @@ export const EquipoNew = () => {
                             }
                         </select>
                     </div>
+                    
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='disco_n'>Disco Duro (GB)</label>
                         <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="8 GB..."
@@ -133,14 +133,16 @@ export const EquipoNew = () => {
                     </div>
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='modelo_n'>Modelo</label>
-                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="THINKPAD E490..."
-                            {...register('modelo_n', {
-                                required: true
-                            })}
-                        />
-                        {
-                            errors.modelo_n && <span className="text-xs font-medium text-red-700">el modelo es requerido</span>
-                        }
+                        <select
+                            {...register('modelo_n')}
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                        >
+                            {
+                                models && models.map((model, index) => (
+                                    <option key={index} value={index}>{model}</option>
+                                ))
+                            }
+                        </select>
                     </div>
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='memoria_n'>Memoria RAM</label>

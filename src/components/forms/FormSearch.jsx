@@ -48,6 +48,7 @@ export const FormSearch = () => {
           onPress={() => {
             if (serial) {
               fetchEquipment(serial.toString());
+              console.log("serial=",serial.toString())
             } else {
               alert("Por favor ingresa un número de serial.");
             }
@@ -110,7 +111,8 @@ export const FormSearch = () => {
 
             {/* Celda 2 */}
             <TableCell className="w-72 text-center">
-              {user && user.id ? user.id : "No se tiene documento"}
+              
+              {equipo && equipo.serial ? equipo.serial : "No tiene equipo"}
             </TableCell>
 
             {/* Celda 3 */}

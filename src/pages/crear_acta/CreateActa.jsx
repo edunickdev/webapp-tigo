@@ -51,7 +51,7 @@ export const CreateActa = () => {
           {...register("fecha", {
             required: {
               value:true,
-              message: "fecha actual es requerida"
+              message: "fecha es requerida"
             },
           })
           }

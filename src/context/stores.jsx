@@ -136,6 +136,23 @@ export const useBrandsStore = create((set) => ({
   },
 }));
 
+export const useModelsStore = create((set) => ({
+  models: [],
+  
+  model: null,
+  
+  fetchFields: async () => {
+    try {
+      const response = await fetchFields();
+      set({ models: response.data["models"] });
+    } catch (error) {
+      console.error("Error fetching models:", error);
+    }
+  },
+  setModel: (model) => {
+    set({ model });
+  },
+}));
 
 export const useNewEquipmentStore = create((set) => ({
   newEquipment: {},
