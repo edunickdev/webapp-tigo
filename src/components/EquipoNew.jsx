@@ -133,7 +133,9 @@ export const EquipoNew = () => {
                     </div>
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='modelo_n'>Modelo</label>
-                        <select
+                        <input type="text" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Acer Veriton X2630G Desktop.."
+                        />
+                        {/* <select
                             {...register('modelo_n')}
                             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                         >
@@ -142,7 +144,7 @@ export const EquipoNew = () => {
                                     <option key={index} value={index}>{model}</option>
                                 ))
                             }
-                        </select>
+                        </select> */}
                     </div>
                     <div className="col-span-2">
                         <label className="block text-sm font-medium text-gray-700" htmlFor='memoria_n'>Memoria RAM</label>

@@ -10,6 +10,8 @@ import { notify } from "../helpers/notifications";
 import { GetEquipmentBySerial, CreateEquipment } from "../services/equipment_service/equipment_services"
 import { SignUpService } from "../services/auth_services/signup_services";
 import { fetchFields } from "../services/equipment_service/brands_service";
+import { fetchFieldsModels } from "../services/equipment_service/models_service";
+
 
 export const useUserStore = create((set) => ({
   user: null,
@@ -141,9 +143,9 @@ export const useModelsStore = create((set) => ({
   
   model: null,
   
-  fetchFields: async () => {
+  fetchModels: async () => {
     try {
-      const response = await fetchFields();
+      const response = await fetchFieldsModels();
       set({ models: response.data["models"] });
     } catch (error) {
       console.error("Error fetching models:", error);
