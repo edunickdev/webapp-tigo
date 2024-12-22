@@ -51,7 +51,7 @@ export const DatosUser = () => {
             </span>
             <span className="text-start  text-neutral-950">
               <b className=" text-gray-700">Dirección: </b>
-              {user.direccion}
+              {user.sede}
             </span>
             <span className="text-start  text-neutral-950">
               <b className=" text-gray-700">Ubicación: </b>

@@ -48,7 +48,7 @@ export const FormSearch = () => {
           onPress={() => {
             if (serial) {
               fetchEquipment(serial.toString());
-              console.log("serial=",serial.toString())
+              console.log("serial=", serial.toString())
             } else {
               alert("Por favor ingresa un número de serial.");
             }
@@ -105,14 +105,15 @@ export const FormSearch = () => {
           <TableRow>
             {/* Celda 1 */}
             <TableCell className="w-72 text-center">
-              {equipo && equipo.serial.length > 0 ? equipo.serial : "No existe este equipo"}
-              {user && user.nombre.length > 0 ? user.nombre : "No se tiene nombre"}
+              {equipo?.serial ? equipo.serial : "No existe este equipo"}
+              {user?.nombre ? user.nombre : "No se tiene nombre"}
             </TableCell>
+
 
             {/* Celda 2 */}
             <TableCell className="w-72 text-center">
-              
-              {equipo && equipo.serial ? equipo.serial : "No tiene equipo"}
+
+              {equipo && equipo.serial.length > 0 ? equipo.serial : "No tiene equipo"}
             </TableCell>
 
             {/* Celda 3 */}

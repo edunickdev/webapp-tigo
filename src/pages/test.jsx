@@ -1493,10 +1493,11 @@ const TestPage = ({ user, equipment }) => (
               <Text style={styles.formRow_header_firma_2_1}>Firma</Text>
             </View>
             <View style={styles.formRow_header_firma}>
-              <Text style={styles.formRow_header_nombre_1_1}>Nombre Completo: {user.nombre}
+              <Text style={styles.formRow_header_nombre_1_1}>
+                Nombre Completo: {user.nombre}
               </Text>
               <Text style={styles.formRow_header_nombre_1_1}>
-                Nombre Completo: {user.first_name}
+                Nombre Completo = {`${user?.name || "sin_nombre"} ${user?.lastname || "sin_apellido"}`}
               </Text>
             </View>
             <View style={styles.formRow_header_22}>
