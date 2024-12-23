@@ -1,10 +1,21 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";  
 import { Link } from "react-router-dom";
 import { Button, Input } from "@nextui-org/react";
 import { useState } from "react";
 import { Checkbox } from "@nextui-org/checkbox";
 import { useUser } from "../../context/stores";
 
+// autenticación maneja las funcionalidades de iniciar sesión y cerrar sesión.
+// useNavigate = Permite redirigir al usuario a otra página una vez que se haya autenticado correctamente. 
+// Link = enlace de "¿Olvidaste tu contraseña?" que, por ahora, no tiene acción definida pero permite navegación.
+// Button y input = biblioteca NextUI para la creación de botones e inputs estilizados, respectivamente.
+// Checkbox =  para la casilla de "Recordarme", que permite al usuario decidir si desea que su sesión se mantenga activa.
+// useUser = personalizado para acceder a las funciones de autenticación definidas en el contexto de usuario.
+
+
+// El componente utiliza el hook useUser para acceder a la función login que se encarga de autenticar al
+//  usuario. La función handleLogin ejecuta el login pasando el correo electrónico, la contraseña 
+// y la función de redirección (navigate) a la función de autenticación.
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -12,6 +23,8 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const login = useUser((state) => state.login);
+
+    // Función para manejar el login
 
   const handleLogin = async () => {
     await login(email, password, navigate);

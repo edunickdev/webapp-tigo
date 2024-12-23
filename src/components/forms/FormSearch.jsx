@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useEquipmentStore, useUserStore } from "../../context/stores";
+import { useState } from "react";   //Hook de React que se utiliza para gestionar los valores de los campos de entrada de serial e identificación.
+import { useEquipmentStore, useUserStore } from "../../context/stores"; //proporcionando las funciones fetchEquipment y fetchUser para realizar las búsquedas.
 import {
   Button,
   Input,
@@ -9,8 +9,13 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-} from "@nextui-org/react";
-import { IoSearchSharp } from "react-icons/io5";
+} from "@nextui-org/react";  //Componentes de la biblioteca NextUI para crear la interfaz de usuario, incluyendo botones, campos de entrada y tablas.
+import { IoSearchSharp } from "react-icons/io5"; //Icono de búsqueda utilizado en los botones para representar la acción de buscar.
+
+// El componente FormSearch proporciona un formulario de búsqueda que permite al usuario buscar equipos 
+// o usuarios mediante un número de serial o documento. Los resultados de la búsqueda se muestran en una tabla.
+
+
 
 export const FormSearch = () => {
   const fetchEquipment = useEquipmentStore((state) => state.fetchEquipment);
@@ -47,7 +52,7 @@ export const FormSearch = () => {
           endContent={<IoSearchSharp />}
           onPress={() => {
             if (serial) {
-              fetchEquipment(serial.toString());
+              fetchEquipment(serial.toString());   //funcion para buscar serial
               console.log("serial=", serial.toString())
             } else {
               alert("Por favor ingresa un número de serial.");
@@ -76,7 +81,7 @@ export const FormSearch = () => {
           endContent={<IoSearchSharp />}
           onPress={() => {
             if (identificacion.trim()) {
-              fetchUser(identificacion);
+              fetchUser(identificacion);      //funcion para traer informacion usuario desde el contexto useUserStore
             } else {
               alert("Por favor ingresa un número de documento.");
             }

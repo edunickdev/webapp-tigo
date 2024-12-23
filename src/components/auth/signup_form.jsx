@@ -2,11 +2,16 @@ import { Button, Input } from "@nextui-org/react";
 import { useState } from "react";
 import { useUser } from "../../context/stores";
 
+// El componente maneja el proceso de registro de usuario.
+
+
 const SignUpForm = () => {
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [lastname, setLastName] = useState("");
+  const [password, setPassword] = useState("");  //Estado para la contraseña
+  const [email, setEmail] = useState("");         //Estado para el correo
+  const [name, setName] = useState("");           //Estado para el nombre de usuario
+  const [lastname, setLastName] = useState("");   //Estado para el apellido del usuario
+
+// Estado para almacenar los datos completos del formulario
 
   const [data, setData] = useState({
     name: "",
@@ -15,7 +20,11 @@ const SignUpForm = () => {
     password: "",
   });
 
+// Función de registro proveniente del contexto de usuario
+
   const signup = useUser((state) => state.signup);
+
+// Función para manejar el registro
 
   const hangleSignUp = async () => {
     setData({
@@ -24,7 +33,7 @@ const SignUpForm = () => {
       email: email,
       password: password,
     });
-    await signup(data);
+    await signup(data); // Llamada a la función de signup del contexto
   }
 
   return (
@@ -71,7 +80,7 @@ const SignUpForm = () => {
           className="text-blue-700"
         />
         <Button
-          onClick={hangleSignUp}
+          onClick={hangleSignUp}    // Llama a la función de registro al hacer clic
           variant="solid"
           color="primary"
           className="mt-6"

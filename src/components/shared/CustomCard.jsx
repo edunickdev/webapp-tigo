@@ -1,6 +1,8 @@
 import { Card, CardBody } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 
+// que crea una tarjeta interactiva con un título, una imagen y una descripción. 
+
 const CustomCard = ({info}) => {
     const navigate = useNavigate();
 
@@ -25,5 +27,7 @@ const CustomCard = ({info}) => {
     );
 }
 
+// Cuando el usuario hace clic en la tarjeta, se ejecuta la función 
+// onPress, que utiliza el hook useNavigate para redirigir a la ruta definida en la propiedad info.route.
 
 export default CustomCard;

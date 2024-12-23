@@ -14,10 +14,10 @@ const UserAccount = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-500 to-gray-500 opacity-50"></div>
       </div>
   
-      <p className="text-center text-6xl font-bold mb-6 text-blue-50 col-span-12">
+      <p className="text-center text-7xl font-bold mb-6 text-blue-50 col-span-12 mt-20">
         ¿Qué quieres hacer?
       </p>
-      <section className="grid grid-cols-12 col-span-12">
+      <section className="grid grid-cols-12 col-span-12 mt-20">
         <div className="col-span-1"></div>
         <div className="col-span-10 grid grid-cols-10 gap-x-5">
           {infoAdmin.map((item, index) => (

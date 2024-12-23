@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
     width: "66%", // Asegura que ocupe todo el ancho del contenedor
   },
   checkbox: {
-    width: 5, // Ajusta el tamaño según tu preferencia
-    height: 5,
+    width: 4, // Ajusta el tamaño según tu preferencia
+    height: 4,
     borderWidth: 1,
     borderColor: "#000",
     marginRight: 2, // Espaciado entre el checkbox y el texto
@@ -215,9 +215,9 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     paddingLeft: 4,
     paddingTop: 1,
-    flexDirection: "row", // Alinea el texto y el checkbox horizontalmente
-    alignItems: "center", // Alinea verticalmente los elementos
-    justifyContent: "space-between", // Deja espacio entre los elementos
+    flexDirection: "row",
+    alignItems: "center", 
+    justifyContent: "space-between", 
   },
   tableCol_5_3: {
     width: '25%',
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
     borderBottom: 1,
     borderRight: 1,
     width: '100%',
-    padding: 6,
+    padding: 5,
   },
   equipos__monitor: {
     borderBottom: 1,
@@ -698,7 +698,7 @@ const TestPage = ({ user, equipment }) => (
             </Text>
           </View>
           <View style={styles.tableCol_3}>
-            <Text># Identificación: {user.id} </Text>
+            <Text># Identificación: {user.identificacion} </Text>
             {/* <Text style={styles.inputPlaceholder}>Escribir...</Text> */}
           </View>
           <View style={styles.tableCol_3}>

@@ -17,16 +17,16 @@ const InputControlled = ({ inputs, control, action }) => {
           rules={
             !user
               ? {
-                  required: "Este campo es requerido",
-                  minLength: {
-                    value: 1,
-                    message: "Este campo debe tener al menos 1 caracteres",
-                  },
-                  maxLength: {
-                    value: 30,
-                    message: "Este campo debe tener máximo 30 caracteres",
-                  },
-                }
+                required: "Este campo es requerido",
+                minLength: {
+                  value: 1,
+                  message: "Este campo debe tener al menos 1 caracteres",
+                },
+                maxLength: {
+                  value: 30,
+                  message: "Este campo debe tener máximo 30 caracteres",
+                },
+              }
               : {}
           }
           render={({ field }) => (
