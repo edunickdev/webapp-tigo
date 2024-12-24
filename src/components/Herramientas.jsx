@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+//Este componente muestra una sección de texto detallada que incluye cláusulas de responsabilidad 
+// relacionadas con el cuidado de herramientas de trabajo, medidas de seguridad.
+
 export const Herramientas = () => {
     return (
         <div style={{ marginTop: '10px' }}>

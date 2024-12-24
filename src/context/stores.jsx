@@ -12,6 +12,8 @@ import { SignUpService } from "../services/auth_services/signup_services";
 import { fetchFields } from "../services/equipment_service/brands_service";
 import { fetchFieldsModels } from "../services/equipment_service/models_service";
 
+//las stores creadas con Zustand
+
 
 export const useUserStore = create((set) => ({
   user: null,
@@ -36,7 +38,7 @@ export const useUserStore = create((set) => ({
 
   ],
 
-  fetchUser: async (id) => {
+  fetchUser: async (id) => { // los datos de un usuario por su ID y actualiza tanto el estado del usuario como los valores en inputs
     const user = await GetUserById(id);
     set({ user });
     set((state) => {
@@ -48,23 +50,33 @@ export const useUserStore = create((set) => ({
     });
   },
 
+  //Compara y actualiza los campos de un usuario existente mediante el servicio compareAndUpdateUser.
   updateUser: async (user, newFields) => {
     await compareAndUpdateUser(user, newFields);
   },
+  
+  //Crea un nuevo usuario utilizando los datos proporcionados.
 
   createUser: async (user) => {
     console.log(user);
     await CreateUser(user);
   },
 
+  //Elimina un usuario por su ID y resetea el estado de user a null.
+
   deleteUser: async(user) => {
     await DeleteUser(user);
     set({ user: null })
   },
+
+  //Resetea el estado del usuario, limpiando los datos cargados.
+
   resetUser: () => {
     set({ user: null });
   }
 }));
+
+//es para usar el crud
 
 export const useEquipmentStore = create((set) => ({
   equipment: null,

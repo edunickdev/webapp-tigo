@@ -15,12 +15,14 @@ import FormButtonComponent from "./FormButtonModal";
 import { MdDelete, MdEdit } from "react-icons/md";
 import DeleteButtonModal from "./DeleteButtonModal";
 
+//Este componente se utiliza para mostrar un formulario de búsqueda de usuarios
 
 export const RegisterUser = () => {
-  const usr = useUser((state) => state.user);
-  const user = useUserStore((state) => state.user);
-  const fetchUser = useUserStore((state) => state.fetchUser);
-  const [busqueda, setBusqueda] = useState("");
+  const usr = useUser((state) => state.user); // Usuario actual
+  const user = useUserStore((state) => state.user); // Usuario desde el estado global
+  const fetchUser = useUserStore((state) => state.fetchUser); // Función para buscar un usuario
+  const [busqueda, setBusqueda] = useState(""); // Estado para almacenar el valor de búsqueda
+
 
   return (
     <div className="grid grid-cols-12 items-start mt-10">

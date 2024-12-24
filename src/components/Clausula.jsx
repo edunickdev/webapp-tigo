@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+//componente utiliza una tabla para organizar la cláusula y la casilla de verificación.
+
 export const Clausula = () => {
     return (
         <div style={{ marginTop: '10px' }}>

@@ -9,10 +9,17 @@ import {
 import { Controller } from "react-hook-form";
 import { useEffect } from "react";
 
+//mediante `react-hook-form` y basado en el componente `Dropdown` de `@nextui-org/react`. 
+//Permite seleccionar una opción de una lista y mostrar dinámicamente el valor seleccionado
+
+
+
 const SelectionButton = ({ name, control, options, action, user }) => {
 
   useEffect(() => {
     if (user) {
+      // Establece un valor inicial basado en la propiedad del usuario
+
       const defaultValue = options[user.propiedad - 1]?.value || 0;
       control._defaultValues[name.name] = defaultValue;
     }

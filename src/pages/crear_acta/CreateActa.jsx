@@ -14,10 +14,12 @@ import { useForm } from "react-hook-form";
 
 
 export const CreateActa = () => {
+    // Llamadas a funciones del store para obtener y manipular el estado
+
   const fetchUser = useUserStore((state) => state.fetchUser);
-  const [busqueda, setBusqueda] = useState("");
-  const user = useUserStore((state) => state.user);
-  const [state, setState] = useState(false);
+  const [busqueda, setBusqueda] = useState(""); // Estado para la búsqueda de usuario
+  const user = useUserStore((state) => state.user); // Información del usuario
+  const [state, setState] = useState(false); // Estado para controlar si el PDF se generará o no
 
   const fetchMarcas = useBrandsStore((state) => state.fetchFields);
 
@@ -25,9 +27,13 @@ export const CreateActa = () => {
     await fetchMarcas();
   }
 
+    // useEffect para ejecutar la función de marcas al montar el componente
+
   useEffect(() => {
     handleBrands();
   }, []);
+
+    // Manejo de formulario con react-hook-form
 
   const { register,
     formState: { errors }

@@ -34,14 +34,14 @@ export const compareAndUpdateUser = async (originalUser, updatedUser) => {
 
   // Compare fields and identify changes
   for (const key in updatedUser) {
-    if (originalUser[key] !== updatedUser[key]) {
+    if (originalUser[key] !== updatedUser[key]) {   //Los datos originales del usuario.
       changedFields[key] = updatedUser[key];
     }
   }
 
   // If there are changes, update the user
   if (Object.keys(changedFields).length > 0) {
-    const updatedData = { ...originalUser, ...changedFields };
+    const updatedData = { ...originalUser, ...changedFields }; //Los nuevos datos para actualizar al usuario.
     return await UpdateUser(updatedData);
   } else {
     alert("No changes detected");

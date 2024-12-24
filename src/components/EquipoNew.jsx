@@ -2,12 +2,14 @@ import { useForm, Controller } from "react-hook-form";
 import { useBrandsStore, useEquipmentStore, useUserStore, useModelsStore } from "../context/stores";
 import { useState } from "react";
 
+//este componente es para el acordeon que recibe la informacion del equipo nuevo 
+
 export const EquipoNew = () => {
     const {
         register,
-        handleSubmit,
-        control,
-        formState: { errors }
+        handleSubmit,  // Maneja el evento `onSubmit` del formulario
+        control, // Controlador para manejar inputs personalizados como `checkbox` o `radio`
+        formState: { errors } // Validación de errores de los campos
     } = useForm({
         defaultValues: {
             tipo_elemento: ""
@@ -18,11 +20,11 @@ export const EquipoNew = () => {
 
     const brands = useBrandsStore((state) => state.brands);
     const accesories = useBrandsStore((state) => state.accesories);
-    const models = useModelsStore((state) => state.models);
+    const models = useModelsStore((state) => state.models); // Lista de modelos disponibles
 
 
-    const setEquipment = useEquipmentStore((state) => state.setEquipment);
-    const createEquipment = useEquipmentStore((state) => state.createEquipment);
+    const setEquipment = useEquipmentStore((state) => state.setEquipment); // Almacena el equipo en el estado
+    const createEquipment = useEquipmentStore((state) => state.createEquipment);  // Función para enviar el equipo al backend
     const userId = useUserStore((state) => state.user);
 
     return (

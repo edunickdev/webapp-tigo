@@ -4,7 +4,7 @@ import SignUpForm from "../../components/auth/signup_form";
 import { Button } from "@nextui-org/react";
 
 const Login = () => {
-  const [mode, setMode] = useState(false);
+  const [mode, setMode] = useState(false); // Estado para alternar entre el formulario de login y signup
 
   return (
     <div className="flex flex-col items-center justify-center bg-gray-100 p-5 h-[90vh]">

@@ -1,7 +1,8 @@
 import { Accordion, AccordionItem } from "@nextui-org/react";
-import { useUserStore } from "../context/stores";
+import { useUserStore } from "../context/stores"; // Hook personalizado para acceder al estado global
 import React, { useState } from 'react';
 
+//muestra información detallada del usuario, obtenida desde un estado global manejado con `useUserStore`
 
 export const DatosUser = () => {
   const user = useUserStore((state) => state.user);

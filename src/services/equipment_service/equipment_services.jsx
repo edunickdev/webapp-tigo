@@ -7,7 +7,7 @@ export const GetEquipmentBySerial = async (serial) => {
   return response.data;
 };
 
-
+// * Realiza una solicitud `GET` al endpoint `http://localhost:8000/equipo/serial/{serial}` para obtener 
 export const CreateEquipment = async (equipment, accesories, userId, element) => {
   console.log(element);
 

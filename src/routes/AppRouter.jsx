@@ -18,13 +18,17 @@ export const AppRouter = () => {
     return user === null ? <Navigate to={"/"} /> : children;
   };
 
+// * `AppRouter` - Componente que maneja la navegación de la aplicación mediante `react-router-dom`.
+
+
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route
-          path="/home"
+          path="/home" // * - **`/home`**: Ruta protegida que lleva a la página de cuenta de usuario. Solo es accesible si el usuario está autenticado.
+
           element={
             <ProtectRoute>
               <UserAccount />
@@ -32,7 +36,7 @@ export const AppRouter = () => {
           }
         />
         <Route
-          path="/buscar"
+          path="/buscar" // * - **`/buscar`**: Ruta protegida que lleva a la página de búsqueda. Solo es accesible si el usuario está autenticado.
           element={
             <ProtectRoute>
               <FormSearch />
@@ -40,7 +44,7 @@ export const AppRouter = () => {
           }
         />
         <Route
-          path="/registrarusu"
+          path="/registrarusu"  // * - **`/registrarusu`**: Ruta protegida que lleva al formulario de registro de usuario. Solo es accesible si el usuario está autenticado.
           element={
             <ProtectRoute>
               <RegisterUser />
@@ -48,7 +52,7 @@ export const AppRouter = () => {
           }
         />
         <Route
-          path="/crearacta"
+          path="/crearacta"   // * - **`/crearacta`**: Ruta protegida que lleva al formulario para crear un acta. Solo es accesible si el usuario está autenticado.
           element={
             <ProtectRoute>
               <CreateActa />

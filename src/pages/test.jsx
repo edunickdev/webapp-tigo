@@ -4,6 +4,10 @@ import logo from "../assets/colsubsidio.jpg";
 import logoDos from "../assets/somos.jpg";
 import { Checkbox } from '@nextui-org/react';
 
+//Este componente crea un documento en formato PDF utilizando el paquete `@react-pdf/renderer`. 
+//TestPage genera un documento PDF que contiene los datos del usuario (como nombre, cargo, 
+// identificación, etc.) y algunos detalles sobre los equipos asignados a ese usuario.
+
 const styles = StyleSheet.create({
   page: {
     padding: 30,
@@ -1497,7 +1501,7 @@ const TestPage = ({ user, equipment }) => (
                 Nombre Completo: {user.nombre}
               </Text>
               <Text style={styles.formRow_header_nombre_1_1}>
-                Nombre Completo = {`${user?.name || "sin_nombre"} ${user?.lastname || "sin_apellido"}`}
+                Nombre Completo = {`${usr?.name || "sin_nombre"} ${usr?.lastname || "sin_apellido"}`}
               </Text>
             </View>
             <View style={styles.formRow_header_22}>

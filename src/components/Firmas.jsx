@@ -8,7 +8,9 @@ export const Firmas = () => {
         firmaJefe: '',
     });
 
-    const handleInputChange = (e) => {
+//componente renderiza una tabla con campos para que diferentes usuarios puedan ingresar sus firmas y nombres.
+
+    const handleInputChange = (e) => {    //Función manejadora de cambios en los campos de entrada.
         const { name, value } = e.target;
         setFormData({
             ...formData,

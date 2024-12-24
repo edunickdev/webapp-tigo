@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+//Este componente gestiona un formulario para registrar y comparar información entre un equipo anterior y uno nuevo
+
+
 export const Aplicaciones = () => {
   const [formData, setFormData] = useState({
     sistema_a: "",
@@ -45,6 +48,7 @@ export const Aplicaciones = () => {
 
   });
 
+  //Manejador de cambios en los inputs del formulario
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({

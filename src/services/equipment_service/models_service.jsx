@@ -9,3 +9,6 @@ export const fetchFieldsModels = async () => {
         throw error;
     }
 }
+
+//Realiza una solicitud `GET` al endpoint `http://localhost:8000/equipo/modelo` para obtener los modelos 
+// de los equipos disponibles.

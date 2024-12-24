@@ -72,7 +72,7 @@ export const select_inputs = [
 ];
 
 
-export const infoAdmin = [
+export const infoAdmin = [ //Cada objeto describe un módulo administrativo (como "Búsqueda por Serial", "Usuarios" o "Actas").
   {
     title: "Búsqueda por Serial",
     description: "Aquí podrás encontrar por número de serial tu acta",
@@ -93,4 +93,6 @@ export const infoAdmin = [
     route: "/crearacta",
   },
 ];
+
+//Lista de inputs estándar utilizados en formularios de usuarios.
 

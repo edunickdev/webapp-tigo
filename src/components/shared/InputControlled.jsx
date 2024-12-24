@@ -4,6 +4,9 @@ import { Input } from "@nextui-org/react";
 import { Controller } from "react-hook-form";
 import { useUserStore } from "../../context/stores";
 
+// mediante `react-hook-form` y los componentes `Input` de `@nextui-org/react` Permite definir validaciones 
+// específicas y comportamiento dinámico
+
 const InputControlled = ({ inputs, control, action }) => {
   const user = useUserStore((state) => state.user);
 
@@ -15,7 +18,7 @@ const InputControlled = ({ inputs, control, action }) => {
           name={input.name}
           control={control}
           rules={
-            !user
+            !user                   //Si no hay un usuario definido (!user), se aplican reglas como required, minLength y maxLength
               ? {
                 required: "Este campo es requerido",
                 minLength: {

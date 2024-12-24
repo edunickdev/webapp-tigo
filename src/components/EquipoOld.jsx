@@ -38,10 +38,13 @@ export const EquipoOld = () => {
         observacion_a: '',
     });
 
-    const { register, handleSubmit,
+    //Este componente captura los datos de un equipo antiguo en caso de renovación o devolución.
+
+    const { register, handleSubmit, // Configuración del formulario con react-hook-form
         formState: { errors }
     } = useForm();
 
+    //Maneja los cambios en los inputs y actualiza el estado local
     const handleChange = (e) => {
         const { name, type, value, checked } = e.target;
         setFormData({

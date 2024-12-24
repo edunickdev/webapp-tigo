@@ -12,3 +12,4 @@ export const SignUpService = async (name, lastname, email, password) => {
   return response.data;
 };
 
+//componente se encarga de definir las rutas de la aplicación y gestionar el acceso a las mismas.
